@@ -31,8 +31,7 @@
 **Overall Recommendation:** REVISE
 
 **Advisor Feedback Draft:**
-The project's intention to address systemic issues using data-driven approaches is commendable and insightful. However, it would benefit from focusing on simplification for student engagement and the ability to deliver usable outcomes within the semester. I recommend clarifying data readiness and ensuring that the models chosen align with the fellows' skill levels. Additionally, prioritize fewer deliverables to enhance focus and feasibility.
-
+The project addresses a high-impact social issue with strong potential for interpretability, which is a core strength. To align with our 12-week timeline, I recommend two technical adjustments: 1. Reserving the 'Computer Vision' component for stretch goals and instead focusing on tabular predictive modeling using XGBoost or fundamental Deep Learning algorithms; 2. Restrict the LLM intervention component to a static template generator rather than an agentic flow to ensure deterministic, more reliable outputs.
 ---
 
 # AI-Driven Resource Allocation to Reduce Restrictive Practices
