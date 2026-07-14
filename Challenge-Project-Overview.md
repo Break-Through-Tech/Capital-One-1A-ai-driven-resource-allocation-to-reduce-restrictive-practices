@@ -30,8 +30,9 @@
 **Technical Depth Score:** 6/10  
 **Overall Recommendation:** REVISE
 
-**Advisor Feedback Draft:**
+**Advisor Feedback Draft:**  
 The project addresses a high-impact social issue with strong potential for interpretability, which is a core strength. To align with our 12-week timeline, I recommend two technical adjustments: 1. Reserving the 'Computer Vision' component for stretch goals and instead focusing on tabular predictive modeling using XGBoost or fundamental Deep Learning algorithms; 2. Restrict the LLM intervention component to a static template generator rather than an agentic flow to ensure deterministic, more reliable outputs.
+
 ---
 
 # AI-Driven Resource Allocation to Reduce Restrictive Practices
