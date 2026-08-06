@@ -62,10 +62,14 @@ Actionability Score of the model, Precision-Recall evaluation
 Use these milestones to guide your work. Your team will create a **GitHub Projects board** to track tasks within each milestone.
 
 | Month | Milestone | Key Activities |
-|-------|-----------|----------------|
-| **September** | Data Understanding | Explore dataset, handle missing values, document findings |
-| **October** | Model Development | Train baseline model, experiment with approaches, iterate |
-| **November** | Evaluation & Presentation | Finalize model, prepare presentation, document results |
+| :--- | :--- | :--- |
+| September | Data Integration & Resource Gap Feature Engineering | • Ingest and clean district-level seclusion data from the Civil Rights Data Collection (CRDC).<br>• Merge seclusion records with environmental factors (behavior specialists on-site, teacher experience, staffing ratios).<br>• Engineer a standardized "Resource Gap" score for each school. |
+| October | Prescriptive Modeling & Recommender System | • Train predictive models (Random Forest / XGBoost) to identify environmental factors strongly correlated with seclusion reduction.<br>• Develop a Recommender System matching high-risk school profiles with successful intervention strategies used by peer schools.<br>• Evaluate intervention recommendations using Precision-Recall metrics. |
+| November / December | What-If Simulator, Policy Dashboard & Deliverables | • Build a "What-If" outcome simulator predicting risk reduction for specific resource adjustments (e.g., adding a behavior-certified aide).<br>• Develop an interactive Policy Recommendation Dashboard displaying ranked high-risk schools and top 3 suggested interventions.<br>• Finalize project documentation, clean GitHub repository, and stakeholder presentation deck. |
+
+### Stretch Goals
+* **LLM Intervention Drafter:** Integrate an LLM module that automatically drafts grant proposals or budget requests to fund recommended interventions (e.g., sensory room funding).
+* **Cost-Benefit Analysis Module:** Develop a financial evaluation tool calculating the "Cost of Seclusion" (legal risk, staff turnover, trauma) versus the "Cost of Prevention" to justify proactive institutional investments.
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 
