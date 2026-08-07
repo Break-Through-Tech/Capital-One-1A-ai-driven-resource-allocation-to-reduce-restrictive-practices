@@ -7,7 +7,7 @@
 > We've pre-populated this Challenge Project Overview page — which is what will be shared with your Break Through Tech student team in August — using the details from your submission form. You should have received an email inviting you to join this repo as a Collaborator, enabling you to add files and make edits.
 > 
 > In order for your project to be finalized and assigned to a team, please:
-1. **Review all sections below** and update or expand any content as needed, ensuring you address the SME Feedback in the section immediately below. Look for square brackets to find the places below that require additional inputs from you (e.g., "About [Company / Org Name]").
+> 1. **Review all sections below** and update or expand any content as needed, ensuring you address the SME Feedback in the section immediately below. Look for square brackets to find the places below that require additional inputs from you (e.g., "About [Company / Org Name]").
 > 2. **Add your dataset** to the [data folder](data) in this repo.
 > 3. **Close the Issue assigned to you in this repo** to let us know that you have made your edits and the overview page is ready for final review. You can do this by going to the _Issues_ tab in the top left section of the menu above, add a comment that says "CA review complete", and click the button to Close the Issue. 
 >
@@ -52,24 +52,24 @@ Other focuses on using data-driven approaches in the education sector to improve
 ## 🎯 The Challenge
 
 ### Project Summary
-Using district-level seclusion data and school resource datasets (funding, staffing ratios, and teacher certification levels) and Predictive Modeling / Recommender Systems to recommend proactive institutional interventions to schools at high risk of seclusion incidents. This helps address the systemic root causes of restrictive practices by providing administrators with actionable early warning recommendations before crisis incidents occur.
+In this project, you will use district-level seclusion data and school resource datasets (funding, staffing ratios, and teacher certification levels) and Predictive Modeling / Recommender Systems to recommend proactive institutional interventions—such as targeted de-escalation training or specific sensory-room funding—to schools at high risk of seclusion incidents. This will help address the systemic root causes of restrictive practices by providing administrators with actionable "early warning" recommendations before crisis incidents occur.
 
 ### Success Criteria
-Actionability Score of the model, Precision-Recall evaluation
+Success will be measured by the Actionability Score of the model. A successful outcome is a Policy Recommendation Dashboard where an administrator can see a list of schools ranked by risk, and for each school, the top 3 AI-suggested interventions (e.g., "Implement PBIS Training Level 2" or "Decrease Student-to-Teacher Ratio in Grade 2") that the data predicts will most effectively reduce restrictive practices.
 
+### Stretch Goals
+- LLM "Intervention Drafter": An LLM that takes the model's data and automatically drafts a Grant Proposal or Budget Request to fund the suggested intervention (e.g., asking for funds for a new sensory room).
+- Cost-Benefit Analysis: A module that calculates the "Cost of Seclusion" (staff turnover, legal risk, student trauma) vs. the "Cost of Prevention" to help schools justify the investment in better support.
+  
 ### Project Milestones
 
 Use these milestones to guide your work. Your team will create a **GitHub Projects board** to track tasks within each milestone.
 
 | Month | Milestone | Key Activities |
-| :--- | :--- | :--- |
-| September | Data Integration & Resource Gap Feature Engineering | • Ingest and clean district-level seclusion data from the Civil Rights Data Collection (CRDC).<br>• Merge seclusion records with environmental factors (behavior specialists on-site, teacher experience, staffing ratios).<br>• Engineer a standardized "Resource Gap" score for each school. |
-| October | Prescriptive Modeling & Recommender System | • Train predictive models (Random Forest / XGBoost) to identify environmental factors strongly correlated with seclusion reduction.<br>• Develop a Recommender System matching high-risk school profiles with successful intervention strategies used by peer schools.<br>• Evaluate intervention recommendations using Precision-Recall metrics. |
-| November / December | What-If Simulator, Policy Dashboard & Deliverables | • Build a "What-If" outcome simulator predicting risk reduction for specific resource adjustments (e.g., adding a behavior-certified aide).<br>• Develop an interactive Policy Recommendation Dashboard displaying ranked high-risk schools and top 3 suggested interventions.<br>• Finalize project documentation, clean GitHub repository, and stakeholder presentation deck. |
-
-### Stretch Goals
-* **LLM Intervention Drafter:** Integrate an LLM module that automatically drafts grant proposals or budget requests to fund recommended interventions (e.g., sensory room funding).
-* **Cost-Benefit Analysis Module:** Develop a financial evaluation tool calculating the "Cost of Seclusion" (legal risk, staff turnover, trauma) versus the "Cost of Prevention" to justify proactive institutional investments.
+|---|---|---|
+| September | Feature Engineering for Solutions | Students will merge seclusion data with "Environmental Factors" (e.g., Is there a behavior specialist on-site? What is the average teacher experience level?). They will create a "Resource Gap" score for every school. |
+| October | Prescriptive Modeling | Students will build a Random Forest or XGBoost model to rank which environmental factors most strongly correlate with a reduction in seclusion. They will begin building a Recommender System that matches a school's specific risk profile with a successful intervention strategy used by a high-performing peer school. |
+| November | Outcome Simulation | Students will create a "What-If" simulator. For example: "If this school adds one more behavior-certified aide, how much is the seclusion risk predicted to drop?" They will evaluate the model using Precision-Recall to ensure they aren't recommending expensive interventions where they aren't needed. |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 
@@ -78,12 +78,12 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 ## 📊 Dataset
 
 **Name and Source:** District-level seclusion data and school resource datasets from the Civil Rights Data Collection (CRDC)  
-**Format:** CSV  
-**Size:** unknown  
-**Location:** [Link to dataset or instructions for accessing it]
+**Format:** CSV
+**Size:** Less than 5 GB  
+**Location:** https://catalog.data.gov/dataset/civil-rights-data-collection-crdc
 
 ### Key Details
-- District-level seclusion data and school resource datasets including funding, staffing ratios, teacher certification levels, and environmental factors (behavior specialist presence, teacher experience).
+- [Brief description of what's in the data]
 - [Any known limitations or preprocessing needed]
 - [Link to data dictionary or documentation, if available]
 
@@ -91,22 +91,13 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 
 ## 🛠️ Suggested Approach
 
-**ML Problem Type:** Classification, Recommender Systems
+**ML Problem Type:** Classification, Recommendation Systems, Computer Vision, Deep Learning / Neural Networks, Transfer Learning / Pre-trained Models, Ethical AI, Predictive Modeling
 
 **Recommended Libraries:**
-- Random Forest
-- XGBoost
-- Recommender Systems
-- LLM (Intervention Drafter)
-- Classification
-- Computer Vision
-- Deep Learning / Neural Networks
-- Transfer Learning / Pre-trained Models
-- Predictive Modeling
-- Google Colab
+- [e.g., pandas, scikit-learn, TensorFlow, Hugging Face]
 
 **Evaluation Metrics:**
-- Actionability Score, Precision-Recall
+- [e.g., Accuracy, Precision/Recall, RMSE, BLEU score]
 
 ---
 
@@ -135,14 +126,19 @@ The following resources will help your team understand the problem space and pot
 
 ## 🤝 How We'll Work Together
 
-**Check-ins:** During our biweekly 60-min AI Studio Lab Section meeting block (2nd and 4th week of every month)  
-**Communication:** Slack (Break Through Tech workspace)  
-**Response time:** Within 48 hours on weekdays  
+**Official check-ins:** During our biweekly 45-minute AI Studio Lab Section meeting block (2nd and 4th week of every month)
 
-**Recommended Tools:**
-- **Coding:** Google Colab
-- **Collaboration:** GitHub, Notion
-- **Virtual Meetings:** Zoom, Google Meet
+ **Other ways to reach out to me with questions:** 
+* [e.g., Your team's channel within Break Through Tech’s Discord space]
+* [e.g., Email; please copy your teammates and AI Studio Coach]
+* [e.g., Request a team check-in on Zoom]
+* [Note: I will aim to respond within 48 hours. Please reach out to your AI Studio Coach with urgent questions.]
+
+> 💡 **Challenge Advisor: Please update the above based on your availability and preference. If you are not able to answer questions or meet with fellows outside of the biweekly Lab Section check-ins, simply write in "N/A (only available during the official check-in times)"**
+
+**Recommended free coding / collaboration tools**
+* […]
+* […]
 
 ---
 
@@ -152,10 +148,10 @@ The following resources will help your team understand the problem space and pot
 2. **Begin reviewing the dataset** using the link above
 3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 
-I'm excited to work with you!
+I’m excited to work with you!
 
 ---
 
 ## ❓ Questions?
 
-Please bring any questions to our first meeting during the week of August 24th (Break Through Tech's Bridge to Studio - Session B).
+Please bring any questions to our first meeting during the week of August 24th (Break Through Tech’s Bridge to Studio - Session C). 
