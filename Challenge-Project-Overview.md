@@ -39,6 +39,7 @@ The project addresses a high-impact social issue with strong potential for inter
 
 **Company / Org:** Other  
 **Challenge Advisor:** Caroline Bell, carolineloubell@gmail.com  
+**AI Studio Coach:** Shaun Figueiro, shaun.figueiro@breakthroughtech.org                        
 **Program:** Break Through Tech AI Studio - Fall 2026
 
 ---
