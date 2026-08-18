@@ -45,14 +45,14 @@ The project addresses a high-impact social issue with strong potential for inter
 
 ## 🏢 About Capital One
 
-Capital One is a technology company that aims at changing banking for good. Though Capital One is not specifically related to the ask of this project, Capital One is a trailblazer in the technology space, searching for opportunities to leverage AI and data engineering to create its products.
+Capital One is a technology company that aims at changing banking for good. Though Capital One is not specifically related to the task of this project, Capital One is a trailblazer in the technology space, searching for opportunities to leverage AI and data engineering to create its products.
 
 ---
 
 ## 🎯 The Challenge
 
 ### Project Summary
-In this project, you will use publicly available school-level data on seclusion incidents, student populations, staffing, and school resources to build a machine learning model that identifies schools with elevated rates of seclusion and helps administrators understand factors associated with these outcomes. This will help our organization explore data-informed ways to better support schools and reduce the use of restrictive practices.
+In this project, you will use publicly available school-level data on seclusion incidents, student populations, staffing, and school resources to build a machine learning model that identifies schools with elevated rates of seclusion and helps administrators understand factors associated with these outcomes. This will help organizations and school counties explore data-informed ways to better support schools and reduce the use of restrictive practices.
 
 ### Success Criteria
 A successful outcome is an interpretable model and simple dashboard that:
@@ -155,17 +155,12 @@ The following resources will help your team understand the problem space and pot
 **Official check-ins:** During our biweekly 45-minute AI Studio Lab Section meeting block (2nd and 4th week of every month)
 
  **Other ways to reach out to me with questions:** 
-* [e.g., Your team's channel within Break Through Tech’s Discord space]
-* [e.g., Email; please copy your teammates and AI Studio Coach]
-* [e.g., Request a team check-in on Zoom]
-* [Note: I will aim to respond within 48 hours. Please reach out to your AI Studio Coach with urgent questions.]
+* Email; please copy your teammates and AI Studio Coach. My email is carolinetentor@gmail.com
+* Request a team check-in on Zoom
+* Note: I will aim to respond within 48 hours. Please reach out to your AI Studio Coach with urgent questions.
 
 > 💡 **Challenge Advisor: Please update the above based on your availability and preference. If you are not able to answer questions or meet with fellows outside of the biweekly Lab Section check-ins, simply write in "N/A (only available during the official check-in times)"**
-
-**Recommended free coding / collaboration tools**
-* […]
-* […]
-
+> 
 ---
 
 ## 🚀 Getting Started
