@@ -4,7 +4,6 @@
 >
 > > 💡 **These grey text instructions are just for you, the team's Challenge Advisor; please delete them once you have completed the steps below.**
 >
-> We've pre-populated this Challenge Project Overview page — which is what will be shared with your Break Through Tech student team in August — using the details from your submission form. You should have received an email inviting you to join this repo as a Collaborator, enabling you to add files and make edits.
 > 
 > In order for your project to be finalized and assigned to a team, please:
 > 1. **Review all sections below** and update or expand any content as needed, ensuring you address the SME Feedback in the section immediately below. Look for square brackets to find the places below that require additional inputs from you (e.g., "About [Company / Org Name]").
@@ -37,30 +36,37 @@ The project addresses a high-impact social issue with strong potential for inter
 
 # AI-Driven Resource Allocation to Reduce Restrictive Practices
 
-**Company / Org:** Other  
+**Company / Org:** Capital One  
 **Challenge Advisor:** Caroline Bell, carolineloubell@gmail.com  
 **AI Studio Coach:** Shaun Figueiro, shaun.figueiro@breakthroughtech.org                        
 **Program:** Break Through Tech AI Studio - Fall 2026
 
 ---
 
-## 🏢 About Other
+## 🏢 About Capital One
 
-Other focuses on using data-driven approaches in the education sector to improve student outcomes and reduce restrictive practices through informed decision-making.
+Capital One is a technology company that aims at changing banking for good. Though Capital One is not specifically related to the ask of this project, Capital One is a trailblazer in the technology space, searching for opportunities to leverage AI and data engineering to create its products.
 
 ---
 
 ## 🎯 The Challenge
 
 ### Project Summary
-In this project, you will use district-level seclusion data and school resource datasets (funding, staffing ratios, and teacher certification levels) and Predictive Modeling / Recommender Systems to recommend proactive institutional interventions—such as targeted de-escalation training or specific sensory-room funding—to schools at high risk of seclusion incidents. This will help address the systemic root causes of restrictive practices by providing administrators with actionable "early warning" recommendations before crisis incidents occur.
+In this project, you will use publicly available school-level data on seclusion incidents, student populations, staffing, and school resources to build a machine learning model that identifies schools with elevated rates of seclusion and helps administrators understand factors associated with these outcomes. This will help our organization explore data-informed ways to better support schools and reduce the use of restrictive practices.
 
 ### Success Criteria
-Success will be measured by the Actionability Score of the model. A successful outcome is a Policy Recommendation Dashboard where an administrator can see a list of schools ranked by risk, and for each school, the top 3 AI-suggested interventions (e.g., "Implement PBIS Training Level 2" or "Decrease Student-to-Teacher Ratio in Grade 2") that the data predicts will most effectively reduce restrictive practices.
+A successful outcome is an interpretable model and simple dashboard that:
+
+- Identifies schools with elevated seclusion rates
+- Shows the factors most strongly associated with those outcomes
+- Provides administrators with data-informed areas to consider for additional support or resources
+
+The project should emphasize association and decision support, rather than claiming that the model can determine which intervention will directly cause seclusion rates to decrease.
 
 ### Stretch Goals
-- LLM "Intervention Drafter": An LLM that takes the model's data and automatically drafts a Grant Proposal or Budget Request to fund the suggested intervention (e.g., asking for funds for a new sensory room).
-- Cost-Benefit Analysis: A module that calculates the "Cost of Seclusion" (staff turnover, legal risk, student trauma) vs. the "Cost of Prevention" to help schools justify the investment in better support.
+- Intervention Recommendation Tool: Create a simple rule-based or similarity-based tool that suggests potential areas for support based on a school's characteristics and resource gaps.
+- LLM Report Generator: Use an LLM or static template system to turn model results into a short, administrator-friendly summary of findings and potential areas for action.
+- Computer Vision Exploration: Explore whether publicly available classroom or school-environment images could eventually be used to identify physical features related to accessibility or inclusive design. This is exploratory only and is not required for the core project.
   
 ### Project Milestones
 
@@ -68,9 +74,10 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 
 | Month | Milestone | Key Activities |
 |---|---|---|
-| September | Feature Engineering for Solutions | Students will merge seclusion data with "Environmental Factors" (e.g., Is there a behavior specialist on-site? What is the average teacher experience level?). They will create a "Resource Gap" score for every school. |
-| October | Prescriptive Modeling | Students will build a Random Forest or XGBoost model to rank which environmental factors most strongly correlate with a reduction in seclusion. They will begin building a Recommender System that matches a school's specific risk profile with a successful intervention strategy used by a high-performing peer school. |
-| November | Outcome Simulation | Students will create a "What-If" simulator. For example: "If this school adds one more behavior-certified aide, how much is the seclusion risk predicted to drop?" They will evaluate the model using Precision-Recall to ensure they aren't recommending expensive interventions where they aren't needed. |
+| September | Data Exploration & Preparation | Explore the CRDC data, identify relevant seclusion and school resource variables, clean the data, handle missing values, and create features that describe school characteristics and resources. |
+| October | Predictive Modeling | Build baseline models and an XGBoost or Random Forest model to identify schools with elevated seclusion rates. Compare models and examine feature importance and model interpretability. |
+| November | Evaluation & Decision Support | Evaluate model performance, investigate potential sources of bias, and build a simple dashboard or reporting tool that summarizes school risk and the factors associated with the model's predictions. |
+| December | Final Presentation | Finalize the model and dashboard, document limitations and ethical considerations, and prepare a presentation describing findings and potential applications. |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 
@@ -84,21 +91,36 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 **Location:** https://catalog.data.gov/dataset/civil-rights-data-collection-crdc
 
 ### Key Details
-- [Brief description of what's in the data]
-- [Any known limitations or preprocessing needed]
-- [Link to data dictionary or documentation, if available]
+- The CRDC is a biennial national dataset covering public schools and districts in the United States. It includes information about student enrollment, school characteristics, educational programs, staffing, discipline, and the experiences of students with disabilities. The data includes information related to restraint and seclusion.
+- The project will use a subset of CRDC variables related to seclusion, student populations, staffing, and school resources. Preprocessing will include selecting relevant variables, handling missing or suppressed values, checking for outliers, and constructing school-level features and target variables.
+- Known limitations include missing or suppressed values, differences in reporting across schools, and the observational nature of the data. Model results should be interpreted as associations rather than evidence that a particular resource or intervention causes a reduction in seclusion.
+- The U.S. Department of Education provides detailed CRDC data-element documentation and questions-and-answers documents for each collection.
+- The CRDC also provides specific guidance for reporting restraint and seclusion data, including definitions and examples.
+
+**Primary documentation:** https://www.ed.gov/laws-and-policy/civil-rights-laws/civil-rights-data-collection-crdc/civil-rights-data
 
 ---
 
 ## 🛠️ Suggested Approach
 
-**ML Problem Type:** Classification, Recommendation Systems, Computer Vision, Deep Learning / Neural Networks, Transfer Learning / Pre-trained Models, Ethical AI, Predictive Modeling
+**ML Problem Type:** Classification / Predictive Modeling / Interpretable Machine Learning
 
 **Recommended Libraries:**
-- [e.g., pandas, scikit-learn, TensorFlow, Hugging Face]
+- pandas
+- numpy
+- scikit-learn
+- xgboost
+- matplotlib
+- seaborn
+- SHAP (optional)
 
 **Evaluation Metrics:**
-- [e.g., Accuracy, Precision/Recall, RMSE, BLEU score]
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
+- Confusion Matrix
+- Feature importance / model interpretability
 
 ---
 
@@ -107,19 +129,22 @@ Use these milestones to guide your work. Your team will create a **GitHub Projec
 The following resources will help your team understand the problem space and potential technical approaches for this project:
 
 **Background Reading:**
-- [Link to an article or blog post about the problem domain]
-- [Link to an industry report or case study]
+- https://www.ed.gov/laws-and-policy/civil-rights-laws/civil-rights-data-collection-crdc/civil-rights-data
+- https://www.ed.gov/laws-and-policy/civil-rights-laws/civil-rights-data-collection-crdc/civil-rights-data/civil-rights-data-collection-crdc-2020-2021-school-year
+- https://crdc.communities.ed.gov/resources/restraint-and-seclusion-rstr-module
 
 **Technical Tutorials:**
-- [Link to a free tutorial on the ML technique(s) involved]
-- [Link to documentation for a key library or tool]
+- https://scikit-learn.org/stable/supervised_learning.html
+- https://xgboost.readthedocs.io/en/stable/python/python_intro.html
+- https://scikit-learn.org/stable/modules/model_evaluation.html
 
 **Code Examples:**
-- [Link to a relevant GitHub repo]
-- [Link to a sample implementation or starter code]
+- https://scikit-learn.org/stable/auto_examples/index.html
+- https://xgboost.readthedocs.io/en/stable/python/examples/index.html
 
 **Other:**
-- [Links to any additional resources — e.g., papers, videos, podcasts, etc.]
+- https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
+- https://github.com/topics/machine-learning
 
 *Feel free to explore beyond these, and share anything interesting you find with me!*
 
