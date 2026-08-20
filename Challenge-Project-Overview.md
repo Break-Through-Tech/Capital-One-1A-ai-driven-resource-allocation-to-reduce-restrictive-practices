@@ -1,7 +1,7 @@
 # AI-Driven Resource Allocation to Reduce Restrictive Practices
 
 **Company / Org:** Capital One  
-**Challenge Advisor:** Caroline Bell, carolineloubell@gmail.com  
+**Challenge Advisor:** Caroline Bell, carolinetentor@gmail.com
 **AI Studio Coach:** Shaun Figueiro, shaun.figueiro@breakthroughtech.org                        
 **Program:** Break Through Tech AI Studio - Fall 2026
 
