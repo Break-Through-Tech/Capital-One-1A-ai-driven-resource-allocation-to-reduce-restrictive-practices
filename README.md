@@ -1,121 +1,104 @@
-# AI Studio Challenge Project Title
+# Capital One 1A: AI-Driven Resource Allocation to Reduce Restrictive Practices
 
-> 💡 **Note for the team:** This is just a template. Update the above title with your AI Studio Challenge Project name. Remove all guidance notes and example text in this template and populate this README with your own content. You can work on this README throughout AI Studio, and get feedback from your AI Studio Coach and Challenge Advisor before finalizing it.  
+## Project Overview
 
----
+This project is part of the **Break Through Tech AI Studio** in collaboration with **Capital One**.
 
-### 👥 **Team Members**
+Our team is exploring how data and machine learning can be used to better understand patterns in restrictive practices and school resource availability.
 
-**Example:**
-
-| Name             | GitHub Handle | Contribution                                                             |
-|------------------|---------------|--------------------------------------------------------------------------|
-| Taylor Nguyen    | @taylornguyen | Data exploration, visualization, overall project coordination            |
-| Jordan Ramirez   | @jramirez     | Data collection, exploratory data analysis (EDA), dataset documentation  |
-| Amina Hassan     | @aminahassan  | Data preprocessing, feature engineering, data validation                 |
-| Priya Mehta      | @pmehta       | Model selection, hyperparameter tuning, model training and optimization  |
-| Chris Park       | @chrispark    | Model evaluation, performance analysis, results interpretation           |
-
----
-
-## 🎯 **Project Highlights**
-
-**Example:**
-
-- Developed a machine learning model using `[model type/technique]` to address `[challenge project task]`.
-- Achieved `[key metric or result]`, demonstrating `[value or impact]` for `[host company]`.
-- Generated actionable insights to inform business decisions at `[host company or stakeholders]`.
-- Implemented `[specific methodology]` to address industry constraints or expectations.
-
----
-
-## 👩🏽‍💻 **Setup and Installation**
-
-**Provide step-by-step instructions so someone else can run your code and reproduce your results. Depending on your setup, include:**
-
-* How to clone the repository
-* How to install dependencies
-* How to set up the environment
-* How to access the dataset(s)
-* How to run the notebook or scripts
-
----
-
-## 🏗️ **Project Overview**
-
-**Describe:**
-
-- How this project is connected to the Break Through Tech AI Program
-- Your AI Studio host company and the project objective and scope
-- The real-world significance of the problem and the potential impact of your work
-
----
-
-## 📊 **Data Exploration**
-
-**You might consider describing the following (as applicable):**
-
-* The dataset(s) used: origin, format, size, type of data
-* Data exploration and preprocessing approaches
-* Insights from your Exploratory Data Analysis (EDA)
-* Challenges and assumptions when working with the dataset(s)
-
-**Potential visualizations to include:**
-
-* Plots, charts, heatmaps, feature visualizations, sample dataset images
-
----
-
-## 🧠 **Model Development**
-
-**You might consider describing the following (as applicable):**
-
-* Model(s) used (e.g., CNN with transfer learning, regression models)
-* Feature selection and Hyperparameter tuning strategies
-* Training setup (e.g., % of data for training/validation, evaluation metric, baseline performance)
+The goal of the project is to investigate relationships between school characteristics, available resources, and restrictive-practice outcomes in order to support more informed and equitable resource allocation decisions.
 
 
----
+## Problem Statement
 
-## 📈 **Results & Key Findings**
+Restrictive practices, including practices such as seclusion, may vary across schools and districts based on a variety of factors.
 
-**You might consider describing the following (as applicable):**
+At the same time, schools differ in characteristics such as:
 
-* Performance metrics (e.g., Accuracy, F1 score, RMSE)
-* How your model performed
-* Insights from evaluating model fairness
+- Student enrollment
+- Staffing levels
+- Counseling resources
+- Special education populations
+- Available school resources
+- District characteristics
 
-**Potential visualizations to include:**
+Our project aims to analyze these factors and identify patterns that may help inform how resources could be allocated to reduce unnecessary restrictive practices.
 
-* Confusion matrix, precision-recall curve, feature importance plot, prediction distribution, outputs from fairness or explainability tools
 
----
+## Project Goals
 
-## 🚀 **Next Steps**
+The project currently focuses on:
 
-**You might consider addressing the following (as applicable):**
+1. Understanding the project problem and relevant stakeholders
+2. Auditing and organizing available datasets
+3. Cleaning and preprocessing project data
+4. Conducting exploratory data analysis (EDA)
+5. Engineering meaningful school and resource-related features
+6. Identifying relationships between school resources and restrictive practices
+7. Developing baseline analyses
+8. Preparing the data and insights for future predictive modeling
 
-* What are some of the limitations of your model?
-* What would you do differently with more time/resources?
-* What additional datasets or techniques would you explore?
+## Team members 
 
----
+| Name | Github Handle |  |
+| -- | -- | -- |
+| Adhya Reddy Putta | @adhya-putta |  |
+| Aurelia Sindhunirmala | @aureliasindhu |  |
+| Huy Vu Bui | @vuhuybui |  |
+| Juan Gavilanes | @juanseb510 |  |
+| Sofia Felan | @sfelan968 |  |
 
-## 📝 **License**
+## Research Questions
 
-Specify how your project can be used by others. Choose an appropriate license and link it here (e.g., MIT, Apache 2.0). Make sure your Challenge Advisor approves of the selected license type. 
+Our analysis will explore questions such as:
 
-**Example:**
-This project is licensed under the MIT License.
+- What school characteristics are associated with differences in restrictive-practice outcomes?
+- How do restrictive-practice rates vary across schools or districts?
+- Are school resource levels associated with restrictive-practice patterns?
+- Which resource-related variables appear most relevant to restrictive-practice outcomes?
+- How can raw counts be normalized to allow fairer comparisons between schools of different sizes?
+- Which variables may be useful for future predictive modeling or resource-allocation analysis?
 
----
+These questions may evolve as we learn more about the available data.
 
-## 📄 **References** (Optional but encouraged)
 
-Cite relevant papers, articles, or resources that supported your project.
 
----
+# Current Milestone
 
-## 🙏 **Acknowledgements** (Optional but encouraged)
+### September — Data Foundation, Exploration, Preparation & Baseline Analysis
 
-Thank your Challenge Advisor, host company representatives, TA, and others who supported your project.
+The September milestone focuses on establishing the project's data foundation and preparing the team for future modeling work.
+
+| Task | Description | Target Date |
+|---|---|---|
+| **Task #1 — Define problem scope and success metrics** | Review challenge goals, identify stakeholders, define research questions, project scope, and success metrics. | Sep 15 |
+| **Task #2 — Audit and organize available data** | Review datasets, document sources and variables, identify useful fields, and document data-quality issues. | Sep 15 |
+| **Task #3 — Clean and preprocess data** | Handle missing values, standardize fields, investigate duplicates/outliers, and create an analysis-ready dataset. | Sep 18 |
+| **Task #4 — Feature Engineering** | Create meaningful features describing school characteristics, resources, and restrictive-practice patterns. | Sep 22 |
+| **Task #5 — Complete project data analysis and September findings** | Conduct EDA, investigate relationships between variables, and summarize key September findings. | Sep 29 |
+
+Individual tasks are tracked as **GitHub Issues** and managed through our **GitHub Project board**.
+
+
+# Data Analysis Workflow
+
+Our current workflow is:
+
+```text
+Problem Definition
+        ↓
+Data Audit
+        ↓
+Initial EDA
+        ↓
+Data Cleaning & Preprocessing
+        ↓
+Additional EDA
+        ↓
+Feature Engineering
+        ↓
+Deeper EDA & Baseline Analysis
+        ↓
+September Findings
+        ↓
+Future Modeling
