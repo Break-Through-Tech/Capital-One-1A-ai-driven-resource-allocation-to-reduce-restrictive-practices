@@ -1,33 +1,50 @@
-Main Problem
+# Business Understanding: AI-Driven Seclusion Risk Prediction
 
-Schools often use restrictive practices like seclusion for discipline, which disproportionately affects marginalized students and those with disabilities. This often stems from a lack of institutional resources.
+## Main Problem
 
-The problem is identifying which schools are at the highest risk of these incidents so that proactive interventions (like reallocating funds or staff) can be made before the incidents occur.
+Schools often use restrictive practices like seclusion for discipline, which **disproportionately affects marginalized students and those with disabilities**. This often stems from a lack of institutional resources and training.
 
-Key Stakeholders
+**The Challenge:** Identifying which schools are at the highest risk of seclusion incidents so that proactive interventions (such as reallocating funds or staff) can be made *before* incidents occur.
 
-Capital One & Break Through Tech: The challenge sponsors and advisors are evaluating the AI models.
+---
 
-School Districts & Administrators: The end-users who would use this model to allocate funding, staffing, and resources proactively.
+## Key Stakeholders
 
-Students: The ultimate beneficiaries, specifically marginalized groups and students with disabilities who are disproportionately impacted by seclusion.
+| Stakeholder | Role |
+|---|---|
+| **Capital One & Break Through Tech** | Challenge sponsors and advisors evaluating the AI models |
+| **School Districts & Administrators** | End-users who would deploy this model to allocate funding, staffing, and resources proactively |
+| **Students** | Ultimate beneficiaries—specifically marginalized groups and students with disabilities disproportionately impacted by seclusion |
+| **U.S. Department of Education (Office for Civil Rights)** | Providers of the Civil Rights Data Collection (CRDC) dataset |
 
-U.S. Department of Education (Office for Civil Rights): The providers of the Civil Rights Data Collection (CRDC) dataset.
+---
 
-Research Question
+## Research Questions
 
-How do specific school resources (funding, staffing ratios, and teacher certification levels) correlate with the frequency of seclusion incidents?
+1. How do specific school resources (funding, staffing ratios, and teacher certification levels) correlate with the frequency of seclusion incidents?
+2. Can we accurately predict a school's risk of high seclusion rates based purely on their institutional resource data?
 
-Can we accurately predict a school's risk of high seclusion rates based purely on their institutional resource data?
+---
 
-Project Success Metrics
+## Project Success Metrics
 
-Technical Success: Developing a Predictive Model and Recommender System with high accuracy in identifying schools at risk for seclusion incidents.
+### Technical Success
+- Develop a Predictive Model and Recommender System with high accuracy in identifying schools at risk for seclusion incidents
 
-Business/Impact Success: Generating actionable, data-backed recommendations for proactive institutional interventions (e.g., hiring more certified teachers) that school districts could realistically implement.
+### Business & Impact Success
+- Generate actionable, data-backed recommendations for proactive institutional interventions (e.g., hiring more certified teachers) that school districts could realistically implement
 
-In Scope vs. Out of Scope
+---
 
-In Scope: Analyzing district-level CRDC data (from 2015 to 2022), evaluating funding, staffing, and teacher certifications, predicting seclusion risk, and recommending interventions.
+## In Scope vs. Out of Scope
 
-Out of Scope: Analyzing individual, personally identifiable student records (data is perturbed for privacy), tracking incidents in real-time, or physically implementing these interventions in actual schools.
+### ✅ In Scope
+- Analyzing district-level CRDC data (2015–2022)
+- Evaluating funding, staffing, and teacher certifications
+- Predicting seclusion risk
+- Recommending interventions
+
+### ❌ Out of Scope
+- Analyzing individual, personally identifiable student records (data is perturbed for privacy)
+- Tracking incidents in real-time
+- Physically implementing interventions in actual schools
