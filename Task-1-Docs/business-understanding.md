@@ -34,7 +34,7 @@ Schools vary in their use of restrictive practices such as seclusion, with some 
 - Potential metrics: Precision, Recall, F1 score, ROC-AUC / PR-AUC, MAE / RMSE (if predicting continuous rate). Final metric selection will occur after initial exploratory data analysis.
 
 ### Business & Impact Success
-- Translate model and exploratory data analysis findings into evidence-informed resource considerations that stakeholders could investigate further.
+- Translate model and exploratory data analysis (EDA) findings into evidence-informed resource considerations that stakeholders could investigate further.
 
 ---
 
