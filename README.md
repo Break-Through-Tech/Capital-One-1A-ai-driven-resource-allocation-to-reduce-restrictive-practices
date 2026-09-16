@@ -25,6 +25,24 @@ At the same time, schools differ in characteristics such as:
 Our project aims to analyze these factors and identify patterns that may help inform how resources could be allocated to reduce unnecessary restrictive practices.
 
 
+## Dataset
+
+The project uses publicly available school-level data from the **Civil Rights Data Collection (CRDC)**, a biennial survey administered by the U.S. Department of Education. The CRDC covers public schools and districts nationwide and includes information on student enrollment, school characteristics, staffing, educational programs, discipline, and restraint and seclusion.
+
+We are working with the following collection years:
+
+| School Year |
+|---|
+| 2021–22 |
+| 2020–21 |
+| 2017–18 |
+| 2015–16 |
+
+Files are downloaded as CSVs from [Data.gov](https://catalog.data.gov/dataset/civil-rights-data-collection-crdc). Variable definitions differ by year, so each collection's data definitions and documentation should be reviewed before analysis. Additional CRDC background is available from the [U.S. Department of Education CRDC page](https://www.ed.gov/laws-and-policy/civil-rights-laws/civil-rights-data-collection-crdc/civil-rights-data).
+
+Known limitations include missing or suppressed values, differences in reporting across schools and years, and the observational nature of the data. Findings should be interpreted as associations, not as evidence that a particular resource or intervention causes a reduction in restrictive practices.
+
+
 ## Project Goals
 
 The project currently focuses on:
@@ -32,11 +50,10 @@ The project currently focuses on:
 1. Understanding the project problem and relevant stakeholders
 2. Auditing and organizing available datasets
 3. Cleaning and preprocessing project data
-4. Conducting exploratory data analysis (EDA)
-5. Engineering meaningful school and resource-related features
+4. Engineering meaningful school and resource-related features
+5. Conducting exploratory data analysis (EDA) and baseline analyses
 6. Identifying relationships between school resources and restrictive practices
-7. Developing baseline analyses
-8. Preparing the data and insights for future predictive modeling
+7. Preparing the data and insights for future predictive modeling
 
 ## Team members 
 
@@ -89,16 +106,13 @@ Problem Definition
         ↓
 Data Audit
         ↓
-Initial EDA
-        ↓
 Data Cleaning & Preprocessing
-        ↓
-Additional EDA
         ↓
 Feature Engineering
         ↓
-Deeper EDA & Baseline Analysis
+EDA & Baseline Analysis
         ↓
 September Findings
         ↓
 Future Modeling
+```
