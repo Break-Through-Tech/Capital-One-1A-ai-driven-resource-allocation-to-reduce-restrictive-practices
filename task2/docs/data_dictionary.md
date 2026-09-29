@@ -2,7 +2,7 @@
 
 Basic dictionary for variables the team is likely to use. It is **not** a full CRDC codebook. Official definitions live in each year’s public-use file manual and data-element documentation.
 
-Companions: [data_audit.md](data_audit.md) (quality issues, join keys, missingness) and [data_inventory.md](../../lia/docs/data_inventory.md) (full file list).
+Companions: [data_audit.md](data_audit.md) (quality issues, join keys, missingness) and [data_inventory.md](data_inventory.md) (full file list).
 
 **Types in the raw CSVs:** identifiers and Yes/No flags arrive as strings; counts and FTEs arrive as numeric strings that also contain **negative reserved codes**. After cleaning, counts/FTEs should be nullable floats; flags can stay categorical Yes/No.
 

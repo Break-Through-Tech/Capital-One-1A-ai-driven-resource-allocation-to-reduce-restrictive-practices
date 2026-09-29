@@ -5,7 +5,7 @@ Handoff for **data cleaning**. Counts were measured from the local public-use CS
 | Related doc | What it contains |
 |---|---|
 | [data_dictionary.md](data_dictionary.md) | Field definitions for the analysis subset |
-| [data_inventory.md](../../lia/docs/data_inventory.md) | Full CSV list (rows, columns, size), grouped by year |
+| [data_inventory.md](data_inventory.md) | Full CSV list (rows, columns, size), grouped by year |
 
 ## Contents
 
@@ -59,7 +59,7 @@ OCR notes that districts certify submissions, but reporting gaps remain (missing
 
 ## Inventory
 
-Four collections are present locally (125 CSVs plus manuals). Full file list: [data_inventory.md](../../lia/docs/data_inventory.md).
+Four collections are present locally (125 CSVs plus manuals). Full file list: [data_inventory.md](data_inventory.md).
 
 | School year | Package name (as downloaded) | Structure | School rows | LEA rows | Geography |
 |---|---|---|---:|---:|---|
