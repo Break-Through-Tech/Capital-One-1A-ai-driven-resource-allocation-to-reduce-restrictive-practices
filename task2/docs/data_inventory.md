@@ -1,10 +1,8 @@
 # CRDC file inventory
 
-Companion to [data_audit.md](data_audit.md). One row per CSV in the four local public-use packages.
+This inventory lists the CSV files in the four downloaded CRDC packages, with their sizes and column counts. The [data audit](data_audit.md) describes the quality checks and relevant variables.
 
-Row counts are `line count − 1` and may be **1 higher** than pandas (trailing newline). Use pandas/`csv` reader counts for analysis. `COMBOKEY` / `LEAID` mark identifier columns.
-
----
+The row estimates use `line count − 1`. Blank lines and line breaks within quoted fields can make these differ from parsed CSV row counts. Use a CSV reader for analysis counts. `COMBOKEY` and `LEAID` indicate whether the file includes those identifier columns.
 
 ## 2015–16
 
@@ -16,8 +14,6 @@ Package: `2015-16-crdc-data` (updated Sept 2018). One wide school file plus one 
 | `CRDC 2015-16 LEA Data.csv` | 17,338 | 115 |  | Y | 11.5 |
 
 Also includes record-layout CSVs and PDF manuals.
-
----
 
 ## 2017–18
 
@@ -31,7 +27,7 @@ Package: `2017-18-crdc-data-corrected-publication 2`. Split CRDC modules plus ED
 | `Distance Education.csv` | 17,605 | 29 | Y | 2.8 |
 | `High School Equivalency (GED).csv` | 17,605 | 29 | Y | 2.8 |
 
-### School (CRDC) — core for this project
+### School files used in the audit
 
 | File | Rows | Cols | Size (MB) |
 |---|---:|---:|---:|
@@ -41,7 +37,7 @@ Package: `2017-18-crdc-data-corrected-publication 2`. Split CRDC modules plus ED
 | `School Support.csv` | 97,633 | 22 | 17.5 |
 | `School Expenditures.csv` | 97,633 | 27 | 25.3 |
 
-### School (CRDC) — other modules
+### Other school files
 
 | File | Rows | Cols | Size (MB) |
 |---|---:|---:|---:|
@@ -83,8 +79,6 @@ Different keys (`NCESLEAID`, `NCESSCH`). Incomplete overlap with CRDC schools.
 | `ID 74 SCH - Race by Sex by Disability plus LEP_*.csv` (14 files) | 1k–88k | 44 | — |
 | `ID 814 SCH - Chronic Absenteeism.csv` | 92,437 | 32 | 15.5 |
 
----
-
 ## 2020–21
 
 Package: `2020-21-crdc-data`.
@@ -97,7 +91,7 @@ Package: `2020-21-crdc-data`.
 | `Distance Education.csv` | 17,822 | 29 | 2.8 |
 | `High School Equivalency.csv` | 17,822 | 29 | 2.9 |
 
-### School (CRDC) — core for this project
+### School files used in the audit
 
 | File | Rows | Cols | Size (MB) |
 |---|---:|---:|---:|
@@ -107,7 +101,7 @@ Package: `2020-21-crdc-data`.
 | `School Support.csv` | 97,576 | 17 | 12.8 |
 | `COVID Directional Indicators.csv` | 97,576 | 10 | 11.1 |
 
-### School (CRDC) — other modules
+### Other school files
 
 | File | Rows | Cols | Size (MB) |
 |---|---:|---:|---:|
@@ -144,11 +138,9 @@ Package: `2020-21-crdc-data`.
 |---|---:|---:|---:|
 | `ID 814 SCH - Chronic Absenteeism.csv` | 92,375 | 30 | 14.9 |
 
----
-
 ## 2021–22
 
-Package: `2021-22-crdc-data`. Suggested **main cohort**.
+Package: `2021-22-crdc-data`. Recommended starting year for analysis.
 
 ### LEA (CRDC)
 
@@ -158,7 +150,7 @@ Package: `2021-22-crdc-data`. Suggested **main cohort**.
 | `Distance Education.csv` | 17,704 | 29 | 2.8 |
 | `High School Equivalency Exam.csv` | 17,704 | 29 | 2.9 |
 
-### School (CRDC) — core for this project
+### School files used in the audit
 
 | File | Rows | Cols | Size (MB) |
 |---|---:|---:|---:|
@@ -168,7 +160,7 @@ Package: `2021-22-crdc-data`. Suggested **main cohort**.
 | `School Support.csv` | 98,010 | 19 | 13.7 |
 | `COVID Directional Indicators.csv` | 98,010 | 12 | 12.2 |
 
-### School (CRDC) — other modules
+### Other school files
 
 | File | Rows | Cols | Size (MB) |
 |---|---:|---:|---:|
