@@ -2,33 +2,36 @@
 
 This dictionary lists fields relevant to seclusion, enrollment, school characteristics, and staffing. For the complete codebook, refer to each year’s public-use file manual and data-element documentation.
 
-Related documents: [data_audit.md](data_audit.md) (quality issues, join keys, missingness) and [data_inventory.md](data_inventory.md) (full file list).
+Related documents: [data_audit.md](data_audit.md) (quality issues, join keys, missingness) and [data_inventory.md](data_inventory.md) (full file list). Abbreviations (LEA, JJ, FTE, IDEA, WODIS, EL/LEP, DIND) are defined at the top of the audit.
 
 Types in the raw CSVs: identifiers and Yes/No flags are read as strings. Count and FTE fields contain numeric values and negative reserved codes. After cleaning, counts/FTEs should be nullable floats; flags can stay categorical Yes/No.
 
 ## Reserved codes (all numeric fields)
 
-Public-use files almost never use blank cells for “missing.” Recode every value &lt; 0 to NA before analysis. Do not interpret them as counts.
+Public-use files almost never use blank cells for “missing.” Recode every value &lt; 0 to NA before analysis and keep the original code in a companion column so the reason stays available. Do not interpret reserved codes as counts.
 
-The meanings below were checked against Table 2 in the manuals bundled with the source datasets:
+The definitions below come from each year's manual. The 2015–16 and 2017–18 manuals are included in their dataset packages; the 2020–21 and 2021–22 downloads do not include a manual, so use the online versions.
 
-- [2015–16 Public-Use Data File Manual, p. 18](<../../lia/data/2015-16-crdc-data/Documentation/2015-16 CRDC Public-Use Data File Manual.pdf>) (section 6.1.2).
-- [2017–18 Public Data File Manual, p. 12](<../../lia/data/2017-18-crdc-data-corrected-publication 2/2017-18 Public-Use Files/Documentation/2017-18 CRDC Public Data File Manual.pdf>) (section 5.1.1); [ED-hosted manual](https://eddataexpress.ed.gov/sites/default/files/resource_data_files/2017-18_CRDC_Public-Use_Data_File_Manual.pdf).
+- 2015–16 CRDC Public-Use Data File Manual, Table 2, p. 18 (section 6.1.2; included in the 2015–16 package).
+- 2017–18 CRDC Public Data File Manual, Table 2, p. 12 (section 5.1.1); [ED-hosted manual](https://eddataexpress.ed.gov/sites/default/files/resource_data_files/2017-18_CRDC_Public-Use_Data_File_Manual.pdf).
+- [2020–21 CRDC Data File User's Manual](https://ocrdata.ed.gov/assets/downloads/2020-21%20User%27s%20Manual.pdf), section 5.4, p. 12.
+- [2021–22 CRDC Data File User's Manual](https://civilrightsdata.ed.gov/assets/downloads/2021-22%20User%27s%20Manual.pdf), Table 1, p. 12.
 
-| Code | Source definition | 2015–16 Table 2 | 2017–18 Table 2 |
-|---:|---|---|---|
-| `-9` | Not Applicable / Skipped | Listed | Listed |
-| `-5` | Action Plan | Listed | Listed |
-| `-6` | Force Certified | Listed | Listed |
-| `-3` | Skip Logic Failure | Not listed | Listed |
-| `-8` | EDFacts Missing Data | Listed | Listed |
-| `-11` | Suppressed Data | Not listed | Listed |
-| `-2` | Small Cell Value | Listed | Not listed |
-| `-7` | System Error | Listed | Not listed |
+| Code | Definition | Group | 2015–16 | 2017–18 | 2020–21 | 2021–22 |
+|---:|---|---|---|---|---|---|
+| `-9` | Not Applicable / Skipped | Structural skip | Listed | Listed | Listed | Listed |
+| `-13` | Missing DIND (COVID directional indicator) skip logic | Structural skip | — | — | Listed | Listed |
+| `-5` | Action Plan (Action Plan / Quick Plans from 2020–21) | Missing | Listed | Listed | Listed | Listed |
+| `-6` | Force Certified | Missing | Listed | Listed | Listed | Listed |
+| `-3` | Skip Logic Failure (Skip Logic or Processing Failure in 2021–22) | Missing | — | Listed | Listed | Listed |
+| `-4` | Missing Optional Data | Missing | — | — | Listed | Listed |
+| `-7` | System Error | Missing | Listed | — | — | — |
+| `-8` | EDFacts Missing Data | Missing | Listed | Listed | Listed | — |
+| `-2` | Small Cell Value | Suppressed | Listed | — | — | — |
+| `-11` | Suppressed Data (data quality suppression) | Suppressed | — | Listed | Listed | — |
+| `-12` | Suppressed for Privacy Protections | Suppressed | — | — | — | Listed |
 
-The code lists differ by year. Convert these codes to `NA` for numeric analysis and retain the original values so the reason remains available.
-
-In the later files, `-12` appears in 2021–22 nonbinary enrollment and `-13` in 2020–21/2021–22 seclusion instances. Their definitions are not verified by these older manuals; do not infer later-year meanings from this table. Both remain `NA` in numeric analysis.
+"—" means the code is not listed in that year's manual. Where each code actually occurs is summarized in the audit's [observed codes table](data_audit.md#observed-codes-in-the-priority-files).
 
 `0` after this recode means the school reported zero, not “unknown.”
 
@@ -45,7 +48,7 @@ These fields identify schools and districts across the CRDC school files.
 | `LEA_STATE_NAME` | string | all | State/territory name | |
 | `LEA_NAME` | string | all | District name | |
 | `SCH_NAME` | string | school files | School name | |
-| `JJ` | Yes/No | school files | Long-term juvenile justice facility | 2021–22: 882 Yes. Often different skip logic. |
+| `JJ` | Yes/No | school files | Long-term juvenile justice facility | Yes count: 608 (2015–16), 602 (2017–18), 579 (2020–21), 882 (2021–22). Security FTE is `-9` for JJ schools in 2020–21 and 2021–22. |
 | `CJJ` | Yes/No | LEA files | LEA contains at least one JJ facility | |
 
 EDFacts extracts use `NCESLEAID`, `NCESSCH`, `SCHOOL_NAME` instead. Map `NCESSCH` → `COMBOKEY` only after padding and a coverage check.
@@ -107,7 +110,9 @@ File: `Enrollment.csv` (2015–16: columns in the wide school file).
 | `SCH_ENR_EL_M` / `_F` / `_X` | count | 2021–22 | English learners | Replaces LEP |
 | Preschool `SCH_PSENR_*` | count | all | Preschool enrollment | Usually exclude from K–12 seclusion rates unless the target includes PS |
 
-Derived: `enrollment_total = TOT_ENR_M + TOT_ENR_F` plus `TOT_ENR_X` when valid. Recode reserved codes first. 2015–16 IDEA counts use `-2` suppression (never recode `-2` to 0).
+Derived: `enrollment_total = TOT_ENR_M + TOT_ENR_F` plus `TOT_ENR_X` when valid. Recode reserved codes first, require both `TOT_ENR_M` and `TOT_ENR_F` to be valid, and treat a total of 0 as an undefined rate. 2015–16 IDEA counts use `-2` suppression (never recode `-2` to 0).
+
+`TOT_*` columns are totals calculated by OCR, which treated reserved codes in the components as zero. A valid `TOT_ENR_M` can therefore hide missing race cells (2020–21 and 2021–22 manuals §5.5.2).
 
 Race codes: `HI` Hispanic, `AM` American Indian/Alaska Native, `AS` Asian, `HP` Native Hawaiian/Pacific Islander, `BL` Black, `WH` White, `TR` two or more races.
 
@@ -139,13 +144,15 @@ File: `School Support.csv`.
 | `SCH_FTETEACH_NOTCERT` | FTE | all | Not certified | |
 | `SCH_FTECOUNSELORS` | FTE | all | School counselors | Core resource feature |
 | `SCH_FTESERVICES_NUR` | FTE | all | Nurses | Student-support resource |
-| `SCH_FTESERVICES_PSY` | FTE | all | Psychologists | Student-support resource; 2017–18 has extreme outliers |
+| `SCH_FTESERVICES_PSY` | FTE | all | Psychologists | Student-support resource; 2017–18 max 19,048.6 |
 | `SCH_FTESERVICES_SOC` | FTE | all | Social workers | Student-support resource |
 | `SCH_FTESECURITY_LEO` | FTE | all | Law-enforcement officers | Context; often `-9` for JJ schools |
 | `SCH_FTESECURITY_GUA` | FTE | all | Security guards | 2017–18 outliers > 20,000 FTE — treat as errors |
 | `SCH_FTETEACH_FY` / `_SY` / `SCH_FTETEACH_ABSENT` | FTE | 2017–18 (and 2015–16 wide) | First-year, second-year, absent teachers | Teacher experience and absence measures |
 | `SCH_TEACHERS_CURR_TOT` / `_PREV_TOT` | count | 2017–18 | Headcount current / previous year | |
-| `TOT_TEACHERS_CURR_M` / `_F` | count | 2021–22 | Current teachers by sex | |
+| `TOT_TEACHERS_CURR_M` / `_F` | count | 2021–22 | Current teachers by sex | `-4` (missing optional data) for about 58k of 98,010 schools; not usable as a general feature |
+
+Every FTE field has implausible values in every year (for example 280 counselors or exactly 100.0 FTE in several fields at one school). Check FTE per student before use; see the audit's data quality issue 8.
 
 Derived (after NA recode): counselors per 100 students, teachers per 100 students, student-support FTE (nurse+psych+social worker) per 100 students. Use enrollment as the denominator, not LEA enrollment.
 
@@ -168,7 +175,7 @@ File: `LEA Characteristics.csv`.
 | File | Years | Why it might matter | Caution |
 |---|---|---|---|
 | `School Expenditures.csv` | 2017–18 (columns also in 2015–16 wide file) | Reported school expenditures | Not in 2020–21 / 2021–22 packages |
-| `COVID Directional Indicators.csv` | 2020–21, 2021–22 | Instruction/virtual mode | Needed if 2020–21 is used at all |
+| `COVID Directional Indicators.csv` | 2020–21, 2021–22 | Instruction/virtual mode | Needed if 2020–21 is used at all. Columns differ: 2020–21 `SCH_DIND_INSTRUCTIONTYPE`, `SCH_DIND_VIRTUALTYPE`; 2021–22 `SCH_DIND_INSTRUCTIONTYPE`, `SCH_DIND_REMOTETYPE`, `SCH_DIND_REMOTEAMOUNT`, `SCH_DIND_REMOTEPERCT` |
 | `Internet Access and Devices.csv` | 2020–21, 2021–22 | Digital access | Peripheral to seclusion |
 | `Justice Facilities.csv` | 2017–18+ | Extra JJ detail | Overlaps `JJ` |
 | `Suspensions.csv`, `Expulsions.csv`, `Offenses.csv`, `Referrals and Arrests.csv`, `Corporal Punishment.csv` | all | Other discipline climate | Leakage risk as predictors of seclusion; OK for descriptive comparison |
@@ -203,7 +210,8 @@ sch_status_sped, sch_status_charter, sch_status_alt, sch_status_magnet, sch_virt
 fte_teachers, fte_counselors, fte_nurses, fte_psych, fte_social, fte_leo, fte_guards,
 counselors_per_100, support_fte_per_100,
 lea_enrollment, lea_schools,
-flag_missing_seclusion, flag_missing_enrollment, flag_small_enrollment
+flag_missing_seclusion, flag_missing_enrollment, flag_small_enrollment,
+seclusion_reason, enrollment_reason
 ```
 
-Retain the original reserved codes alongside cleaned values to document why a value is missing.
+The `*_reason` columns keep the original reserved code and its group (structural skip, missing, or suppressed) so the reason a value is missing stays available.

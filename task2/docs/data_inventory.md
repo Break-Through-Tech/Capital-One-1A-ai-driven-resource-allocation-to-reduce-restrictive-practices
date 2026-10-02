@@ -1,8 +1,10 @@
 # CRDC file inventory
 
-This inventory lists the CSV files in the four downloaded CRDC packages, with their sizes and column counts. The [data audit](data_audit.md) describes the quality checks and relevant variables.
+This inventory lists the CSV files in the four downloaded CRDC packages, with their sizes and column counts. The CRDC data and manuals will be uploaded to the team Google Drive under the package names below. The [data audit](data_audit.md) describes the quality checks and relevant variables.
 
-The row estimates use `line count − 1`. Blank lines and line breaks within quoted fields can make these differ from parsed CSV row counts. Use a CSV reader for analysis counts. `COMBOKEY` and `LEAID` indicate whether the file includes those identifier columns.
+The row estimates use `line count − 1`. Blank lines and line breaks within quoted fields can make these differ from parsed CSV row counts. For example, 2017–18 `LEA Characteristics.csv` shows 17,615 here but parses to 17,604 rows (1 trailing blank line plus 10 line breaks inside quoted fields). Use a CSV reader for analysis counts. `COMBOKEY` and `LEAID` indicate whether the file includes those identifier columns.
+
+Encoding: all 2020–21 and 2021–22 files are UTF-8. The 2015–16 files and 26 of the 33 CRDC CSVs in the 2017–18 package are `cp1252`; read with UTF-8 and fall back to `cp1252`.
 
 ## 2015–16
 
