@@ -1,1 +1,52 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Conda / local env exports (keep environment.yml if added intentionally)
+*.conda
+
+# CRDC raw downloads and large processed tables (keep folder placeholders)
+data/**/*.csv
+data/**/*.xlsx
+data/**/*.xls
+data/**/*.pdf
+data/**/*.zip
+data/**/*.txt
+!data/README.md
+!data/.gitkeep
+
+# Common local analysis dumps (any path)
+**/processed/*.csv
+**/processed/*.json
+**/__pycache__/
+
+# Cursor / agent local refs (do not commit)
+.cursor/
+)
