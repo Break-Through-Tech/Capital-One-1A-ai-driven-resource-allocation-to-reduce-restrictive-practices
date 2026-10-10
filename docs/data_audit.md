@@ -2,6 +2,8 @@
 
 Handoff for **data cleaning**. Counts below were measured from the local public-use CSVs for the four requested Civil Rights Data Collection (CRDC) years. Large CSVs are **not** stored in git; download them from [Data.gov — Civil Rights Data Collection](https://catalog.data.gov/dataset/civil-rights-data-collection-crdc) and keep year-specific manuals next to the files.
 
+**How to use this audit:** counts and findings below describe the previously inspected packages; they were not remeasured during handoff editing. The [cleaning playbook](cleaning_feature_playbook.md) is the current source for operational rules and the four-year overlap matrix. Reconcile new counts against this evidence rather than forcing outputs to match it.
+
 **Suggested main cohort:** 2021–22 school-level CRDC. 2020–21 is a COVID collection with heavy reserved-code missingness on seclusion. 2017–18 is the best earlier comparison year. 2015–16 is usable only after repairing Excel-corrupted IDs.
 
 ---
@@ -188,9 +190,9 @@ Copy this list into the cleaning ticket:
 5. **Do not sum overlapping student seclusion counts** (race × sex × IDEA/non-IDEA). Use instance totals for the primary rate; keep student counts as a **secondary** outcome only with matching denominators.
 6. **2015–16 IDs must be repaired** (string dtype, zfill, rebuild `COMBOKEY`). Otherwise joins and longitudinal matches are wrong.
 7. **2017–18 Restraint `SCHID` is unusable**; join that module on `COMBOKEY`.
-8. **Outliers / impossible FTEs in 2017–18 School Support:** `SCH_FTESECURITY_GUA` max **102,579** (DEL VALLE H S, `481662001424`); other campuses in the same LEA also have 20k–34k guards. `SCH_FTESERVICES_PSY` max **19,048.6** (Northshore Middle School). Winsorize or drop after review. 2015–16 counselor/nurse/psych maxima of **999** look like a cap/sentinel.
-9. **Small denominators.** Median 2021–22 `TOT_ENR_M` ≈ 210; some schools have 0–few students. Rates per 100 students will explode; cap, Bayesian shrink, or exclude tiny enrollment.
-10. **Justice facilities (JJ = Yes)** may follow different skip logic (security FTE `-9`, seclusion `-5`). Decide explicitly whether they stay in the analysis set.
+8. **Outliers / impossible FTEs in 2017–18 School Support:** `SCH_FTESECURITY_GUA` max **102,579** (DEL VALLE H S, `481662001424`); other campuses in the same LEA also have 20k–34k guards. `SCH_FTESERVICES_PSY` max **19,048.6** (Northshore Middle School). Flag for review; preserve originals and document evidence for corrections or NA replacements. The playbook does not authorize automatic winsorization or row deletion. 2015–16 counselor/nurse/psych maxima of **999** look like a cap/sentinel.
+9. **Small denominators.** Median 2021–22 `TOT_ENR_M` ≈ 210; some schools have 0–few students. Rates per 100 students can be unstable. Keep and flag small schools during cleaning; any exclusion, shrinkage, or capping is a later modeling decision.
+10. **Justice facilities (JJ = Yes)** may follow different skip logic (security FTE `-9`, seclusion `-5`). Keep and identify them during cleaning; decide any modeling exclusion or sensitivity analysis explicitly afterward.
 11. **Encoding:** open 2015–16 CSVs and 2017–18 School Characteristics with `encoding="cp1252"` (or try UTF-8 then fall back).
 12. **Same-year discipline files** (suspensions, offenses, referrals/arrests, corporal punishment) are likely **leaky** if used as predictors of seclusion. Audit before including.
 13. **Do not pool years** until names (`LEP` vs `EL`), reserved-code sets, and seclusion definitions are harmonized. 2020–21 should stay a robustness year, not the training year.
@@ -231,12 +233,9 @@ See [data_dictionary.md](data_dictionary.md) for field definitions and year-name
 
 ## 10. Recommended cleaning sequence
 
-1. Read each priority CSV as strings; fix encoding; drop empty trailing rows.
-2. Pad IDs; rebuild 2015–16 `COMBOKEY`; ignore 2017–18 restraint `SCHID`.
-3. Inner-join 2021–22 Characteristics + Enrollment + Restraint + Support on `COMBOKEY`; left-join LEA on `LEAID`.
-4. Recode reserved codes to NA; build instance sum and enrollment total; drop or flag rows missing either.
-5. Flag JJ / virtual / special-education / tiny enrollment.
-6. Repeat for 2017–18 as a comparison cohort; treat 2020–21 as COVID-sensitivity only; bring 2015–16 in after ID repair if needed.
+**Authoritative rules for four year-owners:** [cleaning_feature_playbook.md](cleaning_feature_playbook.md) (four-year source matrix, year exceptions, shared output contract, and reproducible deliverables).
+
+Start from the school roster and left-join required modules with one-to-one validation; left-join district data with many-to-one validation. Preserve missingness reasons, verify source definitions, compute strict sums and flagged reported-component denominators, then export full and outcome/denominator-eligible tables. The audited matching key sets do not replace join checks on each owner’s download.
 
 ---
 

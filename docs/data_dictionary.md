@@ -2,15 +2,15 @@
 
 Basic dictionary for variables the team is likely to use. It is **not** a full CRDC codebook. Official definitions live in each year’s public-use file manual and data-element documentation.
 
-Companion: [data_audit.md](data_audit.md) (row counts, missingness, join-key bugs).
+Companions: [data_audit.md](data_audit.md) (audit evidence) and [cleaning_feature_playbook.md](cleaning_feature_playbook.md) (current cleaning rules, four-year source matrix, output contract, and acceptance checklist). Expected header overlap below comes from the prior audit; year owners verify exact headers and definitions in their downloaded manuals before accepting derived measures.
 
 **Types in the raw CSVs:** identifiers and Yes/No flags arrive as strings; counts and FTEs arrive as numeric strings that also contain **negative reserved codes**. After cleaning, counts/FTEs should be nullable floats; flags can stay categorical Yes/No.
 
 ---
 
-## Reserved codes (all numeric fields)
+## Reserved codes (count and FTE fields)
 
-Public-use files almost never use blank cells for “missing.” Recode **every value &lt; 0** to NA before analysis. Do not interpret them as counts.
+Public-use files almost never use blank cells for “missing.” For count/FTE fields, recode **every value &lt; 0** to NA before analysis and preserve the original code in the quality-detail output. This rule does not apply to IDs or categorical codes. Do not interpret reserved values as counts.
 
 | Code | Typical role (confirm in year manual) |
 |---:|---|
@@ -64,9 +64,9 @@ These are **numbers of incidents**, not unique students. Incidents can exceed en
 
 **Proposed derived outcome (cleaning):** if all three seclusion instance fields are non-reserved,  
 `seclusion_instances = WODIS + IDEA + 504`.  
-If any is reserved, set the sum to NA (do not treat missing parts as 0).  
+If any is missing, reserved, or otherwise invalid, set the sum to NA (do not treat missing parts as 0).
 Rate: `100 * seclusion_instances / enrollment_total`.  
-Do not assume WODIS+IDEA+504 is a valid partition until the year manual is checked.
+Do not assume WODIS+IDEA+504 is a valid partition until the year manual is checked. Until verified, preserve cleaned components but leave the derived total and rate NA. Verify numerator/denominator population and grade coverage, including preschool, before accepting rates.
 
 ### Student counts subjected to seclusion (secondary)
 
@@ -96,16 +96,16 @@ File: `Enrollment.csv` (2015–16: columns in the wide school file).
 |---|---|---|---|---|
 | `TOT_ENR_M` | count | all | Calculated male enrollment | **Main denominator piece** |
 | `TOT_ENR_F` | count | all | Calculated female enrollment | **Main denominator piece** |
-| `TOT_ENR_X` | count | **2021–22 only** | Nonbinary enrollment | Usually `-9` or `-12`; include in the denominator **only when ≥ 0** |
+| `TOT_ENR_X` | count | **2021–22 only** | Nonbinary enrollment | Usually `-9` or `-12`; include only when valid; flag the total as potentially partial when X is unavailable |
 | `SCH_ENR_{race}_{sex}` | count | all | Enrollment by race and sex | Composition / equity description |
 | `SCH_ENR_*_X` | count | **2021–22 only** | Nonbinary by race and disability | Same suppression pattern as `TOT_ENR_X` |
 | `SCH_ENR_IDEA_M` / `_F` / `_X` | count | all (`_X` 2021–22) | IDEA enrollment | Share of students with IEPs |
-| `SCH_ENR_504_M` / `_F` / `_X` | count | all | Section 504-only enrollment | |
+| `SCH_ENR_504_M` / `_F` / `_X` | count | all (`_X` 2021–22) | Section 504-only enrollment | |
 | `SCH_ENR_LEP_M` / `_F` | count | 2015–16–2020–21 | Limited English proficient | Use EL fields in 2021–22 |
 | `SCH_ENR_EL_M` / `_F` / `_X` | count | **2021–22** | English learners | Replaces LEP |
 | Preschool `SCH_PSENR_*` | count | all | Preschool enrollment | Usually exclude from K–12 seclusion rates unless the target includes PS |
 
-**Derived:** `enrollment_total = TOT_ENR_M + TOT_ENR_F` plus `TOT_ENR_X` when valid. Recode reserved codes first. 2015–16 IDEA counts use `-2` suppression (never recode `-2` to 0).
+**Derived:** require valid M and F, then sum them and add valid X in 2021–22. Missing M or F makes the total NA. Missing X leaves a reported-component total and sets the relevant partial flag; it is not a reported zero. Apply independently to total, IDEA, 504, and EL enrollment; see playbook §4. Recode reserved codes first. 2015–16 IDEA counts use `-2` suppression (never recode `-2` to 0).
 
 Race codes: `HI` Hispanic, `AM` American Indian/Alaska Native, `AS` Asian, `HP` Native Hawaiian/Pacific Islander, `BL` Black, `WH` White, `TR` two or more races.
 
@@ -144,12 +144,12 @@ File: `School Support.csv`.
 | `SCH_FTESERVICES_PSY` | FTE | all | Psychologists | Student-support resource; **2017–18 has extreme outliers** |
 | `SCH_FTESERVICES_SOC` | FTE | all | Social workers | Student-support resource |
 | `SCH_FTESECURITY_LEO` | FTE | all | Law-enforcement officers | Context; often `-9` for JJ schools |
-| `SCH_FTESECURITY_GUA` | FTE | all | Security guards | **2017–18 outliers > 20,000 FTE** — treat as errors |
+| `SCH_FTESECURITY_GUA` | FTE | all | Security guards | **2017–18 outliers > 20,000 FTE** — flag and investigate; document corrections |
 | `SCH_FTETEACH_FY` / `_SY` / `SCH_FTETEACH_ABSENT` | FTE | **2017–18** (and 2015–16 wide) | First-year, second-year, absent teachers | Extra resource quality |
 | `SCH_TEACHERS_CURR_TOT` / `_PREV_TOT` | count | **2017–18** | Headcount current / previous year | |
 | `TOT_TEACHERS_CURR_M` / `_F` | count | **2021–22** | Current teachers by sex | |
 
-**Derived (after NA recode):** counselors per 100 students, teachers per 100 students, student-support FTE (nurse+psych+social worker) per 100 students. Use enrollment as the denominator, not LEA enrollment.
+**Derived (after NA recode):** counselors per 100 students, teachers per 100 students, student-support FTE (nurse+psych+social worker) per 100 students. Use school enrollment as the denominator, not LEA enrollment. Require all three support FTE components for their sum; otherwise NA. Preserve suspicious raw values and use the playbook’s review process; no automatic caps.
 
 ---
 
@@ -174,7 +174,7 @@ File: `LEA Characteristics.csv`.
 | File | Years | Why it might matter | Caution |
 |---|---|---|---|
 | `School Expenditures.csv` | 2017–18 (columns also in 2015–16 wide file) | Direct $ resource measures | Not in 2020–21 / 2021–22 packages |
-| `COVID Directional Indicators.csv` | 2020–21, 2021–22 | Instruction/virtual mode | Needed if 2020–21 is used at all |
+| `COVID Directional Indicators.csv` | 2020–21, 2021–22 | Instruction/virtual mode | Useful context for COVID sensitivity analysis; separate optional extension |
 | `Internet Access and Devices.csv` | 2020–21, 2021–22 | Digital access | Peripheral to seclusion |
 | `Justice Facilities.csv` | 2017–18+ | Extra JJ detail | Overlaps `JJ` |
 | `Suspensions.csv`, `Expulsions.csv`, `Offenses.csv`, `Referrals and Arrests.csv`, `Corporal Punishment.csv` | all | Other discipline climate | **Leakage risk** as predictors of seclusion; OK for descriptive comparison |
@@ -202,18 +202,20 @@ When stacking years, rename `*_LEP_*` → a common `*_EL_*` (or the reverse) **a
 
 ## Suggested analysis-ready columns
 
-Minimum school-level table for 2021–22 (then mirrored for 2017–18):
+**Shared output contract for all four years:** see [cleaning_feature_playbook.md](cleaning_feature_playbook.md) §3 for the exact ordered schema. The abbreviated concepts below are not an alternative schema; additional required fields include partial-enrollment and join flags.
+
+Minimum school-level concepts (mirrored every year):
 
 ```text
-year, COMBOKEY, LEAID, SCHID, LEA_STATE, SCH_NAME, LEA_NAME, JJ,
+year, combokey, leaid, schid, lea_state, sch_name, lea_name, jj,
 enrollment_total, enr_idea, enr_504, enr_el,
 seclusion_instances, seclusion_instances_wodis, seclusion_instances_idea, seclusion_instances_504,
-seclusion_rate_per_100,
+seclusion_rate,
 sch_status_sped, sch_status_charter, sch_status_alt, sch_status_magnet, sch_virt_ind,
 fte_teachers, fte_counselors, fte_nurses, fte_psych, fte_social, fte_leo, fte_guards,
 counselors_per_100, support_fte_per_100,
 lea_enrollment, lea_schools,
-flag_missing_seclusion, flag_missing_enrollment, flag_small_enrollment
+flag_missing_seclusion, flag_missing_enrollment, flag_small_enrollment, flag_analysis_ready
 ```
 
-Keep raw reserved-code flags so reviewers can see what was dropped.
+Keep QA flags and the separate quality-detail table so reviewers can trace missingness and any documented corrections. `flag_analysis_ready` means outcome/denominator eligible; predictors may still be missing. Classification, imputation, scaling, and any modeling exclusions happen after cleaning.
