@@ -14,10 +14,10 @@ Helpful files: [data_audit.md](data_audit.md) (quality findings), [data_dictiona
 
 | Person | Year | Package (as downloaded) | Role |
 |---|---|---|---|
-| A | 2021–22 | `2021-22-crdc-data` | Main year for modeling; share the first example |
-| B | 2017–18 | `2017-18-crdc-data-corrected-publication 2` | Comparison year |
-| C | 2020–21 | `2020-21-crdc-data` | Check how the COVID year compares |
-| D | 2015–16 | `2015-16-crdc-data` | Fix IDs first; most school data is in one large file |
+| James (Person A) | 2021–22 | `2021-22-crdc-data` | Main year for modeling; share the first example |
+| Madison (Person B) | 2017–18 | `2017-18-crdc-data-corrected-publication 2` | Comparison year |
+| Juan (Person C) | 2020–21 | `2020-21-crdc-data` | Check how the COVID year compares |
+| Sofia (Person D) | 2015–16 | `2015-16-crdc-data` | Fix IDs first; most school data is in one large file |
 
 ```mermaid
 flowchart TD
@@ -234,7 +234,7 @@ Use verified KG/G1–G12 Yes/No fields. Set E = any KG–G5 Yes, M = any G6–G8
 
 ## 5. Notes for each year
 
-### Person A: 2021–22 (our starting example)
+### James (Person A): 2021–22 (our starting example)
 
 **Modules (typical paths under package root):**
 
@@ -257,7 +257,7 @@ Use verified KG/G1–G12 Yes/No fields. Set E = any KG–G5 Yes, M = any G6–G8
 
 ---
 
-### Person B: 2017–18
+### Madison (Person B): 2017–18
 
 **Modules:** under `2017-18 Public-Use Files/Data/SCH/CRDC/CSV/` and `.../LEA/CRDC/CSV/`.
 
@@ -274,7 +274,7 @@ Use verified KG/G1–G12 Yes/No fields. Set E = any KG–G5 Yes, M = any G6–G8
 
 ---
 
-### Person C: 2020–21
+### Juan (Person C): 2020–21
 
 **Modules:** under `CRDC/School/` and `CRDC/LEA/`.
 
@@ -290,7 +290,7 @@ Use verified KG/G1–G12 Yes/No fields. Set E = any KG–G5 Yes, M = any G6–G8
 
 ---
 
-### Person D: 2015–16
+### Sofia (Person D): 2015–16
 
 **Files:**
 
@@ -333,8 +333,8 @@ Add code checks where you can and summarize the results in your quality-check re
 
 ## 7. How we’ll work through this
 
-1. Agree on who takes each year and where we’ll save the cleaned files. Make sure everyone has this guide, the audit, the dictionary, and their data files/manuals.
+1. Follow the year assignments above and agree on where we’ll save the cleaned files. Make sure everyone has this guide, the audit, the dictionary, and their data files/manuals.
 2. Check the columns and definitions for your year. Share missing columns or differences with the team before making a different mapping.
-3. Person A shares the first example with our shared columns. Everyone can work on their own year at the same time using the notes in section 5.
+3. James shares the first example with our shared columns. Everyone can work on their own year at the same time using the notes in section 5.
 4. Share your code, column mapping, quality-check report, quality-detail file, and both school tables. Record team decisions in this guide so everyone follows the same updates.
 5. Go through section 6 together. Once the cleaned files are ready, we can decide how to handle missing model inputs, unusual staffing values, incomplete enrollment totals, small/JJ schools, and any high-seclusion cutoff.
