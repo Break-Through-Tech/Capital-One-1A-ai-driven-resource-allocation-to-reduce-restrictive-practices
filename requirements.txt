@@ -1,1 +1,10 @@
+# Last run with Python 3.14.2, pandas 3.0.6 and numpy 2.5.4.
 
+# Needed to run scripts/clean_<yearcode>.py
+pandas>=2.2
+numpy>=1.26
+openpyxl>=3.1
+
+# Needed for the tests and formatting
+pytest>=8.0
+ruff>=0.6
