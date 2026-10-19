@@ -1,0 +1,65 @@
+source_file,source_column,shared_output_column,transformation,units_population_period,manual_reference,verification_status
+SCH/School Characteristics.csv,LEAID,leaid,"Validate, zero-pad to 7","District ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/School Characteristics.csv,SCHID,schid,"Validate, zero-pad to 5","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/School Characteristics.csv,COMBOKEY,combokey,"Validate, must equal LEAID + SCHID, join key","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/Enrollment.csv,LEAID,leaid,"Validate, zero-pad to 7","District ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/Enrollment.csv,SCHID,schid,"Validate, zero-pad to 5","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/Enrollment.csv,COMBOKEY,combokey,"Validate, must equal LEAID + SCHID, join key","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/Restraint and Seclusion.csv,LEAID,leaid,"Validate, zero-pad to 7","District ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/Restraint and Seclusion.csv,SCHID,schid,"Validate, zero-pad to 5","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/Restraint and Seclusion.csv,COMBOKEY,combokey,"Validate, must equal LEAID + SCHID, join key","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/School Support.csv,LEAID,leaid,"Validate, zero-pad to 7","District ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/School Support.csv,SCHID,schid,"Validate, zero-pad to 5","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/School Support.csv,COMBOKEY,combokey,"Validate, must equal LEAID + SCHID, join key","School ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+LEA/LEA Characteristics.csv,LEAID,leaid,"Validate, zero-pad to 7, join key","District ID, 2021-22 school year",User's Manual 5.5.3 Table 3,verified
+SCH/School Characteristics.csv,LEA_STATE,lea_state,"Trim, uppercase","State code, 2021-22 school year",Descriptive field. Not defined in the manual or Appendix Sheet B,unresolved
+SCH/School Characteristics.csv,SCH_NAME,sch_name,Trim,"School name, 2021-22 school year",Descriptive field. Not defined in the manual or Appendix Sheet B,unresolved
+SCH/School Characteristics.csv,LEA_NAME,,"Compared with the LEA file, not output","District name, 2021-22 school year",Descriptive field. Not defined in the manual or Appendix Sheet B,unresolved
+LEA/LEA Characteristics.csv,LEA_NAME,lea_name,Trim,"District name, 2021-22 school year",Descriptive field. Not defined in the manual or Appendix Sheet B,unresolved
+LEA/LEA Characteristics.csv,LEA_STATE,,"Compared with the school file, not output","State code, 2021-22 school year",Descriptive field. Not defined in the manual or Appendix Sheet B,unresolved
+SCH/School Characteristics.csv,JJ,jj,"Yes/No/NA, main justice-facility source","School, 2021-22 school year",Not listed in Appendix Sheet B. SCH_JUST_IND (SCHR-2) is the listed field,unresolved
+SCH/School Characteristics.csv,SCH_JUST_IND,,"Yes/No/NA, compared with JJ, disagreements logged","School, 2021-22 school year","Appendix Sheet B, SCHR-2",verified
+SCH/School Characteristics.csv,SCH_VIRT_IND,sch_virt_ind,Yes/No/NA,"School, fully virtual, 2021-22 school year","Appendix Sheet B, SCHR-1",verified
+SCH/School Characteristics.csv,SCH_STATUS_SPED,sch_status_sped,Yes/No/NA,"School, 2021-22 school year","Appendix Sheet B, SCHR-5.1",verified
+SCH/School Characteristics.csv,SCH_STATUS_MAGNET,sch_status_magnet,Yes/No/NA,"School, 2021-22 school year","Appendix Sheet B, SCHR-5.2",verified
+SCH/School Characteristics.csv,SCH_STATUS_CHARTER,sch_status_charter,Yes/No/NA,"School, 2021-22 school year","Appendix Sheet B, SCHR-5.3",verified
+SCH/School Characteristics.csv,SCH_STATUS_ALT,sch_status_alt,Yes/No/NA,"School, 2021-22 school year","Appendix Sheet B, SCHR-5.4",verified
+SCH/School Characteristics.csv,SCH_GRADE_PS,,Left out of grade_band,"Preschool flag, 2021-22 school year","Appendix Sheet B, SCHR-3.1",verified
+SCH/School Characteristics.csv,SCH_GRADE_UG,,Left out of grade_band,"Ungraded flag, 2021-22 school year","Appendix Sheet B, SCHR-3.15",verified
+SCH/School Characteristics.csv,SCH_GRADE_KG,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.2",verified
+SCH/School Characteristics.csv,SCH_GRADE_G01,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.3",verified
+SCH/School Characteristics.csv,SCH_GRADE_G02,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.4",verified
+SCH/School Characteristics.csv,SCH_GRADE_G03,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.5",verified
+SCH/School Characteristics.csv,SCH_GRADE_G04,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.6",verified
+SCH/School Characteristics.csv,SCH_GRADE_G05,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.7",verified
+SCH/School Characteristics.csv,SCH_GRADE_G06,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.8",verified
+SCH/School Characteristics.csv,SCH_GRADE_G07,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.9",verified
+SCH/School Characteristics.csv,SCH_GRADE_G08,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.10",verified
+SCH/School Characteristics.csv,SCH_GRADE_G09,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.11",verified
+SCH/School Characteristics.csv,SCH_GRADE_G10,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.12",verified
+SCH/School Characteristics.csv,SCH_GRADE_G11,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.13",verified
+SCH/School Characteristics.csv,SCH_GRADE_G12,grade_band,"Yes/No/NA, combined by the grade-band rule","Grade offered, 2021-22 school year","Appendix Sheet B, SCHR-3.14",verified
+SCH/Enrollment.csv,TOT_ENR_M,enrollment_total,"Calculated total; M+F strict, X added only when valid","Students, overall (preschool coverage not stated), 2021-22 school year",Appendix Sheet C and User's Manual 5.5.2. Preschool inclusion is not stated,unresolved
+SCH/Enrollment.csv,TOT_ENR_F,enrollment_total,"Calculated total; M+F strict, X added only when valid","Students, overall (preschool coverage not stated), 2021-22 school year",Appendix Sheet C and User's Manual 5.5.2. Preschool inclusion is not stated,unresolved
+SCH/Enrollment.csv,TOT_ENR_X,enr_nonbinary; enrollment_total,"Calculated total; M+F strict, X added only when valid","Students, overall (preschool coverage not stated), 2021-22 school year",Appendix Sheet C and User's Manual 5.5.2. Preschool inclusion is not stated,unresolved
+SCH/Enrollment.csv,SCH_ENR_IDEA_M,enr_idea,"Count; M+F strict, X added only when valid","Students, IDEA, 2021-22 school year","Appendix Sheet B, ENRL-1.25",verified
+SCH/Enrollment.csv,SCH_ENR_IDEA_F,enr_idea,"Count; M+F strict, X added only when valid","Students, IDEA, 2021-22 school year","Appendix Sheet B, ENRL-1.26",verified
+SCH/Enrollment.csv,SCH_ENR_IDEA_X,enr_idea,"Count; M+F strict, X added only when valid","Students, IDEA, 2021-22 school year","Appendix Sheet B, ENRL-1.27",verified
+SCH/Enrollment.csv,SCH_ENR_504_M,enr_504,"Count; M+F strict, X added only when valid","Students, Section 504 only, 2021-22 school year","Appendix Sheet B, ENRL-1.28",verified
+SCH/Enrollment.csv,SCH_ENR_504_F,enr_504,"Count; M+F strict, X added only when valid","Students, Section 504 only, 2021-22 school year","Appendix Sheet B, ENRL-1.29",verified
+SCH/Enrollment.csv,SCH_ENR_504_X,enr_504,"Count; M+F strict, X added only when valid","Students, Section 504 only, 2021-22 school year","Appendix Sheet B, ENRL-1.30",verified
+SCH/Enrollment.csv,SCH_ENR_EL_M,enr_el,"Count; M+F strict, X added only when valid","Students, EL, 2021-22 school year","Appendix Sheet B, ENRL-1.22",verified
+SCH/Enrollment.csv,SCH_ENR_EL_F,enr_el,"Count; M+F strict, X added only when valid","Students, EL, 2021-22 school year","Appendix Sheet B, ENRL-1.23",verified
+SCH/Enrollment.csv,SCH_ENR_EL_X,enr_el,"Count; M+F strict, X added only when valid","Students, EL, 2021-22 school year","Appendix Sheet B, ENRL-1.24",verified
+SCH/Restraint and Seclusion.csv,SCH_RSINSTANCES_SECL_WODIS,seclusion_instances_wodis,"Count; summed with the other two groups, NA if any is NA","Instances of seclusion (not students), 2021-22 school year","Appendix Sheet B, RSTR-1.7",verified
+SCH/Restraint and Seclusion.csv,SCH_RSINSTANCES_SECL_IDEA,seclusion_instances_idea,"Count; summed with the other two groups, NA if any is NA","Instances of seclusion (not students), 2021-22 school year","Appendix Sheet B, RSTR-1.8",verified
+SCH/Restraint and Seclusion.csv,SCH_RSINSTANCES_SECL_504,seclusion_instances_504,"Count; summed with the other two groups, NA if any is NA","Instances of seclusion (not students), 2021-22 school year","Appendix Sheet B, RSTR-1.9",verified
+SCH/School Support.csv,SCH_FTETEACH_TOT,fte_teachers,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, STAF-1.1",verified
+SCH/School Support.csv,SCH_FTECOUNSELORS,fte_counselors,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, STAF-6",verified
+SCH/School Support.csv,SCH_FTESERVICES_NUR,fte_nurses,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, STAF-7.1",verified
+SCH/School Support.csv,SCH_FTESERVICES_PSY,fte_psych,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, STAF-7.2",verified
+SCH/School Support.csv,SCH_FTESERVICES_SOC,fte_social,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, STAF-7.3",verified
+SCH/School Support.csv,SCH_FTESECURITY_LEO,fte_leo,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, SECR-1.1",verified
+SCH/School Support.csv,SCH_FTESECURITY_GUA,fte_guards,"Numeric FTE, fractions kept","FTE (decimal), 2021-22 school year","Appendix Sheet B, SECR-1.2",verified
+LEA/LEA Characteristics.csv,LEA_ENR,lea_enrollment,Count,"Students in district, 2021-22 school year","Appendix Sheet B, SSPR-1",verified
+LEA/LEA Characteristics.csv,LEA_SCHOOLS,lea_schools,Count,"Public schools in district, 2021-22 school year","Appendix Sheet B, SSPR-3",verified
