@@ -1,0 +1,444 @@
+pandas 2.3.3
+
+==============================================================================
+1. EXTRACTION AND HASHES
+==============================================================================
+zip: Data_Files\2017-18-crdc-data.zip
+  sha256 422d5cef8733c0d3084cb16e5ad4f459e38de943d3cd5118bc60c93d1e27511a  size 119,899,863
+  data\raw_extracted\2017-18\School Characteristics.csv
+    sha256 4cbe0d51cc9c0c32bd9c57c5f608aa93762a67282698739ff98a276e7470d5d0  size 22,599,150  (already present, hash verified)
+  data\raw_extracted\2017-18\Enrollment.csv
+    sha256 7a62a3b6634e1b2c375c4af1866317b6949bb3612bf912ec31f638dfe5adab76  size 35,235,313  (already present, hash verified)
+  data\raw_extracted\2017-18\Restraint and Seclusion.csv
+    sha256 780c2ef2d209ae6d81207d311b674a7ee4d0053b54cf8452d06718403053084f  size 35,363,883  (already present, hash verified)
+  data\raw_extracted\2017-18\School Support.csv
+    sha256 75fddde40c18f1220921ce71fd2532e2760aa90ae38bf681f198d1987d8814aa  size 17,541,747  (already present, hash verified)
+  data\raw_extracted\2017-18\LEA Characteristics.csv
+    sha256 87afd6ce7cff48bdda1f5bac1f0cf04136d4f194ec2d021c2918aa869b69c909  size 8,606,629  (already present, hash verified)
+  data\raw_extracted\2017-18\2017-18 CRDC Public Data File Manual.pdf
+    sha256 2bd748ac6cc5b0b5563771e7857ef487e9b0f869e1b802057a79166076ec5cef  size 711,182  (already present, hash verified)
+  data\raw_extracted\2017-18\2017-18 CRDC Technical Document.pdf
+    sha256 4c7ebe235bf575a431f78ecf9464f6016831c039a1b2a604e748e5220b6d3ecb  size 350,936  (already present, hash verified)
+  data\raw_extracted\2017-18\2017-18 CRDC File Structure.xlsx
+    sha256 36bb6dcc3f99a335bc5f4508c87c1f62ece326c201735cd617f22d56ef5f425c  size 108,837  (already present, hash verified)
+  data\raw_extracted\2017-18\Appndx C. Post-Sub Data Quality Checks.xlsx
+    sha256 a91db8b35995ea65caa49c7a08c911ade6de4ad0f1f9d6d375466e125c6c99df  size 2,704,663  (already present, hash verified)
+definitions PDF: Data_Files\Documentation_Data_Definitions\2017-18_Master_List_of_CRDC_Definitions.pdf
+  sha256 dbae4a47e555b92ee4fae95e8897e0cd52d0e1d81a09fd12b467d8325e3b484b  size 290,650
+
+==============================================================================
+2.C FILE: School Characteristics  (data\raw_extracted\2017-18\School Characteristics.csv)
+==============================================================================
+bytes 22,599,150; BOM False; encoding used: cp1252  [utf-8 failed at byte 3481051 (0x96)]
+non-ASCII characters after decoding (6 total, 5 distinct): '–' U+2013 x2, 'Ã' U+00C3 x1, '‚' U+201A x1, 'Â' U+00C2 x1, '\xa0' U+00A0 x1
+raw: newline chars 97,634 (CRLF 97,634); ends with newline True; blank lines 1
+csv module: records incl. header 97,634; empty records 1; fields containing a line break 0
+csv field-count distribution: {32: 97633, 0: 1}
+pandas: 97,632 rows x 32 cols; fully empty rows after strip 0
+whitespace stripped (cells changed per column): none
+duplicate header names: none
+header (32): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_GRADE_PS, SCH_GRADE_KG, SCH_GRADE_G01, SCH_GRADE_G02, SCH_GRADE_G03, SCH_GRADE_G04, SCH_GRADE_G05, SCH_GRADE_G06, SCH_GRADE_G07, SCH_GRADE_G08, SCH_GRADE_G09, SCH_GRADE_G10, SCH_GRADE_G11, SCH_GRADE_G12, SCH_GRADE_UG, SCH_UGDETAIL_ES, SCH_UGDETAIL_MS, SCH_UGDETAIL_HS, SCH_STATUS_SPED, SCH_STATUS_MAGNET, SCH_STATUS_CHARTER, SCH_STATUS_ALT, SCH_MAGNETDETAIL, SCH_ALTFOCUS
+
+==============================================================================
+2.E FILE: Enrollment  (data\raw_extracted\2017-18\Enrollment.csv)
+==============================================================================
+bytes 35,235,313; BOM False; encoding used: utf-8-sig
+non-ASCII characters after decoding (6 total, 5 distinct): '\x96' U+0096 x2, 'Ã' U+00C3 x1, '\x82' U+0082 x1, 'Â' U+00C2 x1, '\xa0' U+00A0 x1
+raw: newline chars 97,633 (CRLF 97,633); ends with newline True; blank lines 0
+csv module: records incl. header 97,633; empty records 0; fields containing a line break 0
+csv field-count distribution: {123: 97633}
+pandas: 97,632 rows x 123 cols; fully empty rows after strip 0
+whitespace stripped (cells changed per column): none
+duplicate header names: none
+header (123): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_PSENR_NONIDEA_A3, SCH_PSENR_NONIDEA_A4, SCH_PSENR_NONIDEA_A5, SCH_PSENR_HI_M, SCH_PSENR_HI_F, SCH_PSENR_AM_M, SCH_PSENR_AM_F, SCH_PSENR_AS_M, SCH_PSENR_AS_F, SCH_PSENR_HP_M, SCH_PSENR_HP_F, SCH_PSENR_BL_M, SCH_PSENR_BL_F, SCH_PSENR_WH_M, SCH_PSENR_WH_F, SCH_PSENR_TR_M, SCH_PSENR_TR_F, TOT_PSENR_M, TOT_PSENR_F, SCH_PSENR_LEP_M, SCH_PSENR_LEP_F, SCH_PSENR_IDEA_M, SCH_PSENR_IDEA_F, SCH_ENR_HI_M, SCH_ENR_HI_F, SCH_ENR_AM_M, SCH_ENR_AM_F, SCH_ENR_AS_M, SCH_ENR_AS_F, SCH_ENR_HP_M, SCH_ENR_HP_F, SCH_ENR_BL_M, SCH_ENR_BL_F, SCH_ENR_WH_M, SCH_ENR_WH_F, SCH_ENR_TR_M, SCH_ENR_TR_F, TOT_ENR_M, TOT_ENR_F, SCH_ENR_LEP_M, SCH_ENR_LEP_F, SCH_ENR_504_M, SCH_ENR_504_F, SCH_ENR_IDEA_M, SCH_ENR_IDEA_F, SCH_LEPENR_HI_M, SCH_LEPENR_HI_F, SCH_LEPENR_AM_M, SCH_LEPENR_AM_F, SCH_LEPENR_AS_M, SCH_LEPENR_AS_F, SCH_LEPENR_HP_M, SCH_LEPENR_HP_F, SCH_LEPENR_BL_M, SCH_LEPENR_BL_F, SCH_LEPENR_WH_M, SCH_LEPENR_WH_F, SCH_LEPENR_TR_M, SCH_LEPENR_TR_F, TOT_LEPENR_M, TOT_LEPENR_F, SCH_LEPPROGENR_HI_M, SCH_LEPPROGENR_HI_F, SCH_LEPPROGENR_AM_M, SCH_LEPPROGENR_AM_F, SCH_LEPPROGENR_AS_M, SCH_LEPPROGENR_AS_F, SCH_LEPPROGENR_HP_M, SCH_LEPPROGENR_HP_F, SCH_LEPPROGENR_BL_M, SCH_LEPPROGENR_BL_F, SCH_LEPPROGENR_WH_M, SCH_LEPPROGENR_WH_F, SCH_LEPPROGENR_TR_M, SCH_LEPPROGENR_TR_F, TOT_LEPPROGENR_M, TOT_LEPPROGENR_F, SCH_LEPPROGENR_IDEA_M, SCH_LEPPROGENR_IDEA_F, SCH_IDEAENR_HI_M, SCH_IDEAENR_HI_F, SCH_IDEAENR_AM_M, SCH_IDEAENR_AM_F, SCH_IDEAENR_AS_M, SCH_IDEAENR_AS_F, SCH_IDEAENR_HP_M, SCH_IDEAENR_HP_F, SCH_IDEAENR_BL_M, SCH_IDEAENR_BL_F, SCH_IDEAENR_WH_M, SCH_IDEAENR_WH_F, SCH_IDEAENR_TR_M, SCH_IDEAENR_TR_F, TOT_IDEAENR_M, TOT_IDEAENR_F, SCH_IDEAENR_LEP_M, SCH_IDEAENR_LEP_F, SCH_504ENR_HI_M, SCH_504ENR_HI_F, SCH_504ENR_AM_M, SCH_504ENR_AM_F, SCH_504ENR_AS_M, SCH_504ENR_AS_F, SCH_504ENR_HP_M, SCH_504ENR_HP_F, SCH_504ENR_BL_M, SCH_504ENR_BL_F, SCH_504ENR_WH_M, SCH_504ENR_WH_F, SCH_504ENR_TR_M, SCH_504ENR_TR_F, TOT_504ENR_M, TOT_504ENR_F, SCH_504ENR_LEP_M, SCH_504ENR_LEP_F
+
+==============================================================================
+2.R FILE: Restraint and Seclusion  (data\raw_extracted\2017-18\Restraint and Seclusion.csv)
+==============================================================================
+bytes 35,363,883; BOM False; encoding used: utf-8-sig
+non-ASCII characters after decoding (12 total, 6 distinct): 'Â' U+00C2 x4, '\x96' U+0096 x2, 'Ã' U+00C3 x2, '\x82' U+0082 x2, '\x83' U+0083 x1, '\xa0' U+00A0 x1
+raw: newline chars 97,634 (CRLF 97,634); ends with newline True; blank lines 1
+csv module: records incl. header 97,634; empty records 1; fields containing a line break 0
+csv field-count distribution: {131: 97633, 0: 1}
+pandas: 97,632 rows x 131 cols; fully empty rows after strip 0
+whitespace stripped (cells changed per column): none
+duplicate header names: none
+header (131): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_RS_NONIDEA_MECH_HI_M, SCH_RS_NONIDEA_MECH_HI_F, SCH_RS_NONIDEA_MECH_AM_M, SCH_RS_NONIDEA_MECH_AM_F, SCH_RS_NONIDEA_MECH_AS_M, SCH_RS_NONIDEA_MECH_AS_F, SCH_RS_NONIDEA_MECH_HP_M, SCH_RS_NONIDEA_MECH_HP_F, SCH_RS_NONIDEA_MECH_BL_M, SCH_RS_NONIDEA_MECH_BL_F, SCH_RS_NONIDEA_MECH_WH_M, SCH_RS_NONIDEA_MECH_WH_F, SCH_RS_NONIDEA_MECH_TR_M, SCH_RS_NONIDEA_MECH_TR_F, TOT_RS_NONIDEA_MECH_M, TOT_RS_NONIDEA_MECH_F, SCH_RS_NONIDEA_MECH_LEP_M, SCH_RS_NONIDEA_MECH_LEP_F, SCH_RS_NONIDEA_MECH_504_M, SCH_RS_NONIDEA_MECH_504_F, SCH_RS_NONIDEA_PHYS_HI_M, SCH_RS_NONIDEA_PHYS_HI_F, SCH_RS_NONIDEA_PHYS_AM_M, SCH_RS_NONIDEA_PHYS_AM_F, SCH_RS_NONIDEA_PHYS_AS_M, SCH_RS_NONIDEA_PHYS_AS_F, SCH_RS_NONIDEA_PHYS_HP_M, SCH_RS_NONIDEA_PHYS_HP_F, SCH_RS_NONIDEA_PHYS_BL_M, SCH_RS_NONIDEA_PHYS_BL_F, SCH_RS_NONIDEA_PHYS_WH_M, SCH_RS_NONIDEA_PHYS_WH_F, SCH_RS_NONIDEA_PHYS_TR_M, SCH_RS_NONIDEA_PHYS_TR_F, TOT_RS_NONIDEA_PHYS_M, TOT_RS_NONIDEA_PHYS_F, SCH_RS_NONIDEA_PHYS_LEP_M, SCH_RS_NONIDEA_PHYS_LEP_F, SCH_RS_NONIDEA_PHYS_504_M, SCH_RS_NONIDEA_PHYS_504_F, SCH_RS_NONIDEA_SECL_HI_M, SCH_RS_NONIDEA_SECL_HI_F, SCH_RS_NONIDEA_SECL_AM_M, SCH_RS_NONIDEA_SECL_AM_F, SCH_RS_NONIDEA_SECL_AS_M, SCH_RS_NONIDEA_SECL_AS_F, SCH_RS_NONIDEA_SECL_HP_M, SCH_RS_NONIDEA_SECL_HP_F, SCH_RS_NONIDEA_SECL_BL_M, SCH_RS_NONIDEA_SECL_BL_F, SCH_RS_NONIDEA_SECL_WH_M, SCH_RS_NONIDEA_SECL_WH_F, SCH_RS_NONIDEA_SECL_TR_M, SCH_RS_NONIDEA_SECL_TR_F, TOT_RS_NONIDEA_SECL_M, TOT_RS_NONIDEA_SECL_F, SCH_RS_NONIDEA_SECL_504_M, SCH_RS_NONIDEA_SECL_504_F, SCH_RS_NONIDEA_SECL_LEP_M, SCH_RS_NONIDEA_SECL_LEP_F, SCH_RS_IDEA_MECH_HI_M, SCH_RS_IDEA_MECH_HI_F, SCH_RS_IDEA_MECH_AM_M, SCH_RS_IDEA_MECH_AM_F, SCH_RS_IDEA_MECH_AS_M, SCH_RS_IDEA_MECH_AS_F, SCH_RS_IDEA_MECH_HP_M, SCH_RS_IDEA_MECH_HP_F, SCH_RS_IDEA_MECH_BL_M, SCH_RS_IDEA_MECH_BL_F, SCH_RS_IDEA_MECH_WH_M, SCH_RS_IDEA_MECH_WH_F, SCH_RS_IDEA_MECH_TR_M, SCH_RS_IDEA_MECH_TR_F, TOT_RS_IDEA_MECH_M, TOT_RS_IDEA_MECH_F, SCH_RS_IDEA_MECH_LEP_M, SCH_RS_IDEA_MECH_LEP_F, SCH_RS_IDEA_PHYS_HI_M, SCH_RS_IDEA_PHYS_HI_F, SCH_RS_IDEA_PHYS_AM_M, SCH_RS_IDEA_PHYS_AM_F, SCH_RS_IDEA_PHYS_AS_M, SCH_RS_IDEA_PHYS_AS_F, SCH_RS_IDEA_PHYS_HP_M, SCH_RS_IDEA_PHYS_HP_F, SCH_RS_IDEA_PHYS_BL_M, SCH_RS_IDEA_PHYS_BL_F, SCH_RS_IDEA_PHYS_WH_M, SCH_RS_IDEA_PHYS_WH_F, SCH_RS_IDEA_PHYS_TR_M, SCH_RS_IDEA_PHYS_TR_F, TOT_RS_IDEA_PHYS_M, TOT_RS_IDEA_PHYS_F, SCH_RS_IDEA_PHYS_LEP_M, SCH_RS_IDEA_PHYS_LEP_F, SCH_RS_IDEA_SECL_HI_M, SCH_RS_IDEA_SECL_HI_F, SCH_RS_IDEA_SECL_AM_M, SCH_RS_IDEA_SECL_AM_F, SCH_RS_IDEA_SECL_AS_M, SCH_RS_IDEA_SECL_AS_F, SCH_RS_IDEA_SECL_HP_M, SCH_RS_IDEA_SECL_HP_F, SCH_RS_IDEA_SECL_BL_M, SCH_RS_IDEA_SECL_BL_F, SCH_RS_IDEA_SECL_WH_M, SCH_RS_IDEA_SECL_WH_F, SCH_RS_IDEA_SECL_TR_M, SCH_RS_IDEA_SECL_TR_F, TOT_RS_IDEA_SECL_M, TOT_RS_IDEA_SECL_F, SCH_RS_IDEA_SECL_LEP_M, SCH_RS_IDEA_SECL_LEP_F, SCH_RSINSTANCES_MECH_WODIS, SCH_RSINSTANCES_MECH_IDEA, SCH_RSINSTANCES_MECH_504, SCH_RSINSTANCES_PHYS_WODIS, SCH_RSINSTANCES_PHYS_IDEA, SCH_RSINSTANCES_PHYS_504, SCH_RSINSTANCES_SECL_WODIS, SCH_RSINSTANCES_SECL_IDEA, SCH_RSINSTANCES_SECL_504
+
+==============================================================================
+2.S FILE: School Support  (data\raw_extracted\2017-18\School Support.csv)
+==============================================================================
+bytes 17,541,747; BOM False; encoding used: cp1252  [utf-8 failed at byte 2697523 (0x96)]
+non-ASCII characters after decoding (6 total, 5 distinct): '–' U+2013 x2, 'Ã' U+00C3 x1, '‚' U+201A x1, 'Â' U+00C2 x1, '\xa0' U+00A0 x1
+raw: newline chars 97,634 (CRLF 97,634); ends with newline True; blank lines 1
+csv module: records incl. header 97,634; empty records 1; fields containing a line break 0
+csv field-count distribution: {22: 97633, 0: 1}
+pandas: 97,632 rows x 22 cols; fully empty rows after strip 0
+whitespace stripped (cells changed per column): none
+duplicate header names: none
+header (22): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_FTETEACH_TOT, SCH_FTETEACH_CERT, SCH_FTETEACH_NOTCERT, SCH_FTETEACH_FY, SCH_FTETEACH_SY, SCH_TEACHERS_CURR_TOT, SCH_TEACHERS_PREV_TOT, SCH_FTETEACH_ABSENT, SCH_FTECOUNSELORS, SCH_FTESECURITY_LEO, SCH_FTESECURITY_GUA, SCH_FTESERVICES_NUR, SCH_FTESERVICES_PSY, SCH_FTESERVICES_SOC
+
+==============================================================================
+2.L FILE: LEA Characteristics  (data\raw_extracted\2017-18\LEA Characteristics.csv)
+==============================================================================
+bytes 8,606,629; BOM False; encoding used: cp1252  [utf-8 failed at byte 1363568 (0x96)]
+non-ASCII characters after decoding (6 total, 2 distinct): '–' U+2013 x3, '’' U+2019 x3
+raw: newline chars 17,616 (CRLF 17,606); ends with newline True; blank lines 1
+csv module: records incl. header 17,606; empty records 1; fields containing a line break 10
+csv field-count distribution: {53: 17605, 0: 1}
+  quoted line break, csv record #14039 (0 = header): '7177048437\n'
+  quoted line break, csv record #16642 (0 = header): 'LINABURG\n'
+pandas: 17,604 rows x 53 cols; fully empty rows after strip 0
+whitespace stripped (cells changed per column): {'LEA_CRCOORD_SEX_FN': 7, 'LEA_CRCOORD_SEX_LN': 8, 'LEA_CRCOORD_SEX_PH': 8, 'LEA_CRCOORD_RAC_FN': 6, 'LEA_CRCOORD_RAC_LN': 6, 'LEA_CRCOORD_RAC_PH': 9, 'LEA_CRCOORD_DIS_FN': 4, 'LEA_CRCOORD_DIS_LN': 6, 'LEA_CRCOORD_DIS_PH': 11}
+duplicate header names: none
+header (53): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, LEA_ADDRESS, LEA_CITY, LEA_ZIP, CJJ, LEA_ENR, LEA_ENR_NONLEAFAC, LEA_SCHOOLS, LEA_CRCOORD_SEX_IND, LEA_CRCOORD_RAC_IND, LEA_CRCOORD_DIS_IND, LEA_CRCOORD_SEX_FN, LEA_CRCOORD_SEX_LN, LEA_CRCOORD_SEX_PH, LEA_CRCOORD_SEX_EM, LEA_CRCOORD_RAC_FN, LEA_CRCOORD_RAC_LN, LEA_CRCOORD_RAC_PH, LEA_CRCOORD_RAC_EM, LEA_CRCOORD_DIS_FN, LEA_CRCOORD_DIS_LN, LEA_CRCOORD_DIS_PH, LEA_CRCOORD_DIS_EM, LEA_DESEGPLAN, LEA_HBPOLICY_IND, LEA_HBPOLICYURL_IND, LEA_HBPOLICY_URL, LEA_ECE_IND, LEA_ECE_NONIDEA, LEA_PS_IND, LEA_PS_FULLDAYFREE, LEA_PS_FULLDAYCOST, LEA_PS_PARTDAYFREE, LEA_PS_PARTDAYCOST, LEA_PSENR_NONIDEA_A3, LEA_PSENR_NONIDEA_A4, LEA_PSENR_NONIDEA_A5, LEA_PSENR_A2, LEA_PSENR_A3, LEA_PSENR_A4, LEA_PSENR_A5, LEA_PSELIG_ALL, LEA_PSELIG_IDEA, LEA_PSELIG_TITLEI, LEA_PSELIG_LOWINC, LEA_KG_IND, LEA_KG_FULLDAYFREE, LEA_KG_FULLDAYCOST, LEA_KG_PARTDAYFREE, LEA_KG_PARTDAYCOST
+
+==============================================================================
+2.X REQUIRED FIELDS (playbook 2.1, 2017-18 column)
+==============================================================================
+all SCH_GRADE_* headers: ['SCH_GRADE_PS', 'SCH_GRADE_KG', 'SCH_GRADE_G01', 'SCH_GRADE_G02', 'SCH_GRADE_G03', 'SCH_GRADE_G04', 'SCH_GRADE_G05', 'SCH_GRADE_G06', 'SCH_GRADE_G07', 'SCH_GRADE_G08', 'SCH_GRADE_G09', 'SCH_GRADE_G10', 'SCH_GRADE_G11', 'SCH_GRADE_G12', 'SCH_GRADE_UG']
+grade 1-12 headers resolved: ['SCH_GRADE_G01', 'SCH_GRADE_G02', 'SCH_GRADE_G03', 'SCH_GRADE_G04', 'SCH_GRADE_G05', 'SCH_GRADE_G06', 'SCH_GRADE_G07', 'SCH_GRADE_G08', 'SCH_GRADE_G09', 'SCH_GRADE_G10', 'SCH_GRADE_G11', 'SCH_GRADE_G12']
+  School Characteristics: 11/11 present; missing none
+  Enrollment: 11/11 present; missing none
+  Restraint and Seclusion: 5/5 present; missing none
+  School Support: 10/10 present; missing none
+  LEA Characteristics: 5/5 present; missing none
+  presence check School Characteristics: SCH_VIRT_IND=absent, SCH_JUST_IND=absent
+  presence check Enrollment: TOT_ENR_X=absent, SCH_ENR_EL_M=absent, SCH_ENR_EL_F=absent, SCH_ENR_IDEA_X=absent, SCH_ENR_504_X=absent
+  presence check School Support: SCH_FTETEACH_CERT=present, SCH_FTETEACH_NOTCERT=present, SCH_FTETEACH_FY=present, SCH_FTETEACH_SY=present, SCH_FTETEACH_ABSENT=present, SCH_TEACHERS_CURR_TOT=present, SCH_TEACHERS_PREV_TOT=present
+
+==============================================================================
+2.ID School Characteristics
+==============================================================================
+ID checks (School Characteristics):
+  LEAID: blank 0, non-digit 510, too long (>7) 0; raw length distribution {7: 97122}
+    non-digit examples: ['06CC001', '06CC002', '06CC003', '06CC004', '06CC005']
+  SCHID: blank 0, non-digit 0, too long (>5) 0; raw length distribution {5: 97632}
+  COMBOKEY: blank 0, non-digit 510, too long (>12) 0; raw length distribution {12: 97122}
+    non-digit examples: ['06CC00100001', '06CC00200001', '06CC00300001', '06CC00400001', '06CC00500001']
+  duplicate COMBOKEY: 0 keys on 0 rows
+  COMBOKEY == LEAID.zfill(7)+SCHID.zfill(5): checked 97,122, mismatches 0 (LEAID part 0, SCHID part 0)
+
+==============================================================================
+2.ID Enrollment
+==============================================================================
+ID checks (Enrollment):
+  LEAID: blank 0, non-digit 510, too long (>7) 0; raw length distribution {7: 97122}
+    non-digit examples: ['06CC001', '06CC002', '06CC003', '06CC004', '06CC005']
+  SCHID: blank 0, non-digit 0, too long (>5) 0; raw length distribution {5: 97632}
+  COMBOKEY: blank 0, non-digit 510, too long (>12) 0; raw length distribution {12: 97122}
+    non-digit examples: ['06CC00100001', '06CC00200001', '06CC00300001', '06CC00400001', '06CC00500001']
+  duplicate COMBOKEY: 0 keys on 0 rows
+  COMBOKEY == LEAID.zfill(7)+SCHID.zfill(5): checked 97,122, mismatches 0 (LEAID part 0, SCHID part 0)
+
+==============================================================================
+2.ID Restraint and Seclusion
+==============================================================================
+ID checks (Restraint and Seclusion):
+  LEAID: blank 0, non-digit 510, too long (>7) 0; raw length distribution {7: 97122}
+    non-digit examples: ['06CC001', '06CC002', '06CC003', '06CC004', '06CC005']
+  SCHID: blank 0, non-digit 0, too long (>5) 0; raw length distribution {5: 97632}
+  COMBOKEY: blank 0, non-digit 510, too long (>12) 0; raw length distribution {12: 97122}
+    non-digit examples: ['06CC00100001', '06CC00200001', '06CC00300001', '06CC00400001', '06CC00500001']
+  duplicate COMBOKEY: 0 keys on 0 rows
+  COMBOKEY == LEAID.zfill(7)+SCHID.zfill(5): checked 97,122, mismatches 97,120 (LEAID part 0, SCHID part 97,120)
+    e.g. COMBOKEY 010000201705 LEAID 0100002 SCHID 01017
+    e.g. COMBOKEY 010000201706 LEAID 0100002 SCHID 01017
+    e.g. COMBOKEY 010000201876 LEAID 0100002 SCHID 01018
+    e.g. COMBOKEY 010000299995 LEAID 0100002 SCHID 01999
+    e.g. COMBOKEY 010000500870 LEAID 0100005 SCHID 01008
+
+==============================================================================
+2.ID School Support
+==============================================================================
+ID checks (School Support):
+  LEAID: blank 0, non-digit 510, too long (>7) 0; raw length distribution {7: 97122}
+    non-digit examples: ['06CC001', '06CC002', '06CC003', '06CC004', '06CC005']
+  SCHID: blank 0, non-digit 0, too long (>5) 0; raw length distribution {5: 97632}
+  COMBOKEY: blank 0, non-digit 510, too long (>12) 0; raw length distribution {12: 97122}
+    non-digit examples: ['06CC00100001', '06CC00200001', '06CC00300001', '06CC00400001', '06CC00500001']
+  duplicate COMBOKEY: 0 keys on 0 rows
+  COMBOKEY == LEAID.zfill(7)+SCHID.zfill(5): checked 97,122, mismatches 0 (LEAID part 0, SCHID part 0)
+
+==============================================================================
+2.ID LEA Characteristics
+==============================================================================
+ID checks (LEA Characteristics):
+  LEAID: blank 0, non-digit 452, too long (>7) 0; raw length distribution {7: 17152}
+    non-digit examples: ['06CC001', '06CC002', '06CC003', '06CC004', '06CC005']
+  SCHID: (column absent)
+  COMBOKEY: (column absent)
+  duplicate LEAID: 0 keys on 0 rows
+
+==============================================================================
+3. CROSS-MODULE KEYS AND IDENTITY FIELDS
+==============================================================================
+Enrollment vs Characteristics: shared 97,632; only in Characteristics 0; only in Enrollment 0
+  LEAID disagreements on shared keys: 0
+  SCHID disagreements on shared keys: 0
+  LEA_STATE disagreements on shared keys: 0
+  LEA_NAME disagreements on shared keys: 2
+    06CC34000001: Characteristics 'Opportunities for Learning – Duarte' vs E 'Opportunities for Learning \x96 Duarte'
+    06CC34100001: Characteristics 'Options for Youth – San Bernardino' vs E 'Options for Youth \x96 San Bernardino'
+  SCH_NAME disagreements on shared keys: 2
+    069909999999: Characteristics 'Kepler Neighborhood School`' vs E 'Kepler Neighborhood School'
+    340783002774: Characteristics 'James J Ferris High SchoolÃ‚Â\xa0(FHS)' vs E 'James J Ferris High SchoolÃ\x82Â\xa0(FHS)'
+  JJ disagreements on shared keys: 0
+Restraint and Seclusion vs Characteristics: shared 97,632; only in Characteristics 0; only in Restraint and Seclusion 0
+  LEAID disagreements on shared keys: 0
+  SCHID disagreements on shared keys: 97,630
+    010000201705: Characteristics '01705' vs R '01017'
+    010000201706: Characteristics '01706' vs R '01017'
+    010000201876: Characteristics '01876' vs R '01018'
+    010000299995: Characteristics '99995' vs R '01999'
+    010000500870: Characteristics '00870' vs R '01008'
+  LEA_STATE disagreements on shared keys: 0
+  LEA_NAME disagreements on shared keys: 1,045
+    010002401835: Characteristics 'Sequel TSI- New Beginnings School/ Owens Crossroads' vs R 'Sequel TSI- New Beginnings School/ Owens Crossroad'
+    040003300703: Characteristics 'Boys & Girls Clubs of the East Valley dba Mesa Arts Academy' vs R 'Boys & Girls Clubs of the East Valley dba Mesa Art'
+    040003700712: Characteristics 'Twenty First Century Charter School  Inc. Bennett Academy' vs R 'Twenty First Century Charter School  Inc. Bennett'
+    040003703168: Characteristics 'Twenty First Century Charter School  Inc. Bennett Academy' vs R 'Twenty First Century Charter School  Inc. Bennett'
+    040004100718: Characteristics 'Maricopa County Community College District dba Gateway Early' vs R 'Maricopa County Community College District dba Gat'
+  SCH_NAME disagreements on shared keys: 1
+    340783002774: Characteristics 'James J Ferris High SchoolÃ‚Â\xa0(FHS)' vs R 'James J Ferris High SchoolÃ\x83Â\x82Ã\x82Â\xa0(FHS)'
+  JJ disagreements on shared keys: 0
+  R.SCHID == COMBOKEY[-5:]: 2 of 97,632
+School Support vs Characteristics: shared 97,632; only in Characteristics 0; only in School Support 0
+  LEAID disagreements on shared keys: 0
+  SCHID disagreements on shared keys: 0
+  LEA_STATE disagreements on shared keys: 0
+  LEA_NAME disagreements on shared keys: 0
+  SCH_NAME disagreements on shared keys: 0
+  JJ disagreements on shared keys: 0
+
+==============================================================================
+4. SCHOOL -> LEA
+==============================================================================
+distinct school LEAIDs (Characteristics) 17,604; found in LEA file 17,604; not found 0
+school rows whose LEAID is in LEA file: 97,632 of 97,632
+LEA rows with no school in Characteristics: 0
+LEA_STATE school vs LEA: exact-string disagreements 0 rows (0 LEAIDs); after case/space normalization 0 rows (0 LEAIDs)
+LEA_NAME school vs LEA: exact-string disagreements 0 rows (0 LEAIDs); after case/space normalization 0 rows (0 LEAIDs)
+LEA_STATE distinct in Characteristics: 52; PR present True; values ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+LEA_STATE distinct in LEA: 52; PR present True; values ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+
+==============================================================================
+5. COUNT AND FTE FIELDS (valid = parses as a number and >= 0)
+==============================================================================
+Enrollment:
+  TOT_ENR_M: n 97,632; valid>=0 97,621; zero 253; >0 97,368; blank 0; non-numeric 0; negative codes {'-5': 10, '-6': 1}; non-integer 0; min 0; max 6890
+  TOT_ENR_F: n 97,632; valid>=0 97,621; zero 798; >0 96,823; blank 0; non-numeric 0; negative codes {'-5': 10, '-6': 1}; non-integer 0; min 0; max 7396
+  SCH_ENR_IDEA_M: n 97,632; valid>=0 97,622; zero 3,359; >0 94,263; blank 0; non-numeric 0; negative codes {'-5': 10}; non-integer 0; min 0; max 1243
+  SCH_ENR_IDEA_F: n 97,632; valid>=0 97,622; zero 4,951; >0 92,671; blank 0; non-numeric 0; negative codes {'-5': 10}; non-integer 0; min 0; max 888
+  SCH_ENR_504_M: n 97,632; valid>=0 97,622; zero 27,843; >0 69,779; blank 0; non-numeric 0; negative codes {'-5': 10}; non-integer 0; min 0; max 358
+  SCH_ENR_504_F: n 97,632; valid>=0 97,622; zero 33,444; >0 64,178; blank 0; non-numeric 0; negative codes {'-5': 10}; non-integer 0; min 0; max 336
+  SCH_ENR_LEP_M: n 97,632; valid>=0 97,622; zero 23,245; >0 74,377; blank 0; non-numeric 0; negative codes {'-5': 10}; non-integer 0; min 0; max 857
+  SCH_ENR_LEP_F: n 97,632; valid>=0 97,622; zero 25,460; >0 72,162; blank 0; non-numeric 0; negative codes {'-5': 10}; non-integer 0; min 0; max 895
+Restraint and Seclusion:
+  SCH_RSINSTANCES_SECL_WODIS: n 97,632; valid>=0 91,141; zero 89,079; >0 2,062; blank 0; non-numeric 0; negative codes {'-5': 291, '-6': 3089, '-9': 1908, '-11': 1203}; non-integer 0; min 0; max 474
+  SCH_RSINSTANCES_SECL_IDEA: n 97,632; valid>=0 91,550; zero 86,046; >0 5,504; blank 0; non-numeric 0; negative codes {'-5': 42, '-6': 2992, '-9': 1908, '-11': 1140}; non-integer 0; min 0; max 1252
+  SCH_RSINSTANCES_SECL_504: n 97,632; valid>=0 91,380; zero 91,063; >0 317; blank 0; non-numeric 0; negative codes {'-5': 259, '-6': 3078, '-9': 1908, '-11': 1007}; non-integer 0; min 0; max 191
+LEA Characteristics:
+  LEA_ENR: n 17,604; valid>=0 17,603; zero 0; >0 17,603; blank 0; non-numeric 0; negative codes {'-5': 1}; non-integer 0; min 1; max 966551
+  LEA_SCHOOLS: n 17,604; valid>=0 17,604; zero 10; >0 17,594; blank 0; non-numeric 0; negative codes {}; non-integer 0; min 0; max 1603
+School Support (FTE):
+  SCH_FTETEACH_TOT: n 97,632; valid>=0 97,611; zero 756; >0 96,855; blank 0; non-numeric 0; negative codes {'-5.00': 11, '-6.00': 10}; fractional 48,308; min 0.0; max 607.0
+    top: 607.00 | 340002400289 | North Star Academy Charter School | North Star Academy Charter School | NJ
+    top: 499.00 | 400080002865 | EPIC BLENDED CHARTER TULSA MS | EPIC BLENDED LEARNING CHARTER | OK
+    top: 457.00 | 420014000896 | Agora Cyber CS | Agora Cyber CS | PA
+  SCH_FTECOUNSELORS: n 97,632; valid>=0 97,611; zero 25,930; >0 71,681; blank 0; non-numeric 0; negative codes {'-5.00': 11, '-6.00': 10}; fractional 18,600; min 0.0; max 100.0
+    top: 100.00 | 350015301083 | MCCURDY CHARTER SCHOOL | MCCURDY CHARTER SCHOOL | NM
+    top: 100.00 | 280162000249 | STERN ELEMENTARY SCHOOL | GREENVILLE PUBLIC SCHOOLS | MS
+    top: 71.00 | 350014801089 | MISSION ACHIEVEMENT AND SUCCESS | MISSION ACHIEVEMENT AND SUCCESS | NM
+  SCH_FTESERVICES_NUR: n 97,632; valid>=0 97,611; zero 34,764; >0 62,847; blank 0; non-numeric 0; negative codes {'-5.00': 11, '-6.00': 10}; fractional 27,292; min 0.0; max 194.0
+    top: 194.00 | 181134001821 | Battle Ground Elementary School | Tippecanoe School Corp | IN
+    top: 67.67 | 510375001201 | Luther P. Jackson Middle | SURRY CO PBLC SCHS | VA
+    top: 54.00 | 181281000238 | North Wayne Elementary School | M S D Wayne Township | IN
+  SCH_FTESERVICES_PSY: n 97,632; valid>=0 97,611; zero 52,780; >0 44,831; blank 0; non-numeric 0; negative codes {'-5.00': 11, '-6.00': 10}; fractional 29,479; min 0.0; max 19048.6
+    top: 19048.60 | 530591000891 | Northshore Middle School | Northshore School District | WA
+    top: 72.00 | 060636000560 | James A. Whitaker Elementary | Buena Park Elementary | CA
+    top: 60.00 | 181065001750 | Fall Creek Elementary School | Hamilton Southeastern Schools | IN
+  SCH_FTESERVICES_SOC: n 97,632; valid>=0 97,611; zero 67,238; >0 30,373; blank 0; non-numeric 0; negative codes {'-5.00': 11, '-6.00': 10}; fractional 15,347; min 0.0; max 95.0
+    top: 95.00 | 240027001727 | St. Charles High School | Charles County Public Schools | MD
+    top: 75.00 | 090483001638 | Waterbury Career Academy | WATERBURY SCHOOL DISTRICT | CT
+    top: 50.50 | 270009904609 | YELLOW MEDICINE EAST MIDDLE SCHOOL | YELLOW MEDICINE EAST | MN
+  SCH_FTESECURITY_LEO: n 97,632; valid>=0 96,017; zero 72,800; >0 23,217; blank 0; non-numeric 0; negative codes {'-5.00': 11, '-6.00': 1604}; fractional 10,486; min 0.0; max 333.0
+    top: 333.00 | 160159000972 | SUMMIT ELEMENTARY | JEROME JOINT DISTRICT | ID
+    top: 333.00 | 160159000272 | HORIZON ELEMENTARY SCHOOL | JEROME JOINT DISTRICT | ID
+    top: 82.00 | 340008900672 | CAMDEN County Juvenile Detention Center | OFFICE OF EDUCATION JUVENILE JUSTICE COMMISSION | NJ
+  SCH_FTESECURITY_GUA: n 97,632; valid>=0 95,425; zero 82,048; >0 13,377; blank 0; non-numeric 0; negative codes {'-5.00': 10, '-6.00': 1595, '-9.00': 602}; fractional 3,238; min 0.0; max 102579.0
+    top: 102579.00 | 481662001424 | DEL VALLE H S | DEL VALLE ISD | TX
+    top: 34204.00 | 481662012337 | DAILEY MIDDLE | DEL VALLE ISD | TX
+    top: 32678.00 | 481662009527 | JOHN P OJEDA MIDDLE | DEL VALLE ISD | TX
+
+Seclusion instance triple (Restraint and Seclusion):
+  rows 97,632; all three >= 0: 91,013; any negative: 6,619
+  rows with -9 on any instance field: 1,908; all three -9: 1,908
+  WODIS > 0: 2,062; IDEA > 0: 5,504; 504 > 0: 317; triple-valid with sum > 0: 5,975
+  code patterns (WODIS, IDEA, 504) -> rows:
+    ('>=0', '>=0', '>=0'): 91,013
+    ('-6', '-6', '-6'): 2,979
+    ('-9', '-9', '-9'): 1,908
+    ('-11', '-11', '-11'): 1,000
+    ('-5', '>=0', '-5'): 217
+    ('-11', '>=0', '>=0'): 180
+    ('>=0', '-11', '>=0'): 115
+    ('-6', '>=0', '-6'): 95
+    ('-5', '-5', '-5'): 42
+    ('-5', '>=0', '>=0'): 32
+    ('-11', '-11', '>=0'): 23
+    ('-6', '>=0', '>=0'): 8
+    ('-6', '-6', '>=0'): 7
+    ('>=0', '>=0', '-11'): 5
+    ('>=0', '-6', '-6'): 4
+    ('>=0', '-6', '>=0'): 2
+    ('>=0', '-11', '-11'): 2
+  JJ x WODIS code:
+    WODIS   -11   -5    -6    -9    >=0
+    JJ                                 
+    No     1190  290  3063  1902  90585
+    Yes      13    1    26     6    556
+
+Enrollment: TOT_ENR_M usable 97,621; TOT_ENR_F usable 97,621; both usable 97,621; M+F == 0 0; 0 < M+F < 10 1,212
+  IDEA: M and F both usable 97,622; subgroup > total (both totals usable) 222
+    e.g. COMBOKEY=010000901403, TOT_ENR_M=109, TOT_ENR_F=97, SCH_ENR_IDEA_M=110, SCH_ENR_IDEA_F=97
+    e.g. COMBOKEY=010336001610, TOT_ENR_M=18, TOT_ENR_F=4, SCH_ENR_IDEA_M=20, SCH_ENR_IDEA_F=4
+    e.g. COMBOKEY=040000103334, TOT_ENR_M=61, TOT_ENR_F=28, SCH_ENR_IDEA_M=62, SCH_ENR_IDEA_F=28
+  504: M and F both usable 97,622; subgroup > total (both totals usable) 0
+  LEP: M and F both usable 97,622; subgroup > total (both totals usable) 10
+    e.g. COMBOKEY=062394009577, TOT_ENR_M=2, TOT_ENR_F=1, SCH_ENR_LEP_M=2, SCH_ENR_LEP_F=2
+    e.g. COMBOKEY=220015902331, TOT_ENR_M=349, TOT_ENR_F=472, SCH_ENR_LEP_M=350, SCH_ENR_LEP_F=472
+    e.g. COMBOKEY=230387000074, TOT_ENR_M=75, TOT_ENR_F=67, SCH_ENR_LEP_M=75, SCH_ENR_LEP_F=68
+
+FTE review triggers (teachers > 2,000; other core FTE > 200), every triggering row:
+  SCH_FTETEACH_TOT > 2000: 0
+  SCH_FTECOUNSELORS > 200: 0
+  SCH_FTESERVICES_NUR > 200: 0
+  SCH_FTESERVICES_PSY > 200: 1
+    19048.60 | 530591000891 | Northshore Middle School | Northshore School District | WA
+  SCH_FTESERVICES_SOC > 200: 0
+  SCH_FTESECURITY_LEO > 200: 2
+    333.00 | 160159000272 | HORIZON ELEMENTARY SCHOOL | JEROME JOINT DISTRICT | ID
+    333.00 | 160159000972 | SUMMIT ELEMENTARY | JEROME JOINT DISTRICT | ID
+  SCH_FTESECURITY_GUA > 200: 7
+    102579.00 | 481662001424 | DEL VALLE H S | DEL VALLE ISD | TX
+    34204.00 | 481662012337 | DAILEY MIDDLE | DEL VALLE ISD | TX
+    32678.00 | 481662009527 | JOHN P OJEDA MIDDLE | DEL VALLE ISD | TX
+    24615.00 | 481662001425 | DEL VALLE MIDDLE | DEL VALLE ISD | TX
+    22835.00 | 481662021529 | DEL VALLE OPPORTUNITY CTR | DEL VALLE ISD | TX
+    613.00 | 420080699999 | SCI- Camp Hill | SCI- Camp Hill | PA
+    211.00 | 220004701781 | Southside Alternative High School | Office of Juvenile Justice | LA
+
+==============================================================================
+6. CATEGORY FIELDS (raw values, repr shows spacing/case)
+==============================================================================
+  JJ: 'No': 97,030, 'Yes': 602
+  SCH_STATUS_SPED: 'No': 95,421, 'Yes': 2,211
+  SCH_STATUS_CHARTER: 'No': 90,583, 'Yes': 7,049
+  SCH_STATUS_ALT: 'No': 94,289, 'Yes': 3,343
+  SCH_STATUS_MAGNET: 'No': 93,509, 'Yes': 4,123
+  SCH_GRADE_KG: 'Yes': 52,104, 'No': 45,528
+  SCH_GRADE_G01: 'Yes': 52,638, 'No': 44,994
+  SCH_GRADE_G02: 'Yes': 52,753, 'No': 44,879
+  SCH_GRADE_G03: 'Yes': 52,713, 'No': 44,919
+  SCH_GRADE_G04: 'Yes': 52,390, 'No': 45,242
+  SCH_GRADE_G05: 'Yes': 50,942, 'No': 46,690
+  SCH_GRADE_G06: 'No': 62,162, 'Yes': 35,470
+  SCH_GRADE_G07: 'No': 67,490, 'Yes': 30,142
+  SCH_GRADE_G08: 'No': 67,190, 'Yes': 30,442
+  SCH_GRADE_G09: 'No': 72,981, 'Yes': 24,651
+  SCH_GRADE_G10: 'No': 72,710, 'Yes': 24,922
+  SCH_GRADE_G11: 'No': 72,609, 'Yes': 25,023
+  SCH_GRADE_G12: 'No': 72,701, 'Yes': 24,931
+  rows with any KG/G01-G12 flag not exactly 'Yes'/'No': 0
+
+==============================================================================
+6b. STRING FIELDS (playbook 2.1: lea_state, sch_name from C; lea_name from L)
+==============================================================================
+  School Characteristics.LEA_STATE: blank 0; distinct 52; length min 2 max 2; rows with non-ASCII 0; rows with control chars 0; internal double spaces 0; not 2 uppercase letters 0
+  School Characteristics.SCH_NAME: blank 0; distinct 85,591; length min 3 max 80; rows with non-ASCII 1; rows with control chars 0; internal double spaces 362
+    non-ASCII value: 'James J Ferris High SchoolÃ‚Â\xa0(FHS)'
+  School Characteristics.LEA_NAME: blank 0; distinct 17,312; length min 3 max 89; rows with non-ASCII 2; rows with control chars 0; internal double spaces 331
+    non-ASCII value: 'Opportunities for Learning – Duarte'
+    non-ASCII value: 'Options for Youth – San Bernardino'
+  LEA Characteristics.LEA_STATE: blank 0; distinct 52; length min 2 max 2; rows with non-ASCII 0; rows with control chars 0; internal double spaces 0; not 2 uppercase letters 0
+  LEA Characteristics.LEA_NAME: blank 0; distinct 17,312; length min 3 max 89; rows with non-ASCII 2; rows with control chars 0; internal double spaces 198
+    non-ASCII value: 'Opportunities for Learning – Duarte'
+    non-ASCII value: 'Options for Youth – San Bernardino'
+  duplicate (LEAID, SCH_NAME) pairs in Characteristics: 202 rows (names are not keys; FYI only)
+
+==============================================================================
+7. FOLLOW-UP CHECKS
+==============================================================================
+Non-digit IDs (Characteristics):
+  rows 510; distinct LEAIDs 452; LEAID shapes {'99AA999': 482, '99AAA99': 28}; states {'CA': 482, 'IA': 1, 'MD': 13, 'MA': 10, 'NV': 1, 'NH': 1, 'TN': 2}
+  SCHID values on these rows: {'00001': 374, '99999': 76, '99998': 13, '99997': 5, '00002': 3}
+    06CC00100001 | LEAID 06CC001 | SCHID 00001 | Rocklin Academy | Rocklin Academy
+    06CC00200001 | LEAID 06CC002 | SCHID 00001 | Rocklin Academy at Meyers Street | Rocklin Academy at Meyers Street
+    06CC00300001 | LEAID 06CC003 | SCHID 00001 | Maria Montessori Charter Academy | MARIA MONTESSORI CHARTER ACADEMY
+    06CC00400001 | LEAID 06CC004 | SCHID 00001 | Fenton STEM Academy: Elementary Center for Science Technology Engineering and Ma | Fenton STEM Academy: Elementary Center for Science Technology Engineering and Mathematics
+    06CC00500001 | LEAID 06CC005 | SCHID 00001 | Sycamore Academy of Science and Cultural Arts | SYCAMORE ACADEMY OF SCIENCE AND CULTURAL ARTS
+  COMBOKEY == LEAID + SCHID as plain strings, ALL rows: mismatches 0 of 97,632
+  LEA file: non-digit LEAIDs 452; states {'CA': 445, 'IA': 1, 'MD': 2, 'MA': 1, 'NV': 1, 'NH': 1, 'TN': 1}
+  these schools: seclusion triple valid 461 of 510; TOT_ENR_M and F valid 510
+
+Rows with a negative code on TOT_ENR_M or TOT_ENR_F:
+  250936001493 | Center | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001495 | J Henry Higgins Middle | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001496 | John E Burke | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001501 | Captain Samuel Brown | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001502 | South Memorial | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001503 | Thomas Carroll | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001504 | Peabody Veterans Memorial High | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001505 | West Memorial | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001506 | William A Welch Sr | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  250936001821 | John E. McCarthy | MA | M -5 F -5 | IDEA_M -5 LEP_M -5
+  390439399999 | Preble County Educational Service Center Alternative School | OH | M -6 F -6 | IDEA_M 14 LEP_M 0
+
+Seclusion code pattern x SCH_STATUS_SPED (patterns containing -5):
+    SPED                     No  Yes
+    pattern WODIS/IDEA/504          
+    -5/-5/-5                 42    0
+    -5/ok/-5                216    1
+    -5/ok/ok                 32    0
+    JJ                       No  Yes
+    pattern WODIS/IDEA/504          
+    -5/-5/-5                 41    1
+    -5/ok/-5                217    0
+    -5/ok/ok                 32    0
+  pattern -5/ok/-5 (217 schools): total enrollment - IDEA enrollment: ==0 0, <0 0, >0 217; max 3062
+
+Security FTE reserved codes x JJ:
+    JJ                      No  Yes
+    SCH_FTESECURITY_LEO            
+    -5.00                   10    1
+    -6.00                 1595    9
+    ok                   95425  592
+    JJ                      No  Yes
+    SCH_FTESECURITY_GUA            
+    -5.00                   10    0
+    -6.00                 1595    0
+    -9.00                    0  602
+    ok                   95425    0
+    JJ                   No  Yes
+    SCH_FTETEACH_TOT            
+    -5.00                10    1
+    -6.00                 2    8
+    ok                97018  593
+
+Rows with negative codes on all core FTE fields simultaneously:
+  20; codes: {'-5.00': 11, '-6.00': 9}
+
+LEA_SCHOOLS == 0 (10 LEAs) vs number of roster schools with that LEAID:
+  0100020 | Boyd School | AL | LEA_ENR 6 | roster schools 1
+  0100038 | Pathway Inc | AL | LEA_ENR 162 | roster schools 1
+  0100178 | Higdon Hill School | AL | LEA_ENR 252 | roster schools 2
+  1700162 | Adam/Brwn/Cass/Morgn/Pik/Sctt ROE | IL | LEA_ENR 140 | roster schools 5
+  1700184 | Grundy/Kendall ROE | IL | LEA_ENR 48 | roster schools 2
+  2800183 | ROGER AMOS MCMURTRY ADM | MS | LEA_ENR 44 | roster schools 1
+  2801193 | STOVALL SPED COMPLEX ADMINISTRATION | MS | LEA_ENR 2 | roster schools 1
+  3480363 | Gloucester County Special Services School District | NJ | LEA_ENR 634 | roster schools 1
+  4200809 | SCI-PINE GROVE | PA | LEA_ENR 133 | roster schools 1
+  4800261 | HARRIS COUNTY DEPT OF ED | TX | LEA_ENR 284 | roster schools 3
+LEA_ENR negative: 2509360 | Peabody | MA | LEA_ENR -5 | LEA_SCHOOLS 10 | roster schools 10
+LEA_SCHOOLS vs roster school count: equal 17,166 of 17,604
