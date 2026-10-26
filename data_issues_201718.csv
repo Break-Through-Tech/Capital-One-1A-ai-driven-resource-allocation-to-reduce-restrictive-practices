@@ -1,0 +1,14 @@
+#,severity,issue,rows,detail
+1,High,sch_virt_ind is 100% empty,97632,Virtual schools cannot be analysed; name-contains-virtual/online/cyber proxy used instead (427 schools in analysis file).
+2,Med,enr_nonbinary is 100% empty,97632,Column carries no information; drop or document.
+3,High,Impossible FTE values,68,"flag_fte_outlier fires on 68 rows, but extreme values remain: max fte_psych=19,048.6, max fte_guards=102,579. Unflagged rows still above sanity limits (psych/social/nurse/counselor>50, guards>100, teachers>300): 11. Flagged rows are still present in the analysis file."
+4,High,Seclusion missing set on total if ANY component is reserved,6619,690 schools have 1-2 components missing; 226 of them have an observed component > 0 (a known lower bound that is discarded). Missingness also differs by type (special ed schools: higher).
+5,High,Extreme seclusion counts in mainstream schools,236,155 analysis rows have more instances than students; 226 regular (non sped/alt/justice) schools exceed 25 instances per 100 students. Examples: Claiborne Pell Elementary (RI) 829 instances / 898 students; Urbana Middle (IL) 736 / 937; Whitman Elementary (WA) 622 / 562. Could be genuine (a few students secluded repeatedly) or entry errors; verify against the CRDC source before the top values are used as training labels.
+6,Med,"""seclusion_rate"" naming/units",91013,It is instances per 100 students (can exceed 100); name implies a proportion. Rename to seclusion_instances_per_100.
+7,Med,Tiny enrollments,1041,Enrollment 1-9: rate and per-100 staffing ratios are unstable; flag_small_enrollment (<10) is not applied in analysis file and the cut-off is too low for rates (see section 9).
+8,Med,enr_idea > enrollment_total,222,"Impossible; cleaning sets pct_idea to NA for these 222 rows (matches log) but keeps enr_idea itself, so enr_idea should not be used raw. Remaining pct_idea max = 100.0."
+9,Low,Flags that never fire,6,"flag_partial_enrollment/idea/504/el, flag_missing_module, flag_missing_lea are all False — remove or confirm they are implemented."
+10,Low,Quality-log entry with no school key,1,"One LEA-level entry (LEA_ENR reserved code -5, LEAID 2509360) has no combokey. Expected, but document that the log is not 100% joinable to the schools file."
+11,High,Race / sex of secluded students not carried through cleaning,0,Required for the equity checklist item; also other discipline/restraint columns needed for the leakage review are absent.
+12,Low,fte_leo / fte_guards missing,3822,1.7% / 2.3% missing (reserved codes); decide on imputing 0 vs NA.
+13,Med,State coverage and reporting practice,0,"52 state codes (incl. DC and PR); confirm intended universe. Puerto Rico has 1099 schools and zero reported seclusion; several states (CA, TX, NV, PA, NY...) are below 1% of schools reporting any, so cross-state differences mix real practice with state law / reporting definitions."
