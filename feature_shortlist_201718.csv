@@ -1,0 +1,24 @@
+feature,group,decision,reason
+log(enrollment_total),Size,Include,Strongest scale effect; needed because instances scale with students.
+grade_band,School type,Include,Elementary 8.9% vs high 2.9% any seclusion; holds in regular schools.
+sch_status_sped,School type,Include,16.6% vs 6.4% any; 23.5% of instances.
+sch_status_alt,School type,Include,"Lower rate, distinct population; low redundancy."
+sch_status_charter,School type,Include,2.8% vs 6.9% any; small but stable effect.
+jj (justice facility),School type,Include,Small group (555) but extreme rates when positive.
+sch_status_magnet,School type,Optional,Weak signal in permutation importance.
+pct_idea,Population,Include,Clearest positive correlate; top permutation importance. Use cleaned pct_idea (NA where enr_idea > enrollment).
+pct_504,Population,Include,Negative at high levels; moderate importance.
+pct_el,Population,Include,Inverted-U; weak but independent of IDEA.
+"psych_per_100, social_per_100",Staffing,Include,"Positive association after adjustment; compute from FTE / enrollment, capped at 99.5th pct."
+"counselors_per_100, nurses_per_100",Staffing,Optional,Near-zero adjusted effect; keep for completeness.
+teachers_per_100,Staffing,Optional,Moderate permutation importance but unstable for tiny schools; check with min enrollment 30.
+fte_leo / fte_guards per 100,Security,Optional (caution),Negative association; likely reverse causality; use only if framed as association.
+log(lea_enrollment),District context,Include,Top permutation importance among context features; drop lea_schools (rho 0.97).
+lea_state (categorical / region),Context,Include in a second model,Dominant signal (AUC 0.73 -> 0.84) reflecting reporting practice; run models with and without it and report both.
+"fte_teachers, fte_counselors (raw counts)",Staffing,Drop,Redundant with enrollment (rho 0.90 / 0.53).
+support_fte_per_100,Staffing,Drop,Composite of components already included; unclear derivation (corr 0.85 with rebuilt sum).
+lea_schools,District context,Drop,rho 0.97 with log(lea_enrollment).
+"seclusion_instances_idea/_504/_wodis, seclusion_instances, seclusion_rate",Outcome,EXCLUDE (leak),Direct components/transforms of the target.
+Other discipline and restraint measures,Behaviour,EXCLUDE (leak risk),Not in cleaned files; same reporting section and events.
+"enr_nonbinary, sch_virt_ind",Empty,Drop,100% missing.
+"lea_name, sch_name, leaid, combokey",Identifier,Not features,Use leaid for grouped CV only.
