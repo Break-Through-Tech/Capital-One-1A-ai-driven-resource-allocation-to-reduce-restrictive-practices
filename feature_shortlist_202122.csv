@@ -1,0 +1,24 @@
+feature,group,decision,reason
+log(enrollment_total),Size,Include,Scale effect; instances scale with students.
+grade_band,School type,Include,Elementary 9.9% vs high 3.4% any seclusion; holds in regular schools.
+sch_status_sped,School type,Include,17.2% vs 6.9% any; 17.3% of instances.
+sch_status_alt,School type,Include,"Lower rate, distinct population."
+sch_status_charter,School type,Include,2.4% vs 7.5% any.
+jj (justice facility),School type,Include,Small group (839) with extreme counts when positive.
+sch_status_magnet,School type,Optional,Weak permutation importance.
+pct_idea (+ pct_idea_na),Population,Include,Clearest positive correlate; add indicator for the 4.2% missing (informative).
+pct_504 (+ pct_504_na),Population,Include,"Strongest negative correlate and high permutation importance; 22.6% missing, so keep rows and add an indicator."
+pct_el (+ pct_el_na),Population,Include,Inverted-U; 18.8% missing and informative; use indicator.
+"psych per 100, social per 100",Staffing,Include,Positive association after adjustment; cap per-100 ratios at the 99.5th percentile and drop implausible-FTE schools.
+"counselors per 100, nurses per 100, teachers per 100",Staffing,Optional,Small adjusted effects; teachers per 100 is unstable for tiny schools.
+fte_leo / fte_guards per 100,Security,Optional (caution),Negative association; likely reverse causality. fte_leo is only 0.9% missing in 2021-22.
+log(lea_enrollment),District context,Include,Top permutation importance among context features; drop lea_schools (rho 0.97).
+lea_state (categorical / region),Context,Include in a second model,Dominant signal (AUC 0.73 -> 0.83); reflects state law and reporting practice. Run with and without.
+"fte_teachers, fte_counselors (raw counts)",Staffing,Drop,Redundant with enrollment (rho 0.88 / 0.56).
+support_fte_per_100,Staffing,Drop,Composite of components already included; its derivation does not equal the sum of the four ratios (corr 0.93).
+lea_schools,District context,Drop,rho 0.97 with log(lea_enrollment).
+"enr_nonbinary, flag_partial_*",Population,Drop,Nonbinary count 97.6% missing; partial flags fire for ~97% of schools and carry no information.
+sch_virt_ind,School type,Not usable,"All 2,496 virtual schools lack the outcome and are outside the analysis-ready file."
+"seclusion_instances_idea/_504/_wodis, seclusion_instances, seclusion_rate",Outcome,EXCLUDE (leak),Components or transforms of the target.
+Restraint and other discipline measures,Behaviour,EXCLUDE (leak risk),Not in file; physical restraint leaked strongly in 2015-16 (AUC 0.84 alone).
+"leaid, schid, combokey, names",Identifier,Not features,Use leaid for grouped CV only.
