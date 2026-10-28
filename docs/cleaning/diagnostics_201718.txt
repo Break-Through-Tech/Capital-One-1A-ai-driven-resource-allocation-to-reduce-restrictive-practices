@@ -1,0 +1,188 @@
+
+==============================================================================
+D1. RESERVED CODES vs MANUAL APPENDIX C (action plan) / D (force certified)
+==============================================================================
+Appendix C LEAIDs parsed: 39; Appendix D LEAIDs parsed: 393; in both: 0
+  TOT_ENR_M -6: rows 1; LEAs 1; rows in App. C 0; in App. D 1; in neither 0
+  TOT_ENR_M -5: rows 10; LEAs 1; rows in App. C 10; in App. D 0; in neither 0
+  SCH_ENR_IDEA_M -5: rows 10; LEAs 1; rows in App. C 10; in App. D 0; in neither 0
+  SCH_RSINSTANCES_SECL_WODIS -11: rows 1,203; LEAs 202; rows in App. C 301; in App. D 177; in neither 725
+  SCH_RSINSTANCES_SECL_WODIS -9: rows 1,908; LEAs 1,453; rows in App. C 22; in App. D 62; in neither 1,824
+  SCH_RSINSTANCES_SECL_WODIS -6: rows 3,089; LEAs 334; rows in App. C 0; in App. D 3,089; in neither 0
+  SCH_RSINSTANCES_SECL_WODIS -5: rows 291; LEAs 7; rows in App. C 291; in App. D 0; in neither 0
+  SCH_RSINSTANCES_SECL_IDEA -11: rows 1,140; LEAs 157; rows in App. C 301; in App. D 173; in neither 666
+  SCH_RSINSTANCES_SECL_IDEA -9: rows 1,908; LEAs 1,453; rows in App. C 22; in App. D 62; in neither 1,824
+  SCH_RSINSTANCES_SECL_IDEA -6: rows 2,992; LEAs 330; rows in App. C 0; in App. D 2,992; in neither 0
+  SCH_RSINSTANCES_SECL_IDEA -5: rows 42; LEAs 4; rows in App. C 42; in App. D 0; in neither 0
+  SCH_RSINSTANCES_SECL_504 -11: rows 1,007; LEAs 42; rows in App. C 301; in App. D 172; in neither 534
+  SCH_RSINSTANCES_SECL_504 -9: rows 1,908; LEAs 1,453; rows in App. C 22; in App. D 62; in neither 1,824
+  SCH_RSINSTANCES_SECL_504 -6: rows 3,078; LEAs 331; rows in App. C 0; in App. D 3,078; in neither 0
+  SCH_RSINSTANCES_SECL_504 -5: rows 259; LEAs 5; rows in App. C 259; in App. D 0; in neither 0
+  SCH_FTETEACH_TOT -6: rows 10; LEAs 3; rows in App. C 0; in App. D 10; in neither 0
+  SCH_FTETEACH_TOT -5: rows 11; LEAs 2; rows in App. C 11; in App. D 0; in neither 0
+  SCH_FTESECURITY_LEO -6: rows 1,604; LEAs 2; rows in App. C 0; in App. D 1,604; in neither 0
+  SCH_FTESECURITY_LEO -5: rows 11; LEAs 2; rows in App. C 11; in App. D 0; in neither 0
+  SCH_FTESECURITY_GUA -9: rows 602; LEAs 340; rows in App. C 8; in App. D 35; in neither 559
+  SCH_FTESECURITY_GUA -6: rows 1,595; LEAs 1; rows in App. C 0; in App. D 1,595; in neither 0
+  SCH_FTESECURITY_GUA -5: rows 10; LEAs 1; rows in App. C 10; in App. D 0; in neither 0
+  LEA_ENR -5: rows 1; LEAs 1; rows in App. C 1; in App. D 0; in neither 0
+  schools in App. C LEAs: 1,806; of these, seclusion triple fully valid 1,192
+  schools in App. D LEAs: 6,850; of these, seclusion triple fully valid 3,515
+  New York City (LEAID 3620580, tech doc 7.1): schools 1,603; WODIS codes {'ok': 1603}; in App. C False, in App. D True
+    NYC SCH_RSINSTANCES_SECL_WODIS: codes {'ok': 1603}; ==0 1603; >0 0
+    NYC SCH_RSINSTANCES_SECL_IDEA: codes {'ok': 1603}; ==0 1603; >0 0
+    NYC SCH_RSINSTANCES_SECL_504: codes {'ok': 1603}; ==0 1603; >0 0
+    NYC SCH_RSINSTANCES_MECH_WODIS: codes {'-6': 1603}; ==0 0; >0 0
+    NYC SCH_RSINSTANCES_PHYS_WODIS: codes {'ok': 1603}; ==0 1603; >0 0
+    NYC TOT_RS_NONIDEA_SECL_M: codes {'ok': 1603}; ==0 1603; >0 0
+
+==============================================================================
+D2. SECLUSION -5/ok/-5 AND -5/ok/ok ROWS vs STUDENT-COUNT FIELDS
+==============================================================================
+pattern -5/ok/-5: 217 schools in 1 LEAs; LEAs in App. C 1, in App. D 0; states {'PA': 217}
+    TOT_RS_NONIDEA_SECL_M: codes {'-5': 217}; valid 0; valid==0 0; valid>0 0
+    TOT_RS_NONIDEA_SECL_F: codes {'-5': 217}; valid 0; valid==0 0; valid>0 0
+    SCH_RS_NONIDEA_SECL_504_M: codes {'-5': 184}; valid 33; valid==0 33; valid>0 0
+    SCH_RS_NONIDEA_SECL_504_F: codes {'-5': 165}; valid 52; valid==0 52; valid>0 0
+    TOT_RS_IDEA_SECL_M: codes {}; valid 217; valid==0 217; valid>0 0
+    TOT_RS_IDEA_SECL_F: codes {}; valid 217; valid==0 217; valid>0 0
+    top LEAs: {'4218990 Philadelphia City SD': 217}
+    IDEA instances on these rows: ==0 217, >0 0
+pattern -5/ok/ok: 32 schools in 2 LEAs; LEAs in App. C 2, in App. D 0; states {'VA': 32}
+    TOT_RS_NONIDEA_SECL_M: codes {'-5': 32}; valid 0; valid==0 0; valid>0 0
+    TOT_RS_NONIDEA_SECL_F: codes {'-5': 32}; valid 0; valid==0 0; valid>0 0
+    SCH_RS_NONIDEA_SECL_504_M: codes {'-5': 32}; valid 0; valid==0 0; valid>0 0
+    SCH_RS_NONIDEA_SECL_504_F: codes {'-5': 31}; valid 1; valid==0 1; valid>0 0
+    TOT_RS_IDEA_SECL_M: codes {}; valid 32; valid==0 32; valid>0 0
+    TOT_RS_IDEA_SECL_F: codes {}; valid 32; valid==0 32; valid>0 0
+    top LEAs: {'5103660 STAFFORD CO PBLC SCHS': 31, '5100088 REGIONAL ALTERNATIVE ED/STAFFO': 1}
+    IDEA instances on these rows: ==0 32, >0 0
+    504 instances on these rows: ==0 32, >0 0
+pattern -5/-5/-5: 42 schools in 4 LEAs; LEAs in App. C 4, in App. D 0; states {'MT': 31, 'MA': 10, 'WI': 1}
+    TOT_RS_NONIDEA_SECL_M: codes {'-5': 42}; valid 0; valid==0 0; valid>0 0
+    TOT_RS_NONIDEA_SECL_F: codes {'-5': 42}; valid 0; valid==0 0; valid>0 0
+    SCH_RS_NONIDEA_SECL_504_M: codes {'-5': 33}; valid 9; valid==0 9; valid>0 0
+    SCH_RS_NONIDEA_SECL_504_F: codes {'-5': 32}; valid 10; valid==0 10; valid>0 0
+    TOT_RS_IDEA_SECL_M: codes {'-5': 41}; valid 1; valid==0 1; valid>0 0
+    TOT_RS_IDEA_SECL_F: codes {'-5': 41}; valid 1; valid==0 1; valid>0 0
+    top LEAs: {'3003870 Billings Elem': 28, '2509360 Peabody': 10, '3003900 Billings HS': 3, '5507530 School District of La Crosse': 1}
+    IDEA instances on these rows: ==0 0, >0 0
+pattern ok/ok/ok: 91,013 schools in 17,212 LEAs; LEAs in App. C 30, in App. D 81; states {'CA': 9271, 'TX': 8095, 'NY': 4650, 'IL': 3936, 'FL': 3905, 'OH': 3386}
+
+==============================================================================
+D3. IDEA > TOTAL AND LEP > TOTAL vs PRESCHOOL ENROLLMENT
+==============================================================================
+IDEA: rows with subgroup > total: 222
+  excess (subgroup - total) distribution: {1: 166, 2: 47, 3: 9}
+  per sex: M over 149, F over 138
+  TOT_PSENR (M+F) on these rows: valid 68, >0 64, ==0 4, reserved 154
+  subgroup <= TOT_ENR + TOT_PSENR (preschool could cover the excess): 61 of 222
+  SCH_PSENR_IDEA (M+F) >= excess: 61 of 222
+  calculated TOT_IDEAENR (M+F) on these rows: equals SCH_ENR_IDEA 222, <= total 0
+  SCH_GRADE_PS on these rows {'Yes': 68, 'No': 154}; SPED {'Yes': 196, 'No': 26}
+  total enrollment on these rows: median 43.5, max 842
+LEP: rows with subgroup > total: 10
+  excess (subgroup - total) distribution: {1: 7, 2: 2, 37: 1}
+  per sex: M over 11, F over 5
+  TOT_PSENR (M+F) on these rows: valid 3, >0 3, ==0 0, reserved 7
+  subgroup <= TOT_ENR + TOT_PSENR (preschool could cover the excess): 3 of 10
+  SCH_PSENR_LEP (M+F) >= excess: 3 of 10
+  calculated TOT_LEPENR (M+F) on these rows: equals SCH_ENR_LEP 10, <= total 0
+  SCH_GRADE_PS on these rows {'No': 7, 'Yes': 3}; SPED {'No': 10}
+  total enrollment on these rows: median 83.0, max 821
+  excess > 3: 403246001801 WEWOKA HS | TOT 95/80 | LEP 130/82 | PS -9/-9
+
+==============================================================================
+D4. DOES TOT_ENR INCLUDE PRESCHOOL?
+==============================================================================
+preschool-only schools (PS=Yes, KG/G01-G12/UG all No): 1,740
+  TOT_ENR (M+F): ==0 0, >0 1740, reserved 0
+  TOT_PSENR (M+F): >0 1718, ==0 22
+  TOT_ENR == TOT_PSENR on rows where both > 0: 989
+  TOT_ENR - TOT_PSENR on preschool-only schools: distribution of gap {-10: 2, -5: 1, -4: 2, -3: 10, -2: 54, -1: 136, 0: 989, 1: 222, 2: 98, 3: 39, 4: 14, 5: 8, 6: 11, 7: 7, 8: 8, 9: 8, 10: 131} (clipped to +/-10)
+  |gap| <= 2: 1499; gap > 10: 127; gap < -10: 2
+    170531000218 Grand Ave Sch | TOT_ENR 860/737 | TOT_PSENR 52/48
+    273003001274 Princeton Primary School | TOT_ENR 417/366 | TOT_PSENR 42/32
+    060002713213 Preschool | TOT_ENR 346/299 | TOT_PSENR 102/103
+    160165000294 PINEHURST ELEMENTARY SCHOOL | TOT_ENR 230/214 | TOT_PSENR 9/5
+    174083004876 Warrensburg-Latham Elem Sch | TOT_ENR 192/186 | TOT_PSENR 15/26
+  seclusion WODIS codes on preschool-only schools: {'-9': 1728, '-11': 10, 'ok': 2}
+  all schools with both valid (30,516): TOT_ENR < TOT_PSENR on 214; by more than 2 on 15
+  schools offering PS and KG-G12/UG: 28,780; TOT_PSENR > 0 on 28,222; TOT_ENR < TOT_PSENR on 9
+  schools with no grade flag Yes at all (PS, KG-G12, UG all No): 181; TOT_ENR >0 181, ==0 0; JJ {'No': 174, 'Yes': 7}; SPED {'No': 166, 'Yes': 15}
+  TOT_ENR_M == sum of SCH_ENR_{race}_M: 97,621 of 97,621 valid rows
+  TOT_PSENR_M == sum of SCH_PSENR_{race}_M: 30,516 of 30,516 valid rows
+  TOT_ENR_F == sum of SCH_ENR_{race}_F: 97,621 of 97,621 valid rows
+  TOT_PSENR_F == sum of SCH_PSENR_{race}_F: 30,516 of 30,516 valid rows
+
+==============================================================================
+D5. NON-DIGIT IDs vs MANUAL
+==============================================================================
+non-digit LEAIDs in data: 452; listed in manual App. C 0, App. D 31
+non-digit LEAIDs printed anywhere in manual appendices: ['06CC019', '06CC053', '06CC070', '06CC073', '06CC076', '06CC090', '06CC092', '06CC142', '06CC143', '06CC191', '06CC199', '06CC226'] ...
+  shape 99AA999: rows 482; LEAIDs 445; letter parts {'CC': 482}; states {'CA': 482}
+    06CC001 | 06CC00100001 | Rocklin Academy | Rocklin Academy | charter Yes
+    06CC002 | 06CC00200001 | Rocklin Academy at Meyers Street | Rocklin Academy at Meyers Street | charter Yes
+    06CC003 | 06CC00300001 | Maria Montessori Charter Academy | MARIA MONTESSORI CHARTER ACADEMY | charter Yes
+    06CC004 | 06CC00400001 | Fenton STEM Academy: Elementary Center for Sc | Fenton STEM Academy: Elementary Center f | charter Yes
+  shape 99AAA99: rows 28; LEAIDs 7; letter parts {'SOP': 28}; states {'IA': 1, 'MD': 13, 'MA': 10, 'NV': 1, 'NH': 1, 'TN': 2}
+    19SOP02 | 19SOP0200001 | IOWA SCHOOL FOR THE DEAF | IOWA SCHOOL FOR THE DEAF | charter No
+    24SOP01 | 24SOP0100001 | THE MARYLAND SCHOOL F/T BLIND | THE MARYLAND SCHOOL F/T BLIND | charter No
+    24SOP02 | 24SOP0299985 | BALTIMORE CITY JUVENILE JUSTICE CENTER | Maryland State Department of Education-J | charter No
+    25SOP01 | 25SOP0199981 | Worcester Secure Treatment | MASSACHUSETTS DEPARTMENT OF YOUTH SERVIC | charter No
+  SCH_STATUS_CHARTER on non-digit rows: {'Yes': 480, 'No': 30}
+  FIPS prefix vs LEA_STATE consistent (all rows, first 2 chars of LEAID): {1: 52} (value = n distinct prefixes per state)
+
+==============================================================================
+D6. JJ CHECKS
+==============================================================================
+420080699999 | SCI- Camp Hill | LEA 4200806 SCI- Camp Hill | JJ No | ALT Yes | SPED Yes | grades ['UG']
+  enrollment M/F 285/0; LEO 0.00; GUA 613.00; teachers 5.00; LEA CJJ No
+  schools in same LEA: 1; JJ values {'No': 1}
+220004701781 | Southside Alternative High School | LEA 2200047 Office of Juvenile Justice | JJ No | ALT Yes | SPED No | grades ['G05', 'G06', 'G07', 'G08', 'G09', 'G10', 'G11', 'G12']
+  enrollment M/F 190/0; LEO 0.00; GUA 211.00; teachers 23.00; LEA CJJ No
+  schools in same LEA: 2; JJ values {'No': 2}
+schools whose SCH_NAME or LEA_NAME matches \b(?:SCI|CORRECTION|CORRECTIONAL|DETENTION|JUVENILE|JAIL|PRISON|YOUTH CENTER|YOUTH DEVELOPMENT|DOC)\b: 469; JJ {'No': 152, 'Yes': 317}
+  JJ=No examples: 010003699999 CHANTICLEER LEARNING CENTER (AL); 010084099999 Tennessee Valley Juvenile Detention (AL); 040007901008 Alternative Computerized Education  (AZ); 040007903035 Youth Works Charter High School (AZ); 040087603352 George Gervin Prep Academy (AZ); 060140904490 Keith B. Bright High (Juvenile Hall (CA); 062025002434 Sci Tech Engr Arts and Math Acad at (CA); 062271002941 Crenshaw Sci Tech Engr Math and Med (CA)
+  JJ=No name matches by state (top): {'CA': 15, 'FL': 15, 'IL': 15, 'NJ': 13, 'PA': 11, 'NC': 10, 'TX': 9, 'LA': 7}
+    justice-like name  False  True 
+    GUA                            
+    -5                    10      0
+    -6                  1594      1
+    -9                   285    317
+    ok                 95274    151
+LEA CJJ vs any school in LEA with JJ=Yes:
+    any school JJ=Yes  False  True 
+    LEA CJJ                        
+    No                 16508     78
+    Yes                  756    262
+
+==============================================================================
+D7. ROWS CODED -9 ON ALL THREE SECLUSION INSTANCE FIELDS
+==============================================================================
+rows 1,908; LEAs 1,453; states {'TX': 159, 'CA': 144, 'MI': 143, 'MN': 140, 'IL': 118, 'WA': 94, 'MO': 91, 'OH': 84}
+  JJ {'No': 1902, 'Yes': 6}; SPED {'No': 1622, 'Yes': 286}; ALT {'No': 1875, 'Yes': 33}
+  any KG-G12 offered {False: 1908}; PS offered {'Yes': 1728, 'No': 180}; UG offered {'No': 1908}
+  TOT_ENR (M+F): ==0 0, 1-9 147, >=10 1761; median 97.0
+  SCH_RSINSTANCES_MECH_WODIS on these rows: {'-9': 1908}
+  SCH_RSINSTANCES_PHYS_WODIS on these rows: {'-9': 1908}
+  TOT_RS_NONIDEA_SECL_M on these rows: {'-9': 1908}
+  TOT_RS_IDEA_SECL_M on these rows: {'-9': 1908}
+  -9 on seclusion fields elsewhere: rows with -9 on some but not all three: 0
+
+==============================================================================
+D8. FTE REVIEW-TRIGGER LEAs IN OCR POST-SUBMISSION DQ WORKBOOK (Appndx C)
+==============================================================================
+STAF sheet: 3166 LEAs, columns ['LEA State', 'LEA Name', 'Check 11', 'Check 11 Correct', 'Check 15', 'Check 15 Correct', 'Check 84', 'Check 84 Correct', 'Univariate STAF', 'Univariate STAF Correct', 'Y2Y STAF', 'Y2Y STAF Correct', 'Multivariate STAF', 'Multivariate STAF Correct']
+SECR sheet: 177 LEAs, columns ['LEA State', 'LEA Name', 'Multivariate SECR', 'Multivariate SECR Correct']
+  Check 15 (STAF): School has reported Teacher FTE count that is zero.
+  Check 84 (STAF): (A)The sum of FTE teachers who are certified and not-certified does not equal the total number of FTE teachers. (B)The sum of FTE teachers in their first year of teaching and FTE teachers in their second year of teaching is greater than the total number of FTE teachers. (C) The number of FTE teachers who were absent more than 10 school days is greater than the total number of FTE teachers. (D)The number of FTE school counselors is greater than or equal to the number of FTE teachers (not applicable for justice facilities). (E)The number of FTE school nurses or psychologists is greater than or equal to the number of FTE teachers (not applicable for justice facilities). (F)The number of current teachers is lower than the number of FTE teachers. (G)The number of teachers employed in both the current and previous school year is higher than the number of teachers employed in the current year. (H) The number of FTE school security staff is greater than or equal to the number of FTE teachers (not applicable for justice facilities).  
+  4816620 Del Valle ISD (GUA): schools in data 13; STAF {'LEA State': 'TX', 'LEA Name': 'DEL VALLE ISD', 'Check 84': '1', 'Univariate STAF': '1'}; SECR {'LEA State': 'TX', 'LEA Name': 'DEL VALLE ISD', 'Multivariate SECR': '1'}
+  5305910 Northshore SD (PSY): schools in data 36; STAF {'LEA State': 'WA', 'LEA Name': 'Northshore School District', 'Check 15': '1', 'Multivariate STAF': '1'}; SECR not listed
+  1601590 Jerome Joint (LEO): schools in data 7; STAF {'LEA State': 'ID', 'LEA Name': 'JEROME JOINT DISTRICT', 'Check 84': '1'}; SECR not listed
+  4200806 SCI-Camp Hill (GUA): schools in data 1; STAF {'LEA State': 'PA', 'LEA Name': 'SCI- Camp Hill', 'Check 84': '1'}; SECR not listed
+  2200047 Office of Juvenile Justice LA (GUA): schools in data 2; STAF {'LEA State': 'LA', 'LEA Name': 'Office of Juvenile Justice', 'Check 84': '1'}; SECR not listed
+  1811340 Tippecanoe (NUR 194): schools in data 19; STAF not listed; SECR not listed
+  3500153 McCurdy Charter (CNS 100): schools in data 1; STAF {'LEA State': 'NM', 'LEA Name': 'MCCURDY CHARTER SCHOOL', 'Check 84': '1'}; SECR not listed
+  2801620 Greenville MS (CNS 100): schools in data 13; STAF {'LEA State': 'MS', 'LEA Name': 'GREENVILLE PUBLIC SCHOOLS', 'Check 84': '1'}; SECR not listed
+  3400024 North Star Academy (TEACH 607): schools in data 1; STAF {'LEA State': 'NJ', 'LEA Name': 'North Star Academy Charter School', 'Univariate STAF': '1'}; SECR not listed
