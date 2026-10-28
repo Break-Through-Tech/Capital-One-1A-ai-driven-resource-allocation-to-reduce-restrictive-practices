@@ -1,0 +1,23 @@
+feature,group,decision,reason
+log(enrollment),Size,Include,Scale effect; instances scale with students.
+grade_band (derived),School type,Include,Elementary 8.7% vs high 2.3% any seclusion; holds in regular schools. Needs a documented upstream rule.
+flag_sped,School type,Include,20.5% vs 5.7% any; 17.9% of instances.
+flag_alt,School type,Include,"Lower rate, distinct population."
+flag_charter,School type,Include,1.5% vs 6.3% any.
+flag_jj,School type,Include,Small group (579) but extreme counts when positive.
+flag_magnet,School type,Optional,Weak permutation importance.
+idea_share (pct_idea),Population,Include,Clearest positive correlate; only 1.2% missing.
+sec504_share (pct_504),Population,Include,Strongest negative correlate and top permutation importance.
+lep_share (pct_el),Population,Include,Inverted-U; weak but independent of IDEA.
+"psych per 100, social per 100",Staffing,Include,Positive association after adjustment; cap per-100 ratios at the 99.5th percentile.
+"counselors per 100, nurses per 100, teachers per 100",Staffing,Optional,Small adjusted effects; teachers per 100 is unstable for tiny schools.
+fte_leo / fte_guards per 100,Security,Optional (caution),"Negative association; likely reverse causality; 5.7% missing, and -9 for 573 of 579 justice facilities."
+log(LEA_ENR),District context,Include,Useful district-size signal; drop LEA_SCHOOLS (rho 0.96).
+covid_instruction_type,COVID,Optional (2020-21 only),87.8% hybrid; virtual-only has almost no valid outcomes; not available in other years.
+LEA_STATE (categorical / region),Context,Include in a second model,"Dominant signal (AUC 0.73 -> 0.83); reflects state law, reporting and 2020-21 suppression. Run with and without."
+"SCH_FTETEACH_TOT, SCH_FTECOUNSELORS (raw counts)",Staffing,Drop,Redundant with enrollment (rho 0.90 / 0.57).
+LEA_SCHOOLS,District context,Drop,rho 0.96 with log(LEA_ENR).
+"SCH_RSINSTANCES_SECL_*, seclusion_instances, seclusion_rate_per_100, TOT_RS_*_SECL_*, secl_students_*",Outcome,EXCLUDE (leak),Components or transforms of the target.
+"SCH_RSINSTANCES_PHYS_*, SCH_RSINSTANCES_MECH_*",Restraint,EXCLUDE (leak),Measured: AUC 0.83 alone; raises baseline AUC from 0.73 to 0.87.
+"COMBOKEY_stored, *_code, *_reason, flag_missing_*, flag_virtual_only_skip, flag_dind_*",Helper,Not features,Key bookkeeping and reserved-code descriptors (some encode the outcome status).
+"LEAID, SCHID, COMBOKEY, names",Identifier,Not features,Use LEAID for grouped CV only.
