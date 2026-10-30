@@ -2,7 +2,7 @@
 
 We’ll each work on one year of the CRDC data. The goal is to clean our files in a consistent way so we can compare them later. **When a feature means the same thing across years, use the same column name and cleaning steps.** If your year has a difference, check the notes for that year below.
 
-Helpful files: [data_audit.md](data_audit.md) (quality findings), [data_dictionary.md](data_dictionary.md) (field meanings), [data/README.md](../data/README.md) (download). File inventory: [task2/docs/data_inventory.md](../task2/docs/data_inventory.md).
+Helpful files: [data_audit.md](data_audit.md) (quality findings), [data_dictionary.md](data_dictionary.md) (field meanings), [data/README.md](../data/README.md) (download). File inventory: [data_inventory.md](data_inventory.md).
 
 **Starting point:** we’re using 2021–22 as the example for our shared column names. This guide builds on our earlier data audit. We still need to check the downloaded files and each year’s manual as we clean. Columns with the same name may have different definitions, so please check their meaning too.
 
