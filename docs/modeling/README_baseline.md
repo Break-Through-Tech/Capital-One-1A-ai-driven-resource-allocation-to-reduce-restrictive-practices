@@ -4,8 +4,21 @@ This is the team's first, deliberately simple model. It answers one yes/no quest
 school: did the school report at least one seclusion incident? It gives every later model a
 fair score to beat.
 
-> No real results yet. The cleaned CSVs are not in the repository, so the code has only
-> been run on invented (synthetic) schools. Synthetic scores mean nothing; do not quote them.
+## First results (train 2017-18, test 2021-22)
+
+Training: 87,684 schools (5,874 with any seclusion). Test: 89,713 schools (6,470 positive,
+9,190 not in the training year). Test-year scores:
+
+| Model | PR-AUC | Lift | ROC-AUC | Recall in top 10% |
+|---|---|---|---|---|
+| M0 | 0.072 | 1.00 | 0.500 | 0.100 |
+| M1 | 0.119 | 1.66 | 0.660 | 0.196 |
+| M2 | 0.310 | 4.29 | 0.790 | 0.459 |
+| M3 | 0.168 | 2.32 | 0.727 | 0.265 |
+| M4 | 0.161 | 2.24 | 0.730 | 0.258 |
+| M5 | 0.373 | 5.17 | 0.844 | 0.500 |
+
+State carries most of the signal: without it, the best model is M3 (PR-AUC 0.168).
 
 ## What it does
 
@@ -51,27 +64,24 @@ From the repository root:
 ```bash
 pip install -r requirements.txt
 
-# Smoke run on invented data (checks the code, about a minute; scores are meaningless)
-python scripts/train_baseline.py --synthetic
-
-# Real run
 python scripts/train_baseline.py --train-years 201718 --test-year 202122
 
-# Variants
-python scripts/train_baseline.py --train-years 201516 201718 --test-year 202122
+# Variant
 python scripts/train_baseline.py --exclude-states HI PR
 
-# Tests
+# Tests (the data tests skip if the cleaned files above are missing)
 python -m pytest -q
 ```
+
+2015-16 and 2020-21 cannot be used yet: their cleaned files have a different column layout
+and must first be converted to the 50-column team format (AI_CONTEXT A4).
 
 Other options: `--data-dir`, `--out-dir`, `--model-dir`, `--cv-folds` (5), `--seed` (42),
 `--fast` (fewer trees, used by the tests).
 
 ## Output files
 
-Written to `reports/baseline/` (`reports/baseline_synthetic/` with `--synthetic`). Every
-table has a `synthetic` column.
+Written to `reports/baseline/` (git-ignored).
 
 | File | Contents |
 |---|---|
@@ -82,10 +92,10 @@ table has a `synthetic` column.
 | `calibration_test.csv` | Per model, 10 equal-width bins of predicted probability: mean predicted, observed rate, count. |
 | `coefficients_M1.csv` | M1 coefficients on standardized features, largest first. Associations, not causes. |
 | `filter_report.json` | Rows left after each filter step, per year. |
-| `run_info.json` | Years, row and positive counts, features per model, package versions, seed, folds, synthetic flag. |
+| `run_info.json` | Years, row and positive counts, features per model, package versions, seed, folds. |
 
 Fitted models are saved as `(FeatureBuilder, model)` pairs in `models/baseline/<ID>.joblib`
-(`models/baseline_synthetic/` with `--synthetic`; git-ignored). Load with
+(git-ignored). Load with
 `builder, model = joblib.load(path)` and score with
 `model.predict_proba(builder.transform(frame))[:, 1]`.
 

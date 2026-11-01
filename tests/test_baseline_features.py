@@ -1,6 +1,7 @@
 """Tests for scripts/baseline_features.py.
 
-Unit tests use tiny hand-built frames, so every expected value can be checked by eye.
+Unit tests use tiny hand-built frames, so every expected value can be checked by eye. The
+load tests read the real cleaned files (see conftest.py) and skip when they are absent.
 """
 
 from __future__ import annotations
@@ -11,7 +12,6 @@ import baseline_features as bf
 import numpy as np
 import pandas as pd
 import pytest
-import synthetic_schools
 
 
 def school(**overrides) -> dict:
@@ -233,8 +233,8 @@ def test_load_year_missing_file_message(tmp_path: Path):
     assert str(tmp_path / "schools_201718_analysis.csv") in message
 
 
-def test_load_year_reads_ids_as_text(tmp_path: Path):
-    data = synthetic_schools.make_synthetic_year("201718", n_schools=200, seed=1)
+def test_load_year_reads_ids_as_text(tmp_path: Path, real_year):
+    data = real_year("201718").head(200)
     path = tmp_path / "schools_201718_analysis.csv"  # flat fallback location
     data.to_csv(path, index=False)
     loaded = bf.load_year("201718", tmp_path)
@@ -245,8 +245,8 @@ def test_load_year_reads_ids_as_text(tmp_path: Path):
     assert loaded["combokey"].tolist() == data["combokey"].tolist()
 
 
-def test_load_year_missing_column(tmp_path: Path):
-    data = synthetic_schools.make_synthetic_year("202122", n_schools=50, seed=1)
+def test_load_year_missing_column(tmp_path: Path, real_year):
+    data = real_year("202122").head(50)
     (tmp_path / "202122").mkdir()
     data.drop(columns="pct_el").to_csv(tmp_path / "202122" / "schools_202122_analysis.csv")
     with pytest.raises(bf.BaselineDataError, match="pct_el"):
@@ -254,32 +254,23 @@ def test_load_year_missing_column(tmp_path: Path):
 
 
 # ---------------------------------------------------------------------------
-# Synthetic data
+# Real cleaned files
 # ---------------------------------------------------------------------------
 
 
-def test_synthetic_year_shape_and_overlap():
-    first = synthetic_schools.make_synthetic_year("201718", n_schools=1000, seed=7)
-    again = synthetic_schools.make_synthetic_year("201718", n_schools=1000, seed=7)
-    later = synthetic_schools.make_synthetic_year("202122", n_schools=1000, seed=7)
-    pd.testing.assert_frame_equal(first, again)
-    assert list(first.columns) == synthetic_schools.OUTPUT_COLUMNS and first.shape[1] == 50
-    assert (first["combokey"] == first["leaid"] + first["schid"]).all()
-    assert 0.03 < bf.make_target(bf.apply_modeling_filters(first)[0]).mean() < 0.12
-    shared = len(set(first["combokey"]) & set(later["combokey"])) / len(first)
-    assert 0.8 < shared < 0.95
-    assert first["pct_504"].isna().any() and (first["enrollment_total"] < 30).any()
-    assert first["leaid"].value_counts().max() > 1 and first["lea_state"].nunique() > 3
+def test_real_years_have_team_columns_and_ids(real_year):
+    for code in ("201718", "202122"):
+        data = real_year(code)
+        assert not [name for name in bf.REQUIRED_COLUMNS if name not in data.columns]
+        assert (data["combokey"] == data["leaid"] + data["schid"]).all()
+        assert data["combokey"].is_unique
 
 
-def test_synthetic_missing_coding_shift_and_unready_rows():
-    older = synthetic_schools.make_synthetic_year("201718", n_schools=2000, seed=3)
-    newer = synthetic_schools.make_synthetic_year("202122", n_schools=2000, seed=3)
-    assert older["pct_504"].isna().mean() < 0.02 and older["pct_el"].isna().mean() < 0.02
-    assert newer["pct_504"].isna().mean() > 0.18 and newer["pct_el"].isna().mean() > 0.14
-    for data in (older, newer):
-        unready = ~data["flag_analysis_ready"]
-        assert 0.01 < unready.mean() < 0.05
-        assert data.loc[unready, "seclusion_instances"].isna().all()
-        assert data.loc[unready, "flag_missing_seclusion"].all()
-        assert data.loc[~unready, "seclusion_instances"].notna().all()
+def test_real_missing_504_el_coding_shift(real_year):
+    # data_issues_202122.csv #2: 2021-22 leaves pct_504 / pct_el blank far more often.
+    def share_missing(code: str) -> float:
+        frame, _ = bf.apply_modeling_filters(real_year(code))
+        return frame[["pct_504", "pct_el"]].isna().any(axis=1).mean()
+
+    assert share_missing("201718") < 0.01
+    assert share_missing("202122") > 0.2

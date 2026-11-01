@@ -50,8 +50,6 @@ data/**/*.txt
 # Cursor / agent local refs (do not commit)
 .cursor/
 
-# Baseline model outputs (fitted models, real-run and synthetic smoke-run reports;
-# real-run reports stay local for now)
+# Baseline model outputs (fitted models and run reports stay local for now)
 models/
 reports/baseline/
-reports/baseline_synthetic/

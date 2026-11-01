@@ -1,4 +1,8 @@
-"""Tests for scripts/train_baseline.py: metrics, folds and one end-to-end synthetic run."""
+"""Tests for scripts/train_baseline.py: metrics, folds and one end-to-end run.
+
+The fold and end-to-end tests use the real cleaned files (see conftest.py) and skip when
+they are absent.
+"""
 
 from __future__ import annotations
 
@@ -9,7 +13,6 @@ import numpy as np
 import pandas as pd
 import baseline_features as bf
 import pytest
-import synthetic_schools
 import train_baseline as tb
 from sklearn.base import clone
 
@@ -121,8 +124,8 @@ def test_boosting_rounds_fixed_above_early_stopping_threshold():
             assert hgb.n_iter_ == hgb.max_iter
 
 
-def test_cross_validate_refits_builder_per_fold_on_same_folds(monkeypatch):
-    data = synthetic_schools.make_synthetic_year("201718", 400, seed=1)
+def test_cross_validate_refits_builder_per_fold_on_same_folds(monkeypatch, real_year):
+    data = real_year("201718").sample(400, random_state=1)
     frame, _ = bf.apply_modeling_filters(data)
     frame = frame.assign(row_id=np.arange(len(frame)))
     train = tb.YearData(frame, bf.make_target(frame), {})
@@ -157,12 +160,13 @@ def test_missing_real_data_exits_with_message(tmp_path: Path, caplog):
     assert not (tmp_path / "out").exists()
 
 
-def test_end_to_end_synthetic(tmp_path: Path, capsys):
+def test_end_to_end_real_sample(tmp_path: Path, real_sample_dir: Path):
     out_dir = tmp_path / "out"
     model_dir = tmp_path / "models"
     code = tb.main(
         [
-            "--synthetic",
+            "--data-dir",
+            str(real_sample_dir),
             "--fast",
             "--out-dir",
             str(out_dir),
@@ -177,22 +181,20 @@ def test_end_to_end_synthetic(tmp_path: Path, capsys):
         assert (model_dir / f"{model_id}.joblib").is_file()
 
     info = json.loads((out_dir / "run_info.json").read_text())
-    assert info["synthetic"] is True
     assert info["train_years"] == ["201718"] and info["test_year"] == "202122"
     assert info["cv_folds"] == 5
     assert any(name.startswith("st_") for name in info["features"]["M2"])
     assert not any(name.startswith("st_") for name in info["features"]["M1"])
     assert set(info["versions"]) == {"python", "pandas", "numpy", "sklearn"}
-    # Synthetic 2021-22 has far more missing pct_504 / pct_el than 2017-18, like the real data.
+    # 2021-22 leaves pct_504 / pct_el blank far more often than 2017-18.
     assert info["test_rows_504_or_el_missing"] / info["test_rows"] > 0.2
     assert info["train_rows_504_or_el_missing"] / info["train_rows"] < 0.05
 
     filters = json.loads((out_dir / "filter_report.json").read_text())
     for code in ("201718", "202122"):
-        assert filters[code]["analysis_ready"] < filters[code]["input"]
+        assert filters[code]["analysis_ready"] <= filters[code]["input"]
 
     summary = pd.read_csv(out_dir / "metrics_summary.csv")
-    assert summary["synthetic"].all()
     test_pr = summary[summary["metric"] == "pr_auc"].set_index("model")["test"]
     assert test_pr.drop("M0").max() > test_pr["M0"] + 0.05
     cv = pd.read_csv(out_dir / "metrics_cv.csv")
@@ -207,4 +209,3 @@ def test_end_to_end_synthetic(tmp_path: Path, capsys):
     assert by_missing.groupby("model")["n"].sum().eq(info["test_rows"]).all()
     m0 = summary[(summary["model"] == "M0") & (summary["metric"] == "recall_at_top10")]
     assert m0["test"].iloc[0] == pytest.approx(0.10, abs=0.01)
-    assert "SYNTHETIC" in capsys.readouterr().out

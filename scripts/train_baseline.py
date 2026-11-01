@@ -1,12 +1,8 @@
 #!/usr/bin/env python
 """Train and evaluate the baseline models for "did this school report any seclusion?".
 
-Run it from the repository root. Smoke run on fake data (no real files needed; the scores
-mean nothing):
-
-    python scripts/train_baseline.py --synthetic
-
-Real run, once the cleaned files are in data/processed/{code}/schools_{code}_analysis.csv:
+Run it from the repository root, with the cleaned files in
+data/processed/{code}/schools_{code}_analysis.csv:
 
     python scripts/train_baseline.py --train-years 201718 --test-year 202122
 
@@ -62,16 +58,12 @@ LOGGER = logging.getLogger("train_baseline")
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_DIR = REPO_ROOT / "data" / "processed"
 DEFAULT_OUT_DIR = REPO_ROOT / "reports" / "baseline"
-SYNTHETIC_OUT_DIR = REPO_ROOT / "reports" / "baseline_synthetic"
 DEFAULT_MODEL_DIR = REPO_ROOT / "models" / "baseline"
-SYNTHETIC_MODEL_DIR = REPO_ROOT / "models" / "baseline_synthetic"
 DEFAULT_TRAIN_YEARS = ("201718",)
 DEFAULT_TEST_YEAR = "202122"
 DEFAULT_CV_FOLDS = 5
 DEFAULT_SEED = 42
 
-SYNTHETIC_SCHOOLS = 6000
-SYNTHETIC_SCHOOLS_FAST = 3000
 TOP_SHARE = 0.10
 CALIBRATION_BINS = 10
 DROP_METRICS = ("pr_auc", "pr_auc_lift", "roc_auc")
@@ -89,12 +81,6 @@ METRIC_NAMES = (
 # in 2021-22 than in 2017-18 (data_issues_202122.csv #2), so the test score mixes that coding
 # shift with any real change; scoring the two groups apart shows how much.
 MISSING_SUBSET_COLUMNS = ("pct_504", "pct_el")
-
-SYNTHETIC_WARNING = (
-    "SYNTHETIC DATA: every number below comes from invented schools. The scores are "
-    "meaningless and must never be reported as results."
-)
-
 
 @dataclass(frozen=True)
 class ModelSpec:
@@ -266,16 +252,6 @@ def prepare_years(
     return YearData(frame, bf.make_target(frame), reports)
 
 
-def write_synthetic_inputs(codes: Sequence[str], data_dir: Path, seed: int, fast: bool) -> None:
-    """Write fake years in the real file layout, so the normal loading code is exercised."""
-    import synthetic_schools
-
-    n_schools = SYNTHETIC_SCHOOLS_FAST if fast else SYNTHETIC_SCHOOLS
-    for code in codes:
-        path = synthetic_schools.write_synthetic_year(code, data_dir, n_schools, seed)
-        LOGGER.warning("Wrote synthetic %s to %s", code, path)
-
-
 def group_folds(groups: pd.Series, n_folds: int) -> list[tuple[np.ndarray, np.ndarray]]:
     """GroupKFold splits by district, computed once and reused for every model.
 
@@ -400,17 +376,9 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
     train_years = list(dict.fromkeys(args.train_years))
     if args.test_year in train_years:
         raise ValueError(f"Test year {args.test_year} is also a training year")
-    out_dir = Path(args.out_dir or (SYNTHETIC_OUT_DIR if args.synthetic else DEFAULT_OUT_DIR))
-    model_dir = Path(
-        args.model_dir or (SYNTHETIC_MODEL_DIR if args.synthetic else DEFAULT_MODEL_DIR)
-    )
+    out_dir = Path(args.out_dir or DEFAULT_OUT_DIR)
+    model_dir = Path(args.model_dir or DEFAULT_MODEL_DIR)
     data_dir = Path(args.data_dir)
-    if args.synthetic:
-        LOGGER.warning("=" * 78)
-        LOGGER.warning(SYNTHETIC_WARNING)
-        LOGGER.warning("=" * 78)
-        data_dir = out_dir / "synthetic_input"
-        write_synthetic_inputs([*train_years, args.test_year], data_dir, args.seed, args.fast)
 
     train = prepare_years(train_years, data_dir, args.exclude_states)
     test = prepare_years([args.test_year], data_dir, args.exclude_states)
@@ -463,9 +431,6 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
     summary = summarize(cv, test_metrics)
     calibration_frame = pd.concat(calibration, ignore_index=True)
     calibration_frame = calibration_frame[["model", *calibration_frame.columns[:-1]]]
-    synthetic = bool(args.synthetic)
-    for frame in (cv, summary, new_schools, by_missing, calibration_frame, coefficients):
-        frame.insert(0, "synthetic", synthetic)
 
     cv.to_csv(out_dir / "metrics_cv.csv", index=False)
     summary.to_csv(out_dir / "metrics_summary.csv", index=False)
@@ -474,13 +439,11 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
     calibration_frame.to_csv(out_dir / "calibration_test.csv", index=False)
     coefficients.to_csv(out_dir / "coefficients_M1.csv", index=False)
     write_json(
-        {"synthetic": synthetic, **train.filter_reports, **test.filter_reports},
+        {**train.filter_reports, **test.filter_reports},
         out_dir / "filter_report.json",
     )
     write_json(
         {
-            "synthetic": synthetic,
-            "warning": SYNTHETIC_WARNING if synthetic else None,
             "target": "any_seclusion = seclusion_instances >= 1",
             "train_years": train_years,
             "test_year": args.test_year,
@@ -520,9 +483,6 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
     table = summary_table(summary, new_schools)
     banner = "=" * 78
     print(banner)
-    if synthetic:
-        print(SYNTHETIC_WARNING)
-        print(banner)
     print(
         f"Baseline: train {'+'.join(train_years)} ({len(train.frame):,} schools, "
         f"{int(train.target.sum()):,} positive) -> test {args.test_year} "
@@ -551,20 +511,17 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--out-dir",
         type=Path,
         default=None,
-        help="default reports/baseline (reports/baseline_synthetic with --synthetic)",
+        help="default reports/baseline",
     )
     parser.add_argument(
         "--model-dir",
         type=Path,
         default=None,
-        help="default models/baseline (models/baseline_synthetic with --synthetic)",
+        help="default models/baseline",
     )
     parser.add_argument("--cv-folds", type=int, default=DEFAULT_CV_FOLDS)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--exclude-states", nargs="*", default=None, help="for example HI PR")
-    parser.add_argument(
-        "--synthetic", action="store_true", help="use invented data (smoke test only)"
-    )
     parser.add_argument("--fast", action="store_true", help="fewer trees/iterations (tests)")
     return parser.parse_args(argv)
 
