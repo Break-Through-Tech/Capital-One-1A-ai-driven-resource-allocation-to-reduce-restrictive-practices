@@ -48,7 +48,14 @@ M2 and M5 only, one column per training state.
 
 ## Where to put the data
 
-Copy each year's analysis file from the team's shared data folder to:
+Download the cleaned files from the `data-v1` GitHub release (hash-checked):
+
+```bash
+python scripts/download_data.py          # the two files below
+python scripts/download_data.py --all    # every cleaned year, including quality detail
+```
+
+They land here (or copy them by hand from the team's shared folder):
 
 ```
 data/processed/201718/schools_201718_analysis.csv

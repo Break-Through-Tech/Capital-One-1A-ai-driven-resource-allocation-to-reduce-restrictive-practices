@@ -184,7 +184,8 @@ def load_year(code: str, data_dir: Path = DEFAULT_DATA_DIR) -> pd.DataFrame:
         tried = "\n".join(f"  - {candidate}" for candidate in candidates)
         raise BaselineDataError(
             f"Cleaned file for {code} not found. Put schools_{code}_analysis.csv here:\n"
-            f"{tried}\n(the first location is preferred), or pass --data-dir."
+            f"{tried}\n(the first location is preferred), or pass --data-dir. "
+            "Run python scripts/download_data.py to fetch it."
         )
     frame = pd.read_csv(path, dtype=ID_DTYPES, float_precision="round_trip")
     missing = [name for name in REQUIRED_COLUMNS if name not in frame.columns]
