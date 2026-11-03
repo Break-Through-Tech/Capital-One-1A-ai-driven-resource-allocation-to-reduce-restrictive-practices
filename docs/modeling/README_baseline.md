@@ -83,6 +83,9 @@ python -m pytest -q
 2015-16 and 2020-21 cannot be used yet: their cleaned files have a different column layout
 and must first be converted to the 50-column team format (AI_CONTEXT A4).
 
+For a step-by-step walkthrough with charts, open `notebooks/baseline_model.ipynb`. It calls the
+same functions as the script and gives the same numbers.
+
 Other options: `--data-dir`, `--out-dir`, `--model-dir`, `--cv-folds` (5), `--seed` (42),
 `--fast` (fewer trees, used by the tests).
 
