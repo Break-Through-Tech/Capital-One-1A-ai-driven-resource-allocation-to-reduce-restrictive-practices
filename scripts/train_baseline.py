@@ -25,6 +25,7 @@ on a cutoff. Hyperparameters are fixed this round; there is no tuning.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import math
@@ -382,6 +383,11 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
 
     train = prepare_years(train_years, data_dir, args.exclude_states)
     test = prepare_years([args.test_year], data_dir, args.exclude_states)
+    input_hashes = {
+        code: hashlib.sha256(next(p for p in bf.year_file_candidates(code, data_dir)
+                                  if p.is_file()).read_bytes()).hexdigest()
+        for code in [*train_years, args.test_year]
+    }
     # Created only now, so a failed load leaves no empty output folder behind.
     out_dir.mkdir(parents=True, exist_ok=True)
     specs = build_models(args.seed, args.fast)
@@ -444,6 +450,11 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
     )
     write_json(
         {
+            "input_sha256": input_hashes,
+            "training_code_sha256": {
+                path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in [Path(__file__), Path(bf.__file__)]
+            },
             "target": "any_seclusion = seclusion_instances >= 1",
             "train_years": train_years,
             "test_year": args.test_year,
@@ -479,6 +490,12 @@ def run(args: argparse.Namespace) -> pd.DataFrame:
         },
         out_dir / "run_info.json",
     )
+
+    # An explicit opt-out keeps sample/test runs out of the published dashboard.
+    if not args.fast and getattr(args, "dashboard_dir", None) is not None:
+        from export_dashboard import export_run
+        snapshot = export_run(out_dir, args.dashboard_dir)
+        LOGGER.info("Dashboard snapshot: %s (commit/push to update the hosted app)", snapshot)
 
     table = summary_table(summary, new_schools)
     banner = "=" * 78
@@ -522,6 +539,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--cv-folds", type=int, default=DEFAULT_CV_FOLDS)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--exclude-states", nargs="*", default=None, help="for example HI PR")
+    parser.add_argument(
+        "--dashboard-dir", type=Path, default=REPO_ROOT / "dashboard/data/runs",
+        help="export a validated dashboard snapshot after a full run",
+    )
+    parser.add_argument("--no-dashboard", dest="dashboard_dir", action="store_const", const=None)
     parser.add_argument("--fast", action="store_true", help="fewer trees/iterations (tests)")
     return parser.parse_args(argv)
 

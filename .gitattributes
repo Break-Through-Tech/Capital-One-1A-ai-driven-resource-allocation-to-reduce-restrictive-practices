@@ -1,0 +1,3 @@
+# Generated aggregate snapshots: keep code changes easy to review in GitHub.
+dashboard/data/runs/*.json linguist-generated=true
+dashboard/data/context.json linguist-generated=true
