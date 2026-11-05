@@ -43,3 +43,15 @@ You should download CRDC data for the following school years:
 | 2015–2016 |
 
 Use the accompanying **data definitions** to understand the variables in each dataset. You may also use the **State Data** and **National Data** links to access additional information as needed.
+
+## Cleaned files (team format)
+
+The team's cleaned CSVs are attached to the `data-v1` GitHub release instead of git. From the
+repository root:
+
+```bash
+python scripts/download_data.py          # 2017-18 and 2021-22 analysis files (baseline model)
+python scripts/download_data.py --all    # every cleaned file
+```
+
+They are saved under `data/processed/{year}/` and checked against SHA-256 hashes.
