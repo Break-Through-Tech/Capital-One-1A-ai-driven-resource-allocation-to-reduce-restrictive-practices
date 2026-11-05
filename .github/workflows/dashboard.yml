@@ -9,7 +9,7 @@ on:
       - 'tests/**'
       - '.github/workflows/dashboard.yml'
   push:
-    branches: [main, codex/model-dashboard]
+    branches: [main, as/model-dashboard]
     paths:
       - 'dashboard/**'
       - '.streamlit/**'

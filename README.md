@@ -127,7 +127,7 @@ python -m pip install -r dashboard/requirements.txt
 python -m streamlit run dashboard/app.py
 ```
 
-[Deploy on Streamlit Community Cloud](https://share.streamlit.io/deploy?repository=Break-Through-Tech/Capital-One-1A-ai-driven-resource-allocation-to-reduce-restrictive-practices&branch=codex/model-dashboard&mainModule=dashboard/app.py)
+[Deploy on Streamlit Community Cloud](https://share.streamlit.io/deploy?repository=Break-Through-Tech/Capital-One-1A-ai-driven-resource-allocation-to-reduce-restrictive-practices&branch=as/model-dashboard&mainModule=dashboard/app.py)
 
 The deploy link starts setup; a public app URL will be available after the repository
 owner connects Streamlit and completes deployment. Model runs export small result

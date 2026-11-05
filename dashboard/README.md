@@ -25,7 +25,7 @@ bundle is approximately 280 KB; dependencies are installed rather than committed
 Deploy through [Streamlit Community Cloud](https://share.streamlit.io/):
 
 - Repository: `Break-Through-Tech/Capital-One-1A-ai-driven-resource-allocation-to-reduce-restrictive-practices`
-- Branch: `codex/model-dashboard` while this stacked PR is under review; switch to `main` after merging.
+- Branch: `as/model-dashboard` while this stacked PR is under review; switch to `main` after merging.
 - Entry point: `dashboard/app.py`
 - Python: 3.12 (Advanced settings).
 - Dependencies: `dashboard/requirements.txt` (Cloud finds the entry point's dependency file).
