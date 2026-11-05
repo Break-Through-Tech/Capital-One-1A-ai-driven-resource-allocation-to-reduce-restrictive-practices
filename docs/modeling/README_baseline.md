@@ -80,8 +80,11 @@ python scripts/train_baseline.py --exclude-states HI PR
 python -m pytest -q
 ```
 
-2015-16 and 2020-21 cannot be used yet: their cleaned files have a different column layout
-and must first be converted to the 50-column team format (AI_CONTEXT A4).
+2015-16 and 2020-21 are now supported through the merged cleaning scripts
+`scripts/clean_201516.py` and `scripts/clean_202021.py`. Use their 50-column
+`schools_{year}_analysis.csv` outputs, not the older wide-format exports.
+See [completed cleaned-data comparisons](cleaned_data_results.md) for all runs,
+input provenance, and the common new-school evaluation.
 
 For a step-by-step walkthrough with charts, open `notebooks/baseline_model.ipynb`. It calls the
 same functions as the script and gives the same numbers.
