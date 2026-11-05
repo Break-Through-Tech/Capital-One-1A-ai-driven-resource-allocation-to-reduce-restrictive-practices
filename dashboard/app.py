@@ -102,6 +102,7 @@ def model_chart(frame, selected, key, metric="pr_auc"):
         texttemplate="%{text:.3f}", textposition="outside", cliponaxis=False
     )
     fig.update_layout(showlegend=False, height=350)
+    fig.update_xaxes(range=[0, max(float(frame[metric].max()) * 1.2, 0.01)])
     chart(fig, key)
 
 
@@ -314,7 +315,7 @@ def dashboard():
             r = scores(s).set_index("model").loc[selected].to_dict()
             rows.append(
                 {
-                    "Training years": " + ".join(
+                    "Training years": "<br>".join(
                         year(y) for y in s["info"]["train_years"]
                     ),
                     **r,
