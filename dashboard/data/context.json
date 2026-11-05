@@ -1,0 +1,379 @@
+{
+  "as_of": "2026-11-04",
+  "common_new_schools": [
+    {
+      "training_years": "201718",
+      "pr_auc": 0.2101002608,
+      "pr_auc_lift": 3.6783959724,
+      "recall_at_top10": 0.375,
+      "n": 2241,
+      "positives": 128,
+      "snapshot_id": "1c64cb226ccd98a366d28de50debe06ff2cd546a39f722ab48edaf816a755592"
+    },
+    {
+      "training_years": "201516",
+      "pr_auc": 0.2229818842,
+      "pr_auc_lift": 3.9039250198,
+      "recall_at_top10": 0.359375,
+      "n": 2241,
+      "positives": 128,
+      "snapshot_id": "b4aa096188e37ca33b39787d9fe26c0d55c7112642f22bff185eb0d8cda52fbe"
+    },
+    {
+      "training_years": "201516 + 201718",
+      "pr_auc": 0.2469067423,
+      "pr_auc_lift": 4.32279695,
+      "recall_at_top10": 0.421875,
+      "n": 2241,
+      "positives": 128,
+      "snapshot_id": "c0f3088cf7547b707c0d4817d242033b954352cf189d57a6d095226acb4c7c99"
+    },
+    {
+      "training_years": "202021",
+      "pr_auc": 0.2063474992,
+      "pr_auc_lift": 3.6126933251,
+      "recall_at_top10": 0.3984375,
+      "n": 2241,
+      "positives": 128,
+      "snapshot_id": "05b2c587fec84a074547d990d882716808dffb033a5a1d2ab92231e14ff7f179"
+    },
+    {
+      "training_years": "201718 + 202021",
+      "pr_auc": 0.2238934221,
+      "pr_auc_lift": 3.9198840535,
+      "recall_at_top10": 0.3671875,
+      "n": 2241,
+      "positives": 128,
+      "snapshot_id": "c3303b945ebd5638d86a1b3998a1af732e71f26026df9a47f3602127e36310fa"
+    },
+    {
+      "training_years": "201516 + 201718 + 202021",
+      "pr_auc": 0.2248368065,
+      "pr_auc_lift": 3.9364006509,
+      "recall_at_top10": 0.421875,
+      "n": 2241,
+      "positives": 128,
+      "snapshot_id": "152ac990dd803f89d86f736cb58b2a9faac7232730318fcf3503b0bd318af2d3"
+    }
+  ],
+  "state_missingness": [
+    {
+      "lea_state": "PR",
+      "schools": 841,
+      "missing_outcome": 841,
+      "missing_share": 1.0
+    },
+    {
+      "lea_state": "HI",
+      "schools": 294,
+      "missing_outcome": 294,
+      "missing_share": 1.0
+    },
+    {
+      "lea_state": "FL",
+      "schools": 3983,
+      "missing_outcome": 2174,
+      "missing_share": 0.5458197339
+    },
+    {
+      "lea_state": "MD",
+      "schools": 1406,
+      "missing_outcome": 742,
+      "missing_share": 0.5277382646
+    },
+    {
+      "lea_state": "NV",
+      "schools": 729,
+      "missing_outcome": 384,
+      "missing_share": 0.5267489712
+    },
+    {
+      "lea_state": "NC",
+      "schools": 2686,
+      "missing_outcome": 1155,
+      "missing_share": 0.430007446
+    },
+    {
+      "lea_state": "NM",
+      "schools": 880,
+      "missing_outcome": 371,
+      "missing_share": 0.4215909091
+    },
+    {
+      "lea_state": "CA",
+      "schools": 10159,
+      "missing_outcome": 4060,
+      "missing_share": 0.3996456344
+    },
+    {
+      "lea_state": "NY",
+      "schools": 4893,
+      "missing_outcome": 1855,
+      "missing_share": 0.3791130186
+    },
+    {
+      "lea_state": "LA",
+      "schools": 1350,
+      "missing_outcome": 508,
+      "missing_share": 0.3762962963
+    },
+    {
+      "lea_state": "CO",
+      "schools": 1929,
+      "missing_outcome": 721,
+      "missing_share": 0.3737687921
+    },
+    {
+      "lea_state": "VA",
+      "schools": 1984,
+      "missing_outcome": 597,
+      "missing_share": 0.3009072581
+    },
+    {
+      "lea_state": "IL",
+      "schools": 4201,
+      "missing_outcome": 929,
+      "missing_share": 0.2211378243
+    },
+    {
+      "lea_state": "TN",
+      "schools": 1832,
+      "missing_outcome": 403,
+      "missing_share": 0.2199781659
+    },
+    {
+      "lea_state": "AK",
+      "schools": 499,
+      "missing_outcome": 101,
+      "missing_share": 0.2024048096
+    },
+    {
+      "lea_state": "WI",
+      "schools": 2218,
+      "missing_outcome": 418,
+      "missing_share": 0.1884580703
+    },
+    {
+      "lea_state": "KY",
+      "schools": 1399,
+      "missing_outcome": 250,
+      "missing_share": 0.1786990708
+    },
+    {
+      "lea_state": "WA",
+      "schools": 2404,
+      "missing_outcome": 403,
+      "missing_share": 0.1676372712
+    },
+    {
+      "lea_state": "NE",
+      "schools": 1049,
+      "missing_outcome": 170,
+      "missing_share": 0.1620591039
+    },
+    {
+      "lea_state": "MS",
+      "schools": 932,
+      "missing_outcome": 140,
+      "missing_share": 0.1502145923
+    },
+    {
+      "lea_state": "DC",
+      "schools": 240,
+      "missing_outcome": 36,
+      "missing_share": 0.15
+    },
+    {
+      "lea_state": "NH",
+      "schools": 496,
+      "missing_outcome": 74,
+      "missing_share": 0.1491935484
+    },
+    {
+      "lea_state": "AZ",
+      "schools": 2029,
+      "missing_outcome": 284,
+      "missing_share": 0.1399704288
+    },
+    {
+      "lea_state": "PA",
+      "schools": 2951,
+      "missing_outcome": 366,
+      "missing_share": 0.124025754
+    },
+    {
+      "lea_state": "MI",
+      "schools": 3502,
+      "missing_outcome": 427,
+      "missing_share": 0.1219303255
+    },
+    {
+      "lea_state": "TX",
+      "schools": 8830,
+      "missing_outcome": 1030,
+      "missing_share": 0.1166477916
+    },
+    {
+      "lea_state": "NJ",
+      "schools": 2558,
+      "missing_outcome": 290,
+      "missing_share": 0.1133698202
+    },
+    {
+      "lea_state": "WV",
+      "schools": 678,
+      "missing_outcome": 74,
+      "missing_share": 0.1091445428
+    },
+    {
+      "lea_state": "MA",
+      "schools": 1868,
+      "missing_outcome": 200,
+      "missing_share": 0.1070663812
+    },
+    {
+      "lea_state": "ME",
+      "schools": 574,
+      "missing_outcome": 58,
+      "missing_share": 0.1010452962
+    },
+    {
+      "lea_state": "MO",
+      "schools": 2379,
+      "missing_outcome": 235,
+      "missing_share": 0.0987810004
+    },
+    {
+      "lea_state": "CT",
+      "schools": 1176,
+      "missing_outcome": 115,
+      "missing_share": 0.0977891156
+    },
+    {
+      "lea_state": "IN",
+      "schools": 1867,
+      "missing_outcome": 181,
+      "missing_share": 0.0969469738
+    },
+    {
+      "lea_state": "ID",
+      "schools": 757,
+      "missing_outcome": 67,
+      "missing_share": 0.0885072655
+    },
+    {
+      "lea_state": "MN",
+      "schools": 2255,
+      "missing_outcome": 186,
+      "missing_share": 0.0824833703
+    },
+    {
+      "lea_state": "AR",
+      "schools": 1075,
+      "missing_outcome": 82,
+      "missing_share": 0.0762790698
+    },
+    {
+      "lea_state": "SD",
+      "schools": 701,
+      "missing_outcome": 44,
+      "missing_share": 0.062767475
+    },
+    {
+      "lea_state": "DE",
+      "schools": 232,
+      "missing_outcome": 14,
+      "missing_share": 0.0603448276
+    },
+    {
+      "lea_state": "GA",
+      "schools": 2398,
+      "missing_outcome": 143,
+      "missing_share": 0.0596330275
+    },
+    {
+      "lea_state": "AL",
+      "schools": 1404,
+      "missing_outcome": 83,
+      "missing_share": 0.0591168091
+    },
+    {
+      "lea_state": "UT",
+      "schools": 1060,
+      "missing_outcome": 53,
+      "missing_share": 0.05
+    },
+    {
+      "lea_state": "OH",
+      "schools": 3546,
+      "missing_outcome": 176,
+      "missing_share": 0.0496333897
+    },
+    {
+      "lea_state": "OR",
+      "schools": 1316,
+      "missing_outcome": 64,
+      "missing_share": 0.0486322188
+    },
+    {
+      "lea_state": "IA",
+      "schools": 1326,
+      "missing_outcome": 60,
+      "missing_share": 0.0452488688
+    },
+    {
+      "lea_state": "SC",
+      "schools": 1249,
+      "missing_outcome": 52,
+      "missing_share": 0.0416333066
+    },
+    {
+      "lea_state": "RI",
+      "schools": 307,
+      "missing_outcome": 10,
+      "missing_share": 0.0325732899
+    },
+    {
+      "lea_state": "OK",
+      "schools": 1815,
+      "missing_outcome": 50,
+      "missing_share": 0.0275482094
+    },
+    {
+      "lea_state": "MT",
+      "schools": 829,
+      "missing_outcome": 19,
+      "missing_share": 0.0229191797
+    },
+    {
+      "lea_state": "ND",
+      "schools": 485,
+      "missing_outcome": 11,
+      "missing_share": 0.0226804124
+    },
+    {
+      "lea_state": "VT",
+      "schools": 298,
+      "missing_outcome": 5,
+      "missing_share": 0.0167785235
+    },
+    {
+      "lea_state": "KS",
+      "schools": 1345,
+      "missing_outcome": 22,
+      "missing_share": 0.0163568773
+    },
+    {
+      "lea_state": "WY",
+      "schools": 361,
+      "missing_outcome": 2,
+      "missing_share": 0.0055401662
+    }
+  ],
+  "input_sha256": {
+    "data/processed/201516/schools_201516_analysis.csv": "2388637259f9b544d73c9597ec26e57c253b258fb14d57e717b0f12b959d9c9e",
+    "data/processed/201718/schools_201718_analysis.csv": "4c0892743767bbfdfa24f26cd41eb550284cf2d1fc32f96c25402e19f9f8c3f6",
+    "data/processed/202021/schools_202021_analysis.csv": "47e4ff9e055569905d6b46ce1f418722d29f34a43b4ae81420abb7191fdad1ec",
+    "data/processed/202122/schools_202122_analysis.csv": "be136e9031f6e4a5639e4f97c41df4fbe8c285cfcc0c7786ac1cf4f24f7b85ed"
+  }
+}
